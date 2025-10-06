@@ -7,9 +7,11 @@ export default function Footer() {
       <div className="container-padded py-16 grid gap-10 md:grid-cols-3">
         <div>
           <div className="flex items-center gap-3">
-            <div className="h-10 w-10 rounded-[10px] bg-white/10 grid place-items-center">
-              <span className="text-white font-heading text-lg">F</span>
-            </div>
+            <img
+              src="https://cdn.builder.io/api/v1/image/assets%2Fd93d9a0ec7824aa1ac4d890a1f90a2ec%2F44c8eb4ad92449dfa7ec72baf68f9623?format=webp&width=800"
+              alt="Logo FPSG Digital Learning"
+              className="h-10 w-auto"
+            />
             <div>
               <div className="font-heading font-bold text-white">FPSG Digital Learning</div>
               <div className="text-sm text-white/70">Groupe FIDUCIAL</div>
