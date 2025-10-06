@@ -77,14 +77,14 @@ export default function SureteGuidelinesCards() {
               onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), toggle(i))}
             >
               <div
-                className={`relative h-full min-h-[280px] md:min-h-[320px] rounded-3xl transition-all duration-500 [transform-style:preserve-3d] shadow-[0_4px_12px_rgba(0,0,0,0.08)] ${
+                className={`relative h-full min-h-[380px] md:min-h-[440px] rounded-3xl overflow-hidden transition-all duration-500 [transform-style:preserve-3d] shadow-[0_4px_12px_rgba(0,0,0,0.08)] ${
                   flipped[i] ? "[transform:rotateY(180deg)]" : ""
                 } ${!flipped[i] ? `hover:-translate-y-1.5 ${it.hover}` : ""}`}
                 style={{ borderTop: `4px solid ${it.accent}` }}
               >
                 {/* Front */}
                 <div
-                  className="absolute inset-0 bg-white rounded-3d p-6 md:p-8"
+                  className="absolute inset-0 bg-white rounded-3d p-6 md:p-8 overflow-y-auto"
                   style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" as any }}
                 >
                   <div
@@ -100,7 +100,7 @@ export default function SureteGuidelinesCards() {
 
                 {/* Back */}
                 <div
-                  className="absolute inset-0 rounded-3xl p-6 md:p-8 bg-white"
+                  className="absolute inset-0 rounded-3xl p-6 md:p-8 bg-white overflow-y-auto"
                   style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" as any }}
                 >
                   <h4 className="text-xl font-heading font-semibold leading-snug break-words">Exemple concret</h4>
