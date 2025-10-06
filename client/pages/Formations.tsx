@@ -20,12 +20,6 @@ export default function Formations() {
           <Reveal delay={80}>
             <p className="mt-3 max-w-3xl text-white/80">Des modules interactifs et mesurables pour développer les compétences humaines au cœur de la sécurité.</p>
           </Reveal>
-          <Reveal delay={160}>
-            <div className="mt-8 cta-group">
-              <Link to="/contact" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Demander une démo gratuite</Link>
-              <Link to="/contact" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10 bg-white">Contactez-nous</Link>
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -57,9 +51,6 @@ export default function Formations() {
                 </div>
               </Reveal>
             ))}
-          </div>
-          <div className="mt-8">
-            <a href="#focus" className="btn-cta">Découvrir les modules</a>
           </div>
         </div>
       </section>
