@@ -114,4 +114,6 @@
   .card { @apply rounded-[10px] bg-card text-card-foreground shadow-[0_8px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1)] hover:-translate-y-0.5 transition-all; }
   .badge-soft { @apply inline-flex items-center rounded-full bg-accent px-3 py-1 text-sm font-medium text-accent-foreground; }
   .btn-outline-green { @apply inline-flex items-center justify-center rounded-[8px] border border-primary text-primary px-6 py-3 hover:bg-primary/10 transition-all font-semibold; font-family: theme("fontFamily.heading"); font-size: 16px; }
+  @keyframes fade-down { from { opacity: 0; transform: translateY(-8px); } to { opacity: 1; transform: translateY(0); } }
+  .animate-fade-down { animation: fade-down 300ms ease-out both; }
 }
