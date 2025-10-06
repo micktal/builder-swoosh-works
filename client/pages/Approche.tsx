@@ -18,7 +18,7 @@ export default function Approche() {
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-[#0E1E2B]/70 via-[#0E1E2B]/60 to-[#0E1E2B]" />
         </div>
-        <div className="container-padded py-16 md:py-24">
+        <div className="container-padded py-10 md:py-16">
           <Reveal>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold leading-tight">Une approche simple, mesurable et centrée sur l’humain.</h1>
           </Reveal>
