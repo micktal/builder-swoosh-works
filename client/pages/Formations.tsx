@@ -6,12 +6,12 @@ import { BadgeCheck, BarChart3, GraduationCap, Handshake, HeartPulse, Languages,
 export default function Formations() {
   const heroImg = "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop";
   const allModules = [
-    { t: "Gérer un visiteur mécontent", d: "Communication assertive.", domain: "Communication", level: "Essentiel", duration: 20, langs: ["FR", "EN"] },
-    { t: "Réagir face à une situation suspecte", d: "Sûreté et vigilance.", domain: "Sûreté", level: "Intermédiaire", duration: 25, langs: ["FR"] },
-    { t: "Prévenir les RPS au quotidien", d: "Signaux faibles et action.", domain: "RPS", level: "Essentiel", duration: 18, langs: ["FR", "EN"] },
-    { t: "Manager une équipe en tension", d: "Posture managériale.", domain: "Management", level: "Intermédiaire", duration: 30, langs: ["FR"] },
-    { t: "Santé au travail : mieux gérer le stress", d: "Régulation & bien‑être.", domain: "Bien‑être", level: "Essentiel", duration: 15, langs: ["FR", "EN", "ES"] },
-    { t: "Culture sécurité : adopter les bons réflexes", d: "Sensibilisation.", domain: "Culture sécurité", level: "Essentiel", duration: 22, langs: ["FR"] },
+    { t: "Gérer un visiteur mécontent", d: "Communication assertive.", domain: "Communication", level: "Essentiel", duration: 20, langs: ["FR", "EN"], points: ["Accueillir et désamorcer l'émotion","Reformuler et cadrer","Proposer une solution et conclure"] },
+    { t: "Réagir face à une situation suspecte", d: "Sûreté et vigilance.", domain: "Sûreté", level: "Intermédiaire", duration: 25, langs: ["FR"], points: ["Observer sans alarmer","Alerter selon la procédure","Se mettre à couvert / sécuriser"] },
+    { t: "Prévenir les RPS au quotidien", d: "Signaux faibles et action.", domain: "RPS", level: "Essentiel", duration: 18, langs: ["FR", "EN"], points: ["Repérer les signaux faibles","Mener un entretien bienveillant","Orienter vers les ressources"] },
+    { t: "Manager une équipe en tension", d: "Posture managériale.", domain: "Management", level: "Intermédiaire", duration: 30, langs: ["FR"], points: ["Diagnostiquer la situation","Poser un cadre clair","Mettre en place un plan d'action"] },
+    { t: "Santé au travail : mieux gérer le stress", d: "Régulation & bien‑être.", domain: "Bien‑être", level: "Essentiel", duration: 15, langs: ["FR", "EN", "ES"], points: ["Identifier les facteurs de stress","Techniques de respiration et priorisation","Plan individuel de régulation"] },
+    { t: "Culture sécurité : adopter les bons réflexes", d: "Sensibilisation.", domain: "Culture sécurité", level: "Essentiel", duration: 22, langs: ["FR"], points: ["Adopter les bons réflexes","Remonter les quasi‑accidents","Animer des rituels prévention"] },
   ];
   const [search, setSearch] = useState("");
   const [domain, setDomain] = useState("");
@@ -128,6 +128,13 @@ export default function Formations() {
                     <span className="px-2 py-0.5 rounded bg-muted">{m.duration} min</span>
                     <span className="px-2 py-0.5 rounded bg-muted">{m.langs.join(", ")}</span>
                   </div>
+                  {Array.isArray((m as any).points) && (
+                    <ul className="mt-3 list-disc pl-5 text-sm text-muted-foreground space-y-1">
+                      {(m as any).points.map((p: string) => (
+                        <li key={p}>{p}</li>
+                      ))}
+                    </ul>
+                  )}
                 </article>
               </Reveal>
             ))}
