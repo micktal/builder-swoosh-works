@@ -145,7 +145,7 @@ export default function Index() {
                     <p className="mt-1 text-muted-foreground">{m.d}</p>
                     <div className="mt-4">
                       {i === 0 ? (
-                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">Use case</span>
+                        <a href="https://modules.fpsg.fr/visiteur/index.html" target="_blank" rel="noreferrer" className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary/15">Use case</a>
                       ) : (
                         <Link to="/demonstrations" className="btn-cta">Voir une démo</Link>
                       )}
