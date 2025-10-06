@@ -79,7 +79,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
           <Badge className="badge-soft">Simulation</Badge>
           <Badge className="badge-soft">Crise</Badge>
         </div>
-        <CardTitle className="text-lg font-heading font-semibold">Simulation de crise – Réflexes essentiels</CardTitle>
+        <CardTitle className="text-lg font-heading font-semibold break-words leading-snug">Simulation de crise – Réflexes essentiels</CardTitle>
         <CardDescription>Prendre les bonnes décisions sous pression.</CardDescription>
       </CardHeader>
       <CardContent className="flex-1">
