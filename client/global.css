@@ -128,7 +128,7 @@
   .animate-fade-down { animation: fade-down 300ms ease-out both; }
   @keyframes slide-down { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
   .animate-slide-down { animation: slide-down 250ms ease-out both; }
-  .section-y { @apply py-10 md:py-20; }
+  .section-y { @apply py-6 md:py-12; }
   .cta-group { @apply flex flex-col sm:flex-row gap-4 items-stretch sm:items-center justify-center; }
   .embed-frame { @apply w-full h-[400px] md:h-[500px] rounded-[8px]; }
 }
