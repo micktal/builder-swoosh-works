@@ -118,11 +118,10 @@ export default function Demonstrations() {
                   },
                   {
                     t: 42,
-                    prompt: "Vous êtes proche d'un étalage. Que faire ?",
-                    choices: [
-                      { id: "hide", label: "Se dissimuler derrière l'étalage, hors du champ de vision", correct: true, feedback: "Correct: mettez une barrière visuelle entre vous et le danger.", },
-                      { id: "fu", label: "S'enfuir en courant dans l'allée principale", correct: false, feedback: "Potentiellement dangereux. Préférez un couvert stable.", rewind: 10 },
-                      { id: "par", label: "Se rapprocher pour mieux voir", correct: false, feedback: "Restez à couvert: distance et discrétion.", rewind: 10 },
+                    prompt: "Cliquez sur la zone où vous vous cacheriez derrière l'étalage.",
+                    hotspots: [
+                      { id: "cache-etalage", x: 18, y: 58, w: 28, h: 30, label: "Derrière l'étalage", correct: true, feedback: "Exact: se mettre à couvert derrière l'étalage réduit l'exposition.", },
+                      { id: "allee", x: 55, y: 45, w: 30, h: 35, label: "Allée ouverte", correct: false, feedback: "Non: l'allée est exposée. Préférez un couvert stable.", rewind: 10 },
                     ],
                   },
                   {
