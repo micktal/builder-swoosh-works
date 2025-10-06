@@ -34,8 +34,8 @@ function ProgressOnView({ value = 85 }: { value?: number }) {
 }
 
 export default function Index() {
-  const heroVideo = "https://cdn.coverr.co/videos/coverr-bokeh-lights-1567/1080p.mp4";
-  const heroPoster = "https://images.unsplash.com/photo-1516542076529-1ea3854896e1?q=80&w=1600&auto=format&fit=crop";
+  const heroVideo = "https://videos.pexels.com/video-files/3044654/3044654-hd_1280_720_50fps.mp4";
+  const heroPoster = "https://images.pexels.com/photos/7658369/pexels-photo-7658369.jpeg";
 
   return (
     <main>
