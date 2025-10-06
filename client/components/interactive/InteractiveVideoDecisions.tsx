@@ -54,6 +54,7 @@ export default function InteractiveVideoDecisions({ src, poster, title, descript
   const [currentIdx, setCurrentIdx] = useState<number>(-1);
   const [answered, setAnswered] = useState<Record<number, boolean>>({});
   const [lastFeedback, setLastFeedback] = useState<{ ok: boolean; msg: string } | null>(null);
+  const [liveToast, setLiveToast] = useState<{ ok: boolean; msg: string } | null>(null);
   const [isFs, setIsFs] = useState(false);
   const [t, setT] = useState(0);
   const [liveFound, setLiveFound] = useState<Record<string, boolean>>({});
@@ -86,17 +87,27 @@ export default function InteractiveVideoDecisions({ src, poster, title, descript
   function handleChoice(c: Choice) {
     const v = videoRef.current;
     if (!v) return;
+    const inDecisionOverlay = currentIdx >= 0;
     if (c.correct) {
-      setAnswered((a) => ({ ...a, [currentIdx]: true }));
-      setLastFeedback({ ok: true, msg: c.feedback });
-      // small delay then resume
-      window.setTimeout(() => {
-        setCurrentIdx(-1);
-        setLastFeedback(null);
-        v.play();
-      }, 900);
+      if (inDecisionOverlay) {
+        setAnswered((a) => ({ ...a, [currentIdx]: true }));
+        setLastFeedback({ ok: true, msg: c.feedback });
+        window.setTimeout(() => {
+          setCurrentIdx(-1);
+          setLastFeedback(null);
+          v.play();
+        }, 900);
+      } else {
+        setLiveToast({ ok: true, msg: c.feedback });
+        window.setTimeout(() => setLiveToast(null), 1200);
+      }
     } else {
-      setLastFeedback({ ok: false, msg: c.feedback });
+      if (inDecisionOverlay) {
+        setLastFeedback({ ok: false, msg: c.feedback });
+      } else {
+        setLiveToast({ ok: false, msg: c.feedback });
+        window.setTimeout(() => setLiveToast(null), 1400);
+      }
       if (typeof c.rewind === "number" && c.rewind > 0) {
         v.currentTime = Math.max(0, v.currentTime - c.rewind);
       }
@@ -146,7 +157,7 @@ export default function InteractiveVideoDecisions({ src, poster, title, descript
         )}
 
         <div className="relative mt-4">
-          <video ref={videoRef} className="w-full rounded-[8px]" controls playsInline poster={poster}>
+          <video ref={videoRef} className="w-full rounded-[8px] relative z-0" controls playsInline poster={poster}>
             <source src={src} type="video/mp4" />
           </video>
 
@@ -156,23 +167,33 @@ export default function InteractiveVideoDecisions({ src, poster, title, descript
               const active = t >= liveHotspots.start && (liveHotspots.end ? t <= liveHotspots.end : true);
               if (!active) return null;
               return (
-                <div className="absolute inset-0">
+                <div className="absolute inset-0 z-10">
+                  {liveHotspots.prompt && (
+                    <div className="absolute left-2 top-2 px-2 py-1 text-xs rounded bg-black/50 text-white">{liveHotspots.prompt}</div>
+                  )}
                   {liveHotspots.items.map(h => (
                     <button
                       key={h.id}
                       aria-label={h.label}
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.stopPropagation();
                         const c = { id: h.id, label: h.label, correct: h.correct, feedback: h.feedback, rewind: h.rewind } as Choice;
                         handleChoice(c);
                         if (h.correct) setLiveFound((s) => ({ ...s, [h.id]: true }));
                       }}
                       style={{ left: `${h.x}%`, top: `${h.y}%`, width: `${h.w}%`, height: `${h.h}%` }}
-                      className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-[6px] focus:outline-none focus-visible:ring-2 ${
-                        h.correct ? "ring-green-400/60" : "ring-primary/60"
-                      } hover:bg-white/5 active:bg-white/10`}
+                      className={`absolute rounded-[6px] border-2 focus:outline-none focus-visible:ring-2 ${
+                        h.correct ? "border-green-400/80 focus-visible:ring-green-300/70" : "border-primary/80 focus-visible:ring-primary/70"
+                      } hover:bg-white/10 active:bg-white/20`}
                       title={h.label}
                     />
                   ))}
+
+                  {liveToast && (
+                    <div className={`absolute left-1/2 -translate-x-1/2 bottom-3 px-3 py-2 rounded-md text-sm shadow-md ${liveToast.ok ? "bg-green-600 text-white" : "bg-red-600 text-white"}`}>
+                      {liveToast.msg}
+                    </div>
+                  )}
                 </div>
               );
             })()
@@ -200,9 +221,10 @@ export default function InteractiveVideoDecisions({ src, poster, title, descript
                         <button
                           key={h.id}
                           aria-label={h.label}
-                          onClick={() => handleChoice({ id: h.id, label: h.label, correct: h.correct, feedback: h.feedback, rewind: h.rewind })}
+                          onClick={(e) => { e.stopPropagation(); handleChoice({ id: h.id, label: h.label, correct: h.correct, feedback: h.feedback, rewind: h.rewind }); }}
                           style={{ left: `${h.x}%`, top: `${h.y}%`, width: `${h.w}%`, height: `${h.h}%` }}
-                          className={`absolute border-2 rounded-[6px] transition focus:outline-none focus-visible:ring-2 ${h.correct ? "border-green-400/70 hover:bg-green-400/10" : "border-primary/70 hover:bg-primary/10"}`}
+                          className={`absolute rounded-[6px] border-2 transition focus:outline-none focus-visible:ring-2 ${h.correct ? "border-green-400/80 focus-visible:ring-green-300/70" : "border-primary/80 focus-visible:ring-primary/70"}`}
+                          title={h.label}
                         />
                       ))}
                     </div>
