@@ -156,9 +156,6 @@ export default function Approche() {
                   </li>
                 ))}
               </ul>
-              <div className="mt-6">
-                <Link to="/nos-formations" className="btn-cta">Découvrir nos formateurs</Link>
-              </div>
             </div>
           </div>
         </div>
