@@ -48,7 +48,7 @@ export default function Contact() {
           <img src={heroImg} alt="Équipe FPSG" className="h-full w-full object-cover opacity-25" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0E1E2B]/70 via-[#0E1E2B]/60 to-[#0E1E2B]" />
         </div>
-        <div className="container-padded py-16 md:py-24 grid md:grid-cols-2 gap-8 items-center">
+        <div className="container-padded py-10 md:py-16 grid md:grid-cols-2 gap-8 items-center">
           <div>
             <Reveal>
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold leading-tight">Contactez nos experts FPSG Digital Learning</h1>
@@ -216,7 +216,7 @@ export default function Contact() {
 
       {/* CTA final */}
       <section className="bg-[#0E1E2B] text-white section-y">
-        <div className="container-padded py-14 md:py-16 text-center">
+        <div className="container-padded py-8 md:py-12 text-center">
           <Reveal>
             <h3 className="text-2xl md:text-3xl font-heading font-bold">Prêt à faire évoluer vos formations ?</h3>
           </Reveal>
