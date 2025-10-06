@@ -146,7 +146,7 @@ export default function Index() {
           </Reveal>
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             {[
-              { t: "Gérer un visiteur mécontent", d: "Simulation interactive pour améliorer la communication assertive.", img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" },
+              { t: "Gérer un visiteur mécontent", d: "Simulation interactive pour améliorer la communication assertive.", img: "https://cdn.builder.io/api/v1/image/assets%2Fd93d9a0ec7824aa1ac4d890a1f90a2ec%2F5307bf8483114dc49f6cef2bb4e1a2d8?format=webp&width=800" },
               { t: "Réagir face à une situation suspecte", d: "Scénario immersif de sûreté.", img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop" },
               { t: "Prévenir les RPS au quotidien", d: "Identifier les signaux faibles, agir tôt.", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop" },
               { t: "Manager une équipe en tension", d: "Posture managériale et communication adaptée.", img: "https://images.unsplash.com/photo-1522071901873-411886a10004?q=80&w=1200&auto=format&fit=crop" },
