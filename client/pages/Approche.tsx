@@ -193,20 +193,6 @@ export default function Approche() {
         </div>
       </section>
 
-      {/* CTA finale */}
-      <section className="bg-[#0E1E2B] text-white">
-        <div className="container-padded py-14 md:py-16">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-heading font-bold">Digitalisez vos formations avec FPSG.</h3>
-              <p className="mt-2 text-white/80">Contactez nos experts pour une démonstration personnalisée.</p>
-            </div>
-            <div className="cta-group">
-              <Link to="/nos-formations" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10 bg-white">Voir les modules</Link>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
