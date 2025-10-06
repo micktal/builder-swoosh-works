@@ -4,7 +4,7 @@ import { Linkedin, Youtube } from "lucide-react";
 export default function Footer() {
   return (
     <footer className="bg-[#0E1E2B] text-white mt-16">
-      <div className="container-padded py-16 grid gap-10 md:grid-cols-3">
+      <div className="container-padded py-16 grid gap-10 md:grid-cols-3 text-center md:text-left">
         <div>
           <div className="flex items-center gap-3">
             <img
@@ -56,7 +56,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-padded py-4 text-center text-[14px] text-[#DCE1E5]">
-          © 2025 FIDUCIAL FPSG – Tous droits r��servés | <a href="#" className="hover:text-primary">Mentions légales</a> | <a href="#" className="hover:text-primary">Politique de confidentialité</a>
+          © 2025 FIDUCIAL FPSG – Tous droits réservés | <a href="#" className="hover:text-primary">Mentions légales</a> | <a href="#" className="hover:text-primary">Politique de confidentialité</a>
         </div>
       </div>
     </footer>
