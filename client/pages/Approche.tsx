@@ -1,7 +1,7 @@
 import Reveal from "@/components/Reveal";
 import { ProgressOnView, CountUpOnView } from "@/components/metrics";
 import { Link } from "react-router-dom";
-import { BarChart3, BookOpenCheck, CheckCircle2, FileDown, Languages, LineChart, Search, FileText, Presentation } from "lucide-react";
+import { BarChart3, BookOpenCheck, CheckCircle2, FileDown, Languages, LineChart, Search, FileText, Presentation, MonitorSmartphone, Rocket } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 
@@ -65,6 +65,90 @@ export default function Approche() {
         </div>
       </section>
 
+
+      {/* Du document au module e‑learning */}
+      <section className="bg-white section-y">
+        <div className="container-padded section-y">
+          <Reveal>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">De votre document à un module e‑learning</h2>
+          </Reveal>
+          <div className="mt-8 grid gap-8 md:grid-cols-2 items-start">
+            <div className="card p-4">
+              <Tabs defaultValue="pdf">
+                <TabsList className="grid grid-cols-2 w-full">
+                  <TabsTrigger value="pdf" className="data-[state=active]:bg-primary/10 data-[state=active]:text-primary"><FileText className="mr-2 h-4 w-4" /> PDF</TabsTrigger>
+                  <TabsTrigger value="pptx" className="data-[state=active]:bg-primary/10 data-[state=active]:text-primary"><Presentation className="mr-2 h-4 w-4" /> PPTX</TabsTrigger>
+                </TabsList>
+                <TabsContent value="pdf" className="mt-4">
+                  <AspectRatio ratio={16/9}>
+                    <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-zinc-100 to-zinc-200 rounded-[8px]">
+                      <div className="relative w-[82%] h-[82%] bg-white rounded-md shadow-xl overflow-hidden">
+                        <div className="absolute right-3 top-3 text-[10px] font-semibold px-2 py-0.5 rounded bg-red-50 text-red-700 border border-red-200">PDF</div>
+                        <div className="p-4 space-y-2">
+                          <div className="h-4 bg-zinc-200 rounded w-2/3" />
+                          <div className="h-3 bg-zinc-200/80 rounded w-full" />
+                          <div className="h-3 bg-zinc-200/80 rounded w-[92%]" />
+                          <div className="h-3 bg-zinc-200/80 rounded w-[85%]" />
+                          <div className="h-40 bg-zinc-100 rounded-md mt-3" />
+                          <div className="h-3 bg-zinc-200/80 rounded w-[88%]" />
+                          <div className="h-3 bg-zinc-200/80 rounded w-[76%]" />
+                        </div>
+                      </div>
+                    </div>
+                  </AspectRatio>
+                </TabsContent>
+                <TabsContent value="pptx" className="mt-4">
+                  <AspectRatio ratio={16/9}>
+                    <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-orange-50 to-orange-100 rounded-[8px]">
+                      <div className="relative w-[82%] h-[82%] bg-white rounded-md shadow-xl overflow-hidden">
+                        <div className="absolute right-3 top-3 text-[10px] font-semibold px-2 py-0.5 rounded bg-orange-50 text-orange-700 border border-orange-200">PPTX</div>
+                        <div className="p-4 space-y-3">
+                          <div className="h-5 bg-orange-100 rounded w-2/3" />
+                          <div className="grid grid-cols-3 gap-3">
+                            <div className="h-24 bg-orange-50 rounded" />
+                            <div className="h-24 bg-orange-50 rounded" />
+                            <div className="h-24 bg-orange-50 rounded" />
+                          </div>
+                          <div className="h-3 bg-orange-100 rounded w-[90%]" />
+                        </div>
+                      </div>
+                    </div>
+                  </AspectRatio>
+                </TabsContent>
+              </Tabs>
+            </div>
+            <div>
+              <div className="space-y-4">
+                <Reveal delay={40}>
+                  <div className="card p-5">
+                    <div className="font-heading font-semibold">1) Compréhension du sujet</div>
+                    <p className="text-sm text-muted-foreground mt-1">Entretiens, objectifs pédagogiques, publics, contraintes. Indicateurs de succès définis.</p>
+                  </div>
+                </Reveal>
+                <Reveal delay={80}>
+                  <div className="card p-5">
+                    <div className="font-heading font-semibold">2) Recherche & validation</div>
+                    <p className="text-sm text-muted-foreground mt-1">Veille, sources internes/externes, conformité (sûreté, HSE, RGAA). Validation avec vos experts.</p>
+                  </div>
+                </Reveal>
+                <Reveal delay={120}>
+                  <div className="card p-5">
+                    <div className="font-heading font-semibold">3) Personnalisation</div>
+                    <p className="text-sm text-muted-foreground mt-1">Charte, ton, cas métiers et vocabulaire interne. Localisation si besoin.</p>
+                  </div>
+                </Reveal>
+                <Reveal delay={160}>
+                  <div className="card p-5">
+                    <div className="font-heading font-semibold">4) Création du module</div>
+                    <p className="text-sm text-muted-foreground mt-1">Storyboard, interactions, quiz, accessibilité, QA. Packaging SCORM/xAPI et déploiement.</p>
+                  </div>
+                </Reveal>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Pédagogie Bloom */}
       <section className="bg-[#F9FAFB] section-y">
         <div className="container-padded section-y">
@@ -103,86 +187,30 @@ export default function Approche() {
         </div>
       </section>
 
-      {/* Du document au module e‑learning */}
-      <section className="bg-white section-y">
+      {/* Diffusion multilingue & déploiement */}
+      <section className="bg-[#F9FAFB] section-y">
         <div className="container-padded section-y">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">De votre document à un module e‑learning</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">Diffusion multilingue & déploiement</h2>
           </Reveal>
-          <div className="mt-8 grid gap-8 md:grid-cols-2 items-start">
-            <div className="card p-4">
-              <Tabs defaultValue="pdf">
-                <TabsList className="grid grid-cols-2 w-full">
-                  <TabsTrigger value="pdf" className="data-[state=active]:bg-primary/10 data-[state=active]:text-primary"><FileText className="mr-2 h-4 w-4" /> PDF</TabsTrigger>
-                  <TabsTrigger value="pptx" className="data-[state=active]:bg-primary/10 data-[state=active]:text-primary"><Presentation className="mr-2 h-4 w-4" /> PPTX</TabsTrigger>
-                </TabsList>
-                <TabsContent value="pdf" className="mt-4">
-                  <AspectRatio ratio={16/9}>
-                    <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-zinc-100 to-zinc-200 rounded-[8px]">
-                      <div className="relative w-[82%] h-[82%] bg-white rounded-md shadow-xl overflow-hidden">
-                        <div className="absolute right-3 top-3 text-[10px] font-semibold px-2 py-0.5 rounded bg-red-50 text-red-700 border border-red-200">PDF</div>
-                        <div className="p-4 space-y-2">
-                          <div className="h-4 bg-zinc-200 rounded w-2/3" />
-                          <div className="h-3 bg-zinc-200/80 rounded w-full" />
-                          <div className="h-3 bg-zinc-200/80 rounded w-[92%]" />
-                          <div className="h-3 bg-zinc-200/80 rounded w-[85%]" />
-                          <div className="h-40 bg-zinc-100 rounded-md mt-3" />
-                          <div className="h-3 bg-zinc-200/80 rounded w-[88%]" />
-                          <div className="h-3 bg-zinc-200/80 rounded w-[76%]" />
-                        </div>
-                      </div>
-                    </div>
-                  </AspectRatio>
-                  <div className="mt-3 text-sm text-muted-foreground">Aperçu visuel d’un document PDF</div>
-                </TabsContent>
-                <TabsContent value="pptx" className="mt-4">
-                  <AspectRatio ratio={16/9}>
-                    <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-orange-50 to-orange-100 rounded-[8px]">
-                      <div className="relative w-[82%] h-[82%] bg-white rounded-md shadow-xl overflow-hidden">
-                        <div className="absolute right-3 top-3 text-[10px] font-semibold px-2 py-0.5 rounded bg-orange-50 text-orange-700 border border-orange-200">PPTX</div>
-                        <div className="p-4 space-y-3">
-                          <div className="h-5 bg-orange-100 rounded w-2/3" />
-                          <div className="grid grid-cols-3 gap-3">
-                            <div className="h-24 bg-orange-50 rounded" />
-                            <div className="h-24 bg-orange-50 rounded" />
-                            <div className="h-24 bg-orange-50 rounded" />
-                          </div>
-                          <div className="h-3 bg-orange-100 rounded w-[90%]" />
-                        </div>
-                      </div>
-                    </div>
-                  </AspectRatio>
-                  <div className="mt-3 text-sm text-muted-foreground">Aperçu visuel d’une présentation PPTX</div>
-                </TabsContent>
-              </Tabs>
+          <Reveal delay={80}>
+            <p className="mt-3 max-w-3xl text-muted-foreground">Tous supports, plusieurs langues.</p>
+          </Reveal>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            <div className="card p-6">
+              <div className="h-10 w-10 rounded-full bg-primary/10 text-primary grid place-items-center"><Languages className="h-5 w-5" /></div>
+              <h3 className="mt-4 font-heading font-semibold text-lg">Multilingue</h3>
+              <p className="mt-1 text-muted-foreground">FR, EN, ES, DE… sous‑titres, voix‑off, contenus localisés.</p>
             </div>
-            <div>
-              <div className="space-y-4">
-                <Reveal delay={40}>
-                  <div className="card p-5">
-                    <div className="font-heading font-semibold">1) Compréhension du sujet</div>
-                    <p className="text-sm text-muted-foreground mt-1">Entretiens, objectifs pédagogiques, publics, contraintes. Indicateurs de succès définis.</p>
-                  </div>
-                </Reveal>
-                <Reveal delay={80}>
-                  <div className="card p-5">
-                    <div className="font-heading font-semibold">2) Recherche & validation</div>
-                    <p className="text-sm text-muted-foreground mt-1">Veille, sources internes/externes, conformité (sûreté, HSE, RGAA). Validation avec vos experts.</p>
-                  </div>
-                </Reveal>
-                <Reveal delay={120}>
-                  <div className="card p-5">
-                    <div className="font-heading font-semibold">3) Personnalisation</div>
-                    <p className="text-sm text-muted-foreground mt-1">Charte, ton, cas métiers et vocabulaire interne. Localisation si besoin.</p>
-                  </div>
-                </Reveal>
-                <Reveal delay={160}>
-                  <div className="card p-5">
-                    <div className="font-heading font-semibold">4) Création du module</div>
-                    <p className="text-sm text-muted-foreground mt-1">Storyboard, interactions, quiz, accessibilité, QA. Packaging SCORM/xAPI et déploiement.</p>
-                  </div>
-                </Reveal>
-              </div>
+            <div className="card p-6">
+              <div className="h-10 w-10 rounded-full bg-primary/10 text-primary grid place-items-center"><MonitorSmartphone className="h-5 w-5" /></div>
+              <h3 className="mt-4 font-heading font-semibold text-lg">Tous supports</h3>
+              <p className="mt-1 text-muted-foreground">Ordinateur, mobile, tablette. Responsive et accessible.</p>
+            </div>
+            <div className="card p-6">
+              <div className="h-10 w-10 rounded-full bg-primary/10 text-primary grid place-items-center"><Rocket className="h-5 w-5" /></div>
+              <h3 className="mt-4 font-heading font-semibold text-lg">Déploiement LMS</h3>
+              <p className="mt-1 text-muted-foreground">SCORM/xAPI, hébergement FPSG ou votre LMS, suivi et support.</p>
             </div>
           </div>
         </div>
