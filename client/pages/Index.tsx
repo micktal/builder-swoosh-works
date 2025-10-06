@@ -1,164 +1,182 @@
-import { ArrowRight, CheckCircle2, Shield, Sparkles, TrendingUp } from "lucide-react";
+import { ArrowRight, BarChart3, BookOpenCheck, Languages, LineChart, Search, ShieldCheck, Sparkles } from "lucide-react";
 import Reveal from "@/components/Reveal";
 import { Link } from "react-router-dom";
+import { useEffect, useRef, useState } from "react";
 
-const why = [
-  {
-    title: "Flexible",
-    desc: "Formats courts, accessibles partout, adaptés à vos rythmes et métiers.",
-    icon: Sparkles,
-  },
-  {
-    title: "Impactant",
-    desc: "Mesurez les résultats: +40% de rétention, transferts concrets au poste.",
-    icon: TrendingUp,
-  },
-  {
-    title: "Conforme",
-    desc: "Aligné aux exigences sécurité/sûreté et à la culture prévention du groupe.",
-    icon: Shield,
-  },
-];
-
-const steps = [
-  { title: "Cadrage", desc: "Objectifs, publics, contexte métier" },
-  { title: "Conception", desc: "Parcours modulaires, pédagogie Bloom" },
-  { title: "Déploiement", desc: "Lancement rapide, accompagnement de proximité" },
-  { title: "Mesure", desc: "Tableau de bord, indicateurs d'impact" },
-];
-
-const modules = [
-  {
-    title: "Compétences managériales",
-    img: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    title: "Sécurité & sûreté",
-    img: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    title: "Accueil & posture professionnelle",
-    img: "https://images.unsplash.com/photo-1551836022-d5d88e9218df?q=80&w=1200&auto=format&fit=crop",
-  },
-  {
-    title: "Gestion de crise & communication",
-    img: "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1200&auto=format&fit=crop",
-  },
-];
+function ProgressOnView({ value = 85 }: { value?: number }) {
+  const ref = useRef<HTMLDivElement>(null);
+  const [w, setW] = useState(0);
+  useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          setW(value);
+          io.disconnect();
+        }
+      });
+    }, { threshold: 0.4 });
+    io.observe(el);
+    return () => io.disconnect();
+  }, [value]);
+  return (
+    <div ref={ref} className="mt-6">
+      <div className="h-3 w-full rounded-full bg-primary/15 overflow-hidden">
+        <div
+          className="h-full bg-primary rounded-full transition-[width] duration-1000 ease-out"
+          style={{ width: `${w}%` }}
+        />
+      </div>
+      <div className="mt-2 text-sm text-muted-foreground">Taux de réussite moyen: <span className="font-semibold text-foreground">{value}%</span></div>
+    </div>
+  );
+}
 
 export default function Index() {
+  const heroVideo = "https://cdn.coverr.co/videos/coverr-bokeh-lights-1567/1080p.mp4";
+  const heroPoster = "https://images.unsplash.com/photo-1516542076529-1ea3854896e1?q=80&w=1600&auto=format&fit=crop";
+
   return (
     <main>
       {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="absolute inset-0 -z-10 bg-gradient-to-br from-secondary/10 via-transparent to-primary/10" />
+      <section className="relative overflow-hidden bg-[#0E1E2B] text-white">
+        <div className="absolute inset-0 -z-10">
+          <video
+            className="h-full w-full object-cover opacity-30"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={heroPoster}
+          >
+            <source src={heroVideo} type="video/mp4" />
+          </video>
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0E1E2B]/70 via-[#0E1E2B]/60 to-[#0E1E2B]" />
+        </div>
         <div className="container-padded py-16 md:py-24">
           <Reveal>
-            <span className="badge-soft">Former. Innover. Digitaliser.</span>
-          </Reveal>
-          <Reveal delay={80}>
-            <h1 className="mt-4 text-5xl md:text-6xl font-heading font-extrabold leading-tight">
-              FPSG Digital Learning
-              <span className="block text-foreground/80 text-[1.6rem] md:text-3xl font-semibold mt-3">
-                Une approche simple, mesurable et centrée sur l'humain.
-              </span>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold leading-tight">
+              FPSG Digital Learning – La sécurité, partout, tout le temps.
             </h1>
           </Reveal>
-          <Reveal delay={140}>
-            <p className="mt-6 max-w-2xl text-lg text-muted-foreground">
-              Développez les compétences comportementales et managériales, renforcez la sécurité/sûreté et la culture prévention. Des modules modernes, animés et efficaces.
-            </p>
+          <Reveal delay={100}>
+            <p className="mt-4 text-lg md:text-xl text-white/80">Former. Innover. Digitaliser.</p>
           </Reveal>
-          <Reveal delay={200}>
+          <Reveal delay={180}>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
-              <Link to="/contact" className="btn-cta">Demander une démo</Link>
-              <Link to="/nos-formations" className="rounded-[10px] px-6 py-3 border text-foreground hover:bg-accent transition inline-flex items-center gap-2">
-                Découvrir nos formations <ArrowRight className="h-4 w-4" />
-              </Link>
+              <Link to="/contact" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Demander une démo gratuite</Link>
+              <Link to="/nos-formations" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10">Découvrir nos formations</Link>
             </div>
           </Reveal>
         </div>
       </section>
 
-      {/* Pourquoi FPSG */}
+      {/* Pourquoi choisir le digital learning FPSG ? */}
       <section className="container-padded py-12 md:py-20">
         <Reveal>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold">Pourquoi FPSG ?</h2>
+          <h2 className="text-3xl md:text-4xl font-heading font-bold">Pourquoi choisir le digital learning FPSG ?</h2>
         </Reveal>
         <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {why.map((w, i) => (
-            <Reveal key={w.title} delay={i * 80}>
+          {[
+            { title: "Flexible", desc: "Accessible 24h/24, 7j/7, sur tous supports.", icon: Sparkles },
+            { title: "Impactant", desc: "Basé sur des situations réelles et interactives.", icon: ShieldCheck },
+            { title: "Conforme", desc: "Des contenus validés et toujours à jour.", icon: LineChart },
+          ].map((c, i) => (
+            <Reveal key={c.title} delay={i * 100}>
               <div className="card p-6">
-                <w.icon className="h-8 w-8 text-primary" />
-                <h3 className="mt-4 text-xl font-heading font-semibold">{w.title}</h3>
-                <p className="mt-2 text-muted-foreground">{w.desc}</p>
+                <div className="h-12 w-12 rounded-full bg-primary/10 text-primary grid place-items-center">
+                  <c.icon className="h-6 w-6" />
+                </div>
+                <h3 className="mt-4 text-xl font-heading font-semibold">{c.title}</h3>
+                <p className="mt-2 text-muted-foreground">{c.desc}</p>
               </div>
             </Reveal>
           ))}
         </div>
       </section>
 
-      {/* Processus en 4 étapes */}
-      <section className="bg-accent/50">
+      {/* Notre méthode en 4 étapes simples */}
+      <section className="bg-white">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Notre approche en 4 étapes</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">Notre méthode en 4 étapes simples</h2>
           </Reveal>
-          <div className="mt-10 grid gap-8 md:grid-cols-4">
-            {steps.map((s, i) => (
-              <Reveal key={s.title} delay={i * 80}>
-                <div className="card p-6 h-full">
-                  <div className="flex items-center gap-3">
-                    <div className="h-10 w-10 rounded-full bg-primary/10 text-primary grid place-items-center font-heading font-bold">
-                      {i + 1}
+          <div className="relative mt-12">
+            <div className="hidden md:block absolute left-0 right-0 top-5 h-0.5 bg-primary/20" />
+            <div className="grid gap-10 md:grid-cols-4">
+              {[
+                { t: "Analyse du besoin", d: "Identifier les compétences à renforcer.", icon: Search },
+                { t: "Conception pédagogique (Bloom)", d: "Des parcours structurés et actifs.", icon: BookOpenCheck },
+                { t: "Diffusion multilingue", d: "Disponible partout, en plusieurs langues.", icon: Languages },
+                { t: "Mesure du ROI", d: "Taux de réussite, progression et impact.", icon: BarChart3 },
+              ].map((s, i) => (
+                <Reveal key={s.t} delay={i * 100}>
+                  <div className="flex md:block items-start gap-4">
+                    <div className="relative">
+                      <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-primary text-white grid place-items-center shadow-[0_8px_24px_rgba(0,0,0,0.1)]">
+                        <s.icon className="h-5 w-5 md:h-6 md:w-6" />
+                      </div>
+                      {i < 3 && (
+                        <div className="hidden md:block absolute left-full top-1/2 -translate-y-1/2 w-16 h-0.5 bg-primary/30" />
+                      )}
                     </div>
-                    <h3 className="text-lg font-heading font-semibold">{s.title}</h3>
+                    <div className="md:mt-4">
+                      <h3 className="font-heading font-semibold text-lg">{s.t}</h3>
+                      <p className="text-muted-foreground mt-1">{s.d}</p>
+                    </div>
                   </div>
-                  <p className="mt-3 text-muted-foreground">{s.desc}</p>
-                </div>
+                </Reveal>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Exemples de formations */}
+      <section className="bg-[#F9FAFB]">
+        <div className="container-padded py-12 md:py-20">
+          <Reveal>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">Des modules concrets, ancrés dans le réel.</h2>
+          </Reveal>
+          <div className="mt-8 grid gap-6 md:grid-cols-2">
+            {[
+              { t: "Gérer un visiteur mécontent", d: "Simulation interactive pour améliorer la communication assertive.", img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" },
+              { t: "Réagir face à une situation suspecte", d: "Scénario immersif de sûreté.", img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop" },
+              { t: "Prévenir les RPS au quotidien", d: "Identifier les signaux faibles, agir tôt.", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop" },
+              { t: "Manager une équipe en tension", d: "Posture managériale et communication adaptée.", img: "https://images.unsplash.com/photo-1522071901873-411886a10004?q=80&w=1200&auto=format&fit=crop" },
+            ].map((m, i) => (
+              <Reveal key={m.t} delay={i * 100}>
+                <article className="card overflow-hidden">
+                  <img src={m.img} alt="" className="h-48 w-full object-cover" />
+                  <div className="p-5">
+                    <h3 className="text-lg font-heading font-semibold">{m.t}</h3>
+                    <p className="mt-1 text-muted-foreground">{m.d}</p>
+                    <div className="mt-4">
+                      <Link to="/demonstrations" className="btn-cta">Voir une démo</Link>
+                    </div>
+                  </div>
+                </article>
               </Reveal>
             ))}
           </div>
-          <div className="mt-8">
-            <Link to="/notre-approche" className="inline-flex items-center text-primary font-semibold">En savoir plus sur l'approche <ArrowRight className="ml-1 h-4 w-4"/></Link>
-          </div>
         </div>
       </section>
 
-      {/* Formations */}
-      <section className="container-padded py-12 md:py-20">
-        <Reveal>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold">Exemples de formations</h2>
-        </Reveal>
-        <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          {modules.map((m, i) => (
-            <Reveal key={m.title} delay={i * 80}>
-              <article className="card overflow-hidden">
-                <img src={m.img} alt="" className="h-44 w-full object-cover" />
-                <div className="p-5">
-                  <h3 className="text-lg font-heading font-semibold">{m.title}</h3>
-                  <Link to="/nos-formations" className="mt-3 inline-flex items-center text-primary font-semibold">Voir le programme <ArrowRight className="ml-1 h-4 w-4"/></Link>
-                </div>
-              </article>
-            </Reveal>
-          ))}
-        </div>
-      </section>
-
-      {/* Chiffres clés */}
-      <section className="bg-accent/50">
+      {/* Des résultats mesurables */}
+      <section className="bg-white">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Des résultats mesurables</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">Des résultats mesurables à chaque étape.</h2>
           </Reveal>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
-              { k: "96%", v: "de satisfaction moyenne" },
-              { k: "+40%", v: "de rétention des acquis" },
-              { k: "2x", v: "plus d'engagement des apprenants" },
-              { k: "3 semaines", v: "pour lancer un parcours" },
+              { k: "96%", v: "satisfaction apprenants" },
+              { k: "+40%", v: "de rétention après 3 mois" },
+              { k: "-30%", v: "de coûts logistiques" },
+              { k: "3 à 10 jours", v: "pour le déploiement" },
             ].map((stat, i) => (
-              <Reveal key={stat.k} delay={i * 80}>
+              <Reveal key={stat.k} delay={i * 100}>
                 <div className="card p-6 text-center">
                   <div className="text-4xl font-heading font-extrabold text-primary">{stat.k}</div>
                   <div className="mt-2 text-muted-foreground">{stat.v}</div>
@@ -166,43 +184,51 @@ export default function Index() {
               </Reveal>
             ))}
           </div>
+          <ProgressOnView value={85} />
         </div>
       </section>
 
       {/* Témoignages */}
-      <section className="container-padded py-12 md:py-20">
-        <Reveal>
-          <h2 className="text-3xl md:text-4xl font-heading font-bold">Ils nous font confiance</h2>
-        </Reveal>
-        <div className="mt-8 grid gap-6 md:grid-cols-3">
-          {[1,2,3].map((i) => (
-            <Reveal key={i} delay={i * 80}>
-              <figure className="card p-6 h-full">
-                <div className="flex items-center gap-3">
-                  <img className="h-10 w-10 rounded-full object-cover" src={`https://i.pravatar.cc/100?img=${i+10}`} alt="" />
-                  <div>
-                    <figcaption className="font-heading font-semibold">Responsable formation</figcaption>
-                    <div className="text-sm text-muted-foreground">Secteur services</div>
+      <section className="bg-[#F9FAFB]">
+        <div className="container-padded py-12 md:py-20">
+          <Reveal>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">Ils ont choisi la pédagogie FPSG</h2>
+          </Reveal>
+          <div className="mt-8 grid gap-6 md:grid-cols-3">
+            {[
+              { n: "Responsable HSE", f: "Secteur industriel — Axiom Corp.", t: "Les modules FPSG ont transformé notre culture sécurité." },
+              { n: "DRH", f: "Services — Novelia.", t: "Simple, efficace, mesurable. L'adoption a été immédiate." },
+              { n: "Directeur d'agence", f: "Retail — Orbis.", t: "Des scénarios concrets et une vraie montée en compétences." },
+            ].map((x, i) => (
+              <Reveal key={x.n} delay={i * 100}>
+                <figure className="card p-6 h-full">
+                  <div className="flex items-center gap-3">
+                    <img className="h-10 w-10 rounded-full object-cover" src={`https://i.pravatar.cc/100?img=${i + 12}`} alt="" />
+                    <div>
+                      <figcaption className="font-heading font-semibold">{x.n}</figcaption>
+                      <div className="text-sm text-muted-foreground">{x.f}</div>
+                    </div>
                   </div>
-                </div>
-                <blockquote className="mt-4 text-[1.05rem] leading-relaxed">
-                  "Des contenus concrets et engageants. Nos équipes appliquent immédiatement les bonnes pratiques, avec un vrai impact terrain."
-                </blockquote>
-              </figure>
-            </Reveal>
-          ))}
+                  <blockquote className="mt-4 italic text-[1.05rem] leading-relaxed">“{x.t}”</blockquote>
+                </figure>
+              </Reveal>
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* CTA final */}
-      <section className="bg-primary text-primary-foreground">
+      {/* CTA finale */}
+      <section className="bg-[#0E1E2B] text-white">
         <div className="container-padded py-14 md:py-16">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <h3 className="text-2xl md:text-3xl font-heading font-bold">La sécurité, partout, tout le temps.</h3>
-              <p className="mt-2 text-primary-foreground/80">Passez à l'action dès maintenant avec une démonstration personnalisée.</p>
+              <h3 className="text-2xl md:text-3xl font-heading font-bold">Digitalisez vos formations comportementales, simplement.</h3>
+              <p className="mt-2 text-white/80">Contactez nos experts et découvrez comment FPSG modernise la prévention.</p>
             </div>
-            <Link to="/contact" className="btn-cta bg-white text-primary hover:bg-white/90">Demander une démo</Link>
+            <div className="flex flex-col sm:flex-row gap-3">
+              <Link to="/contact" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Demander une démo</Link>
+              <Link to="/contact" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10 bg-white">Nous contacter</Link>
+            </div>
           </div>
         </div>
       </section>
