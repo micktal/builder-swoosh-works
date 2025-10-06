@@ -38,6 +38,7 @@ export default function Index() {
   const heroPoster = "https://images.pexels.com/photos/7658369/pexels-photo-7658369.jpeg";
   const [showUseCase, setShowUseCase] = useState(false);
   const [showUseCaseSuspect, setShowUseCaseSuspect] = useState(false);
+  const [showUseCaseRps, setShowUseCaseRps] = useState(false);
 
   return (
     <main>
@@ -150,6 +151,8 @@ export default function Index() {
                         <button type="button" onClick={() => setShowUseCase((v) => !v)} className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary/15">Use case</button>
                       ) : i === 1 ? (
                         <button type="button" onClick={() => setShowUseCaseSuspect((v) => !v)} className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary/15">Use case</button>
+                      ) : i === 2 ? (
+                        <button type="button" onClick={() => setShowUseCaseRps((v) => !v)} className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary/15">Use case</button>
                       ) : (
                         <Link to="/demonstrations" className="btn-cta">Voir une démo</Link>
                       )}
@@ -180,7 +183,7 @@ export default function Index() {
 
                           <div>
                             <div className="font-semibold">Étape 2 – Première interaction</div>
-                            <p className="mt-1">Visiteur: “C’est pas possible, j’ai rendez-vous depuis une heure et personne ne vient me chercher !”</p>
+                            <p className="mt-1">Visiteur: “C��est pas possible, j’ai rendez-vous depuis une heure et personne ne vient me chercher !”</p>
                             <div className="mt-2">
                               <div className="font-medium">Choix</div>
                               <ul className="list-disc pl-5 mt-1 space-y-1">
@@ -229,7 +232,7 @@ export default function Index() {
                               <div className="mt-2 font-medium">Feedback</div>
                               <ul className="list-disc pl-5 mt-1 space-y-1">
                                 <li>A → Tu montres ton ouverture tout en gardant le contrôle.</li>
-                                <li>B → Refus sec : perte d’écoute.</li>
+                                <li>B → Refus sec : perte d���écoute.</li>
                                 <li>C → Comparaison : tu minimises son ressenti.</li>
                               </ul>
                             </div>
@@ -315,6 +318,55 @@ export default function Index() {
                               <li>Observer sans alarmer</li>
                               <li>Alerter efficacement</li>
                               <li>Se mettre à couvert / sécuriser le périmètre</li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div className="mt-4 text-xs text-muted-foreground">Extrait de démonstration – FPSG Digital Learning.</div>
+                      </div>
+                    )}
+                    {i === 2 && showUseCaseRps && (
+                      <div className="mt-4 card p-6">
+                        <div className="text-xs uppercase tracking-wide text-primary/80">Titre du module</div>
+                        <h4 className="mt-1 text-xl font-heading font-semibold">Prévenir les RPS au quotidien – Bien‑être et santé au travail</h4>
+
+                        <div className="mt-4 space-y-4 text-sm leading-relaxed">
+                          <div>
+                            <div className="font-semibold">Contexte</div>
+                            <ul className="list-disc pl-5 mt-1 space-y-1">
+                              <li><span className="font-medium">Environnement:</span> open‑space / atelier avec charge de travail élevée.</li>
+                              <li><span className="font-medium">Signaux faibles:</span> fatigue, irritabilité, isolement, heures tardives répétées.</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 1 – Observer sans juger</div>
+                            <p className="mt-1">Repérer les changements de comportement (baisse d’échanges, tensions, erreurs inhabituelles).</p>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 2 – Entretien bienveillant</div>
+                            <p className="mt-1">Ouvrir le dialogue: « J’ai remarqué que tu semblais fatigué, est‑ce que tout va bien ? »</p>
+                            <ul className="list-disc pl-5 mt-2 space-y-1">
+                              <li>Écoute active, sans minimiser le ressenti.</li>
+                              <li>Clarifier le besoin immédiat (priorités, charge, soutien).</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 3 – Orienter et soutenir</div>
+                            <ul className="list-disc pl-5 mt-1 space-y-1">
+                              <li>Rappeler les ressources: RH, médecin du travail, numéro d’écoute.</li>
+                              <li>Ajuster l’organisation: priorisation, relais, pauses.</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Débrief – 3 réflexes RPS</div>
+                            <ul className="list-disc pl-5 mt-1 space-y-1">
+                              <li>Observer les signaux faibles</li>
+                              <li>En parler tôt, avec bienveillance</li>
+                              <li>Agir concrètement et orienter</li>
                             </ul>
                           </div>
                         </div>
