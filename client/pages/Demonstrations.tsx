@@ -66,8 +66,8 @@ export default function Demonstrations() {
                 <Reveal key={m.t} delay={(i + 2) * 80}>
                   <article className="card overflow-hidden">
                     <div className="p-5">
-                      <h3 className="text-lg font-heading font-semibold">{m.t}</h3>
-                      <p className="mt-1 text-muted-foreground">{m.d}</p>
+                      <h3 className="text-lg font-heading font-semibold break-words leading-snug">{m.t}</h3>
+                      <p className="mt-1 text-muted-foreground break-words leading-relaxed text-sm">{m.d}</p>
                     </div>
                     <div className="bg-black/5">
                       <iframe src={m.src} title={m.t} className="embed-frame" frameBorder={0} />
