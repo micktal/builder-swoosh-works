@@ -36,6 +36,7 @@ function ProgressOnView({ value = 85 }: { value?: number }) {
 export default function Index() {
   const heroVideo = "https://videos.pexels.com/video-files/3044654/3044654-hd_1280_720_50fps.mp4";
   const heroPoster = "https://images.pexels.com/photos/7658369/pexels-photo-7658369.jpeg";
+  const [showUseCase, setShowUseCase] = useState(false);
 
   return (
     <main>
@@ -145,11 +146,16 @@ export default function Index() {
                     <p className="mt-1 text-muted-foreground">{m.d}</p>
                     <div className="mt-4">
                       {i === 0 ? (
-                        <a href="https://modules.fpsg.fr/visiteur/index.html" target="_blank" rel="noreferrer" className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary/15">Use case</a>
+                        <button type="button" onClick={() => setShowUseCase((v) => !v)} className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary/15">Use case</button>
                       ) : (
                         <Link to="/demonstrations" className="btn-cta">Voir une démo</Link>
                       )}
                     </div>
+                    {i === 0 && showUseCase && (
+                      <div className="mt-4 bg-black/5 rounded-md overflow-hidden">
+                        <iframe src="https://modules.fpsg.fr/visiteur/index.html" title="Gérer un visiteur mécontent" className="embed-frame" frameBorder={0} />
+                      </div>
+                    )}
                   </div>
                 </article>
               </Reveal>
