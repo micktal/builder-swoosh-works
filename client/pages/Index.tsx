@@ -34,7 +34,7 @@ function ProgressOnView({ value = 85 }: { value?: number }) {
 }
 
 export default function Index() {
-  const heroVideo = "https://videos.pexels.com/video-files/3044654/3044654-hd_1280_720_50fps.mp4";
+  const heroVideo = "https://cdn.builder.io/o/assets%2Fd93d9a0ec7824aa1ac4d890a1f90a2ec%2F6763bd8c32934865b7e746c20f0c9d52?alt=media&token=08262f8b-d1fa-4b78-b8c6-b5128808924a&apiKey=d93d9a0ec7824aa1ac4d890a1f90a2ec";
   const heroPoster = "https://images.pexels.com/photos/7658369/pexels-photo-7658369.jpeg";
   const [showUseCase, setShowUseCase] = useState(false);
   const [showUseCaseSuspect, setShowUseCaseSuspect] = useState(false);
@@ -54,7 +54,7 @@ export default function Index() {
             playsInline
             poster={heroPoster}
           >
-            <source src={heroVideo} type="video/mp4" />
+            <source src={heroVideo} />
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-[#0E1E2B]/70 via-[#0E1E2B]/60 to-[#0E1E2B]" />
         </div>
@@ -337,7 +337,7 @@ export default function Index() {
                           <div>
                             <div className="font-semibold">Contexte</div>
                             <ul className="list-disc pl-5 mt-1 space-y-1">
-                              <li><span className="font-medium">Environnement:</span> open‑space / atelier avec charge de travail élevée.</li>
+                              <li><span className="font-medium">Environnement:</span> open���space / atelier avec charge de travail élevée.</li>
                               <li><span className="font-medium">Signaux faibles:</span> fatigue, irritabilité, isolement, heures tardives répétées.</li>
                             </ul>
                           </div>
