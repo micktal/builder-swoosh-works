@@ -172,7 +172,7 @@ export default function Formations() {
           </Reveal>
           <div className="mt-8 grid gap-8 md:grid-cols-3">
             {[
-              { t: "Rapidité de déploiement", d: "Mise en ligne en moins de 10 jours.", icon: Rocket },
+              { t: "Rapidité de déploiement", d: "Mise en ligne en moins de 30 jours.", icon: Rocket },
               { t: "Mesure du ROI", d: "Suivi en temps réel et indicateurs d’impact.", icon: BarChart3 },
               { t: "Scalabilité multilingue", d: "Déploiement international, plusieurs langues.", icon: Languages },
             ].map((a, i) => (
