@@ -1,4 +1,3 @@
-import { Linkedin, Youtube } from "lucide-react";
 import { Link } from "react-router-dom";
 
 export default function Footer() {
@@ -20,14 +19,6 @@ export default function Footer() {
           <p className="mt-4 text-sm text-white/80 max-w-sm">
             FPSG Digital Learning – Une autre vision de la formation. Des solutions digitales pour renforcer la culture sécurité et le leadership humain.
           </p>
-          <div className="mt-4 flex gap-3 justify-center md:justify-start">
-            <a href="#" aria-label="LinkedIn" className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-white/20 hover:bg-white/10 transition">
-              <Linkedin className="h-5 w-5" />
-            </a>
-            <a href="#" aria-label="YouTube" className="inline-flex items-center justify-center h-9 w-9 rounded-full border border-white/20 hover:bg-white/10 transition">
-              <Youtube className="h-5 w-5" />
-            </a>
-          </div>
         </div>
 
         <div>
@@ -48,9 +39,6 @@ export default function Footer() {
             <li>+33 (0)4 72 57 20 00</li>
             <li>contact@fpsg.fr</li>
           </ul>
-          <div className="mt-4">
-            <Link to="/contact" className="btn-cta">Demander une démo</Link>
-          </div>
         </div>
       </div>
 
