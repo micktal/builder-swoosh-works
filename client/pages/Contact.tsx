@@ -69,7 +69,7 @@ export default function Contact() {
 
       {/* Form */}
       <section className="bg-[#F9FAFB] section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded section-y">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Demandez une démonstration personnalisée</h2>
           </Reveal>
@@ -142,7 +142,7 @@ export default function Contact() {
 
       {/* Coordonnées */}
       <section className="bg-white section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded section-y">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Nos coordonnées directes</h2>
           </Reveal>
@@ -171,7 +171,7 @@ export default function Contact() {
 
       {/* Logos */}
       <section className="bg-[#F9FAFB] section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded section-y">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Ils nous font confiance</h2>
           </Reveal>
@@ -190,7 +190,7 @@ export default function Contact() {
 
       {/* Engagements */}
       <section className="bg-white section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded section-y">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Nos engagements qualité</h2>
           </Reveal>
