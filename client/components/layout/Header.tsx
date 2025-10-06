@@ -9,6 +9,8 @@ const navItems = [
   { to: "/contact", label: "Contact" },
 ];
 
+const LOGO_URL = "https://cdn.builder.io/api/v1/image/assets%2Fd93d9a0ec7824aa1ac4d890a1f90a2ec%2F44c8eb4ad92449dfa7ec72baf68f9623?format=webp&width=800";
+
 export default function Header() {
   const location = useLocation();
   const [open, setOpen] = useState(false);
@@ -17,9 +19,11 @@ export default function Header() {
     <header className="sticky top-0 z-40 w-full bg-white/90 backdrop-blur shadow-sm">
       <div className="container-padded flex h-20 items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
-          <div className="h-10 w-10 rounded-[10px] bg-primary/10 grid place-items-center transition-transform group-hover:scale-105">
-            <span className="text-primary font-heading text-lg">F</span>
-          </div>
+          <img
+            src={LOGO_URL}
+            alt="Logo FPSG Digital Learning"
+            className="h-10 w-auto transition-transform group-hover:scale-105"
+          />
           <div className="leading-tight">
             <div className="font-heading font-bold text-lg">FPSG Digital Learning</div>
             <div className="text-sm text-muted-foreground -mt-1">Groupe FIDUCIAL</div>
