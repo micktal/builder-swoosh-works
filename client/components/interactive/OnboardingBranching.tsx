@@ -106,11 +106,11 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 
         {!finished ? (
           <div className="mt-4 space-y-3">
-            <div className="font-medium">{node.title}</div>
-            <div className="text-muted-foreground">{node.prompt}</div>
+            <div className="font-medium text-base leading-snug break-words">{node.title}</div>
+            <div className="text-muted-foreground text-sm leading-relaxed break-words">{node.prompt}</div>
             <div className="mt-2 grid gap-2 sm:grid-cols-2">
               {node.choices.map((c) => (
-                <Button key={c.id} variant={c.good ? "default" : "outline"} onClick={() => choose(c)}>
+                <Button key={c.id} variant={c.good ? "default" : "outline"} onClick={() => choose(c)} className="h-auto min-h-10 py-2 whitespace-normal text-left leading-snug text-sm">
                   {c.label}
                 </Button>
               ))}
