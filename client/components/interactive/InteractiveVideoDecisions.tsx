@@ -14,10 +14,23 @@ type Choice = {
   rewind?: number; // seconds to rewind on incorrect
 };
 
+type Hotspot = {
+  id: string;
+  x: number; // left percent 0..100
+  y: number; // top percent 0..100
+  w: number; // width percent 0..100
+  h: number; // height percent 0..100
+  label: string;
+  correct: boolean;
+  feedback: string;
+  rewind?: number;
+};
+
 type DecisionPoint = {
   t: number; // seconds
   prompt: string;
-  choices: Choice[];
+  choices?: Choice[];
+  hotspots?: Hotspot[];
 };
 
 interface InteractiveVideoDecisionsProps {
@@ -123,18 +136,45 @@ export default function InteractiveVideoDecisions({ src, poster, title, descript
 
           {currentIdx >= 0 && (
             <div className="absolute inset-0 bg-black/60 text-white grid place-items-center p-4">
-              <div className="w-full max-w-xl">
+              <div className="relative w-full max-w-5xl">
                 <div className="text-sm text-white/80">Décision {currentIdx + 1} / {total}</div>
                 <div className="mt-2 text-lg font-semibold">{points[currentIdx].prompt}</div>
-                <div className="mt-4 grid gap-2">
-                  {points[currentIdx].choices.map((c) => (
-                    <Button key={c.id} onClick={() => handleChoice(c)} className="justify-start">
-                      {c.label}
-                    </Button>
-                  ))}
+
+                {/* Hotspots mode */}
+                {points[currentIdx].hotspots && (
+                  <div className="mt-3 text-sm text-white/80">Cliquez sur la zone adéquate dans la vidéo.</div>
+                )}
+
+                <div className="relative mt-3">
+                  {/* Mirror the video surface for hotspot clicks */}
+                  {points[currentIdx].hotspots ? (
+                    <div className="relative">
+                      <video className="w-full rounded-[8px] opacity-30" muted playsInline poster={poster}>
+                        <source src={src} type="video/mp4" />
+                      </video>
+                      {points[currentIdx].hotspots!.map(h => (
+                        <button
+                          key={h.id}
+                          aria-label={h.label}
+                          onClick={() => handleChoice({ id: h.id, label: h.label, correct: h.correct, feedback: h.feedback, rewind: h.rewind })}
+                          style={{ left: `${h.x}%`, top: `${h.y}%`, width: `${h.w}%`, height: `${h.h}%` }}
+                          className={`absolute border-2 rounded-[6px] transition focus:outline-none focus-visible:ring-2 ${h.correct ? "border-green-400/70 hover:bg-green-400/10" : "border-primary/70 hover:bg-primary/10"}`}
+                        />
+                      ))}
+                    </div>
+                  ) : (
+                    <div className="mt-4 grid gap-2 max-w-xl">
+                      {points[currentIdx].choices?.map((c) => (
+                        <Button key={c.id} onClick={() => handleChoice(c)} className="justify-start">
+                          {c.label}
+                        </Button>
+                      ))}
+                    </div>
+                  )}
                 </div>
+
                 {lastFeedback && (
-                  <div className="mt-3" aria-live="polite">
+                  <div className="mt-3 max-w-xl" aria-live="polite">
                     {lastFeedback.ok ? (
                       <Alert className="border-green-500/50">
                         <AlertTitle>Bon choix</AlertTitle>
