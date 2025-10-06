@@ -10,7 +10,6 @@ import SureteGuidelinesCards from "@/components/interactive/SureteGuidelinesCard
 import ActionPriorityOrder from "@/components/interactive/ActionPriorityOrder";
 import HazardMemory from "@/components/interactive/HazardMemory";
 import RpsVideoTranscript from "@/components/interactive/RpsVideoTranscript";
-import HazardMemory from "@/components/interactive/HazardMemory";
 
 export default function Demonstrations() {
   const heroVideo = "https://videos.pexels.com/video-files/3044654/3044654-hd_1280_720_50fps.mp4";
