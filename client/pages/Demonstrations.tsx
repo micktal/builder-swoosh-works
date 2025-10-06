@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { BarChart3, Gauge, LineChart, ThumbsUp } from "lucide-react";
 import InteractiveSimulationCard from "@/components/interactive/InteractiveSimulationCard";
 import QuizSecurity from "@/components/interactive/QuizSecurity";
+import ImageRiskZones from "@/components/interactive/ImageRiskZones";
 
 export default function Demonstrations() {
   const heroVideo = "https://videos.pexels.com/video-files/3044654/3044654-hd_1280_720_50fps.mp4";
@@ -96,11 +97,13 @@ export default function Demonstrations() {
             <Reveal>
               <QuizSecurity />
             </Reveal>
+            <Reveal delay={80}>
+              <ImageRiskZones />
+            </Reveal>
             {[
-              { t: "Image interactive – Zones à risque", src: "https://yourcompany.h5p.com/content/987654321/embed" },
               { t: "Vidéo interactive – Réagir au bon moment", src: "https://yourcompany.h5p.com/content/135792468/embed" },
             ].map((m, i) => (
-              <Reveal key={m.t} delay={(i + 1) * 80}>
+              <Reveal key={m.t} delay={(i + 2) * 80}>
                 <article className="card overflow-hidden h-full flex flex-col">
                   <div className="p-5">
                     <h3 className="text-lg font-heading font-semibold">{m.t}</h3>
