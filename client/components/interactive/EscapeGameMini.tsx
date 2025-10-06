@@ -51,9 +51,9 @@ export default function EscapeGameMini() {
               className={`rounded-md border p-3 text-left hover:bg-primary/5 focus:outline-none focus:ring-2 focus:ring-primary/40 ${found.includes(c.id) ? "bg-white" : "bg-primary/5"}`}
               aria-pressed={found.includes(c.id)}
             >
-              <div className="font-medium">{c.label}</div>
+              <div className="font-medium break-words leading-snug">{c.label}</div>
               {found.includes(c.id) ? (
-                <div className="mt-1 text-sm text-muted-foreground">{c.text}</div>
+                <div className="mt-1 text-sm text-muted-foreground break-words leading-relaxed">{c.text}</div>
               ) : (
                 <div className="mt-1 text-xs text-muted-foreground">Cliquer pour inspecter</div>
               )}
