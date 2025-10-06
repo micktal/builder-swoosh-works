@@ -208,7 +208,7 @@ export default function Formations() {
       </section>
 
       {/* CTA final */}
-      <section className="bg-[#0E1E2B] text-white">
+      <section className="bg-[#0E1E2B] text-white section-y">
         <div className="container-padded py-14 md:py-16 text-center">
           <Reveal>
             <h3 className="text-2xl md:text-3xl font-heading font-bold">Prêt à transformer vos formations ?</h3>
