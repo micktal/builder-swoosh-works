@@ -48,9 +48,6 @@ export default function Header() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
-          <Link to="/contact" className="btn-cta">Demander une démo</Link>
-        </div>
 
         <button
           className="md:hidden inline-flex items-center justify-center rounded-[8px] border px-3 py-2"
@@ -77,7 +74,6 @@ export default function Header() {
                 {item.label}
               </NavLink>
             ))}
-            <Link to="/contact" onClick={() => setOpen(false)} className="btn-cta w-full text-center">Demander une démo</Link>
           </div>
         </div>
       )}
