@@ -34,7 +34,7 @@ export default function Demonstrations() {
 
       {/* Exemples Articulate */}
       <section className="bg-[#F9FAFB] section-y" id="articulate">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded section-y">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Modules e-learning interactifs (Articulate)</h2>
           </Reveal>
@@ -67,7 +67,7 @@ export default function Demonstrations() {
 
       {/* Exercices H5P */}
       <section className="bg-white section-y" id="h5p">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded section-y">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Testez vos réflexes avec nos exercices interactifs</h2>
           </Reveal>
@@ -102,7 +102,7 @@ export default function Demonstrations() {
 
       {/* Résultats & progression */}
       <section className="bg-[#F9FAFB] section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded section-y">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Un apprentissage engageant et mesurable</h2>
           </Reveal>
@@ -137,7 +137,7 @@ export default function Demonstrations() {
 
       {/* Pourquoi ces démonstrations comptent */}
       <section className="bg-white section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded section-y">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">La preuve par l’expérience</h2>
           </Reveal>
