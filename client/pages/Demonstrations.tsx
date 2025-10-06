@@ -254,7 +254,7 @@ export default function Demonstrations() {
 
       {/* CTA finale */}
       <section className="bg-[#0E1E2B] text-white section-y">
-        <div className="container-padded py-14 md:py-16 text-center">
+        <div className="container-padded py-8 md:py-12 text-center">
           <Reveal>
             <h3 className="text-2xl md:text-3xl font-heading font-bold">Envie d’en voir plus ?</h3>
           </Reveal>

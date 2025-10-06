@@ -106,7 +106,7 @@ export default function Index() {
 
       {/* Notre méthode en 4 étapes simples */}
       <section className="bg-white section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded py-8 md:py-12">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Notre méthode en 4 étapes simples</h2>
           </Reveal>
@@ -140,7 +140,7 @@ export default function Index() {
 
       {/* Exemples de formations */}
       <section className="bg-[#F9FAFB] section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded py-8 md:py-12">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Des modules concrets, ancrés dans le réel.</h2>
           </Reveal>
@@ -453,16 +453,16 @@ export default function Index() {
 
       {/* Des résultats mesurables */}
       <section className="bg-white section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded py-8 md:py-12">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Des r��sultats mesurables à chaque étape.</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">Des résultats mesurables à chaque étape.</h2>
           </Reveal>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { k: "96%", v: "satisfaction apprenants" },
               { k: "+40%", v: "de rétention après 3 mois" },
               { k: "-30%", v: "de coûts logistiques" },
-              { k: "3 à 10 jours", v: "pour le déploiement" },
+              { k: "3 à 10 jours", v: "pour le d��ploiement" },
             ].map((stat, i) => (
               <Reveal key={stat.k} delay={i * 100}>
                 <div className="card p-6 text-center">
@@ -478,7 +478,7 @@ export default function Index() {
 
       {/* Témoignages */}
       <section className="bg-[#F9FAFB] section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded py-8 md:py-12">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Ils ont choisi la pédagogie FPSG</h2>
           </Reveal>
