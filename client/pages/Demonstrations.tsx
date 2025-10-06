@@ -176,7 +176,7 @@ export default function Demonstrations() {
                     t: 65,
                     prompt: "Le calme relatif revient. Prochaine étape ?",
                     choices: [
-                      { id: "alert", label: "Alerter selon la procédure et rester à couvert jusqu'au signal", correct: true, feedback: "Exact: alerte + sécurité personnelle.", },
+                      { id: "alert", label: "Alerter selon la procédure et rester à couvert jusqu'au signal", correct: true, feedback: "Exact: alerte + sécurit�� personnelle.", },
                       { id: "sort", label: "Sortir immédiatement sans vérifier", correct: false, feedback: "Restez en sécurité jusqu'aux consignes.", rewind: 6 },
                       { id: "rien", label: "Ne rien faire", correct: false, feedback: "Procédure d'alerte nécessaire.", rewind: 6 },
                     ],
@@ -200,6 +200,9 @@ export default function Demonstrations() {
           <div className="mt-8 grid gap-8 md:grid-cols-2">
             <Reveal>
               <ImageRiskZones />
+            </Reveal>
+            <Reveal delay={80}>
+              <ImageRiskOnboarding />
             </Reveal>
           </div>
         </div>
