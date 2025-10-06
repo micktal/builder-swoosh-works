@@ -68,19 +68,47 @@ export default function SureteGuidelinesCards() {
       <div className="grid gap-6 md:grid-cols-2">
         {items.map((it, i) => (
           <Reveal key={it.title} delay={i * 100}>
-            <article
-              className={`group bg-white rounded-3xl p-8 shadow-[0_4px_12px_rgba(0,0,0,0.08)] transition-all duration-300 hover:-translate-y-1.5 ${it.hover}`}
-              style={{ borderTop: `4px solid ${it.accent}` }}
+            <div
+              className="relative [perspective:1000px]"
+              role="button"
+              tabIndex={0}
+              aria-pressed={!!flipped[i]}
+              onClick={() => toggle(i)}
+              onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), toggle(i))}
             >
               <div
-                className="h-12 w-12 rounded-full grid place-items-center"
-                style={{ backgroundColor: `${it.accent}1A`, color: it.accent }}
+                className={`relative h-full min-h-[220px] rounded-3xl transition-all duration-500 [transform-style:preserve-3d] shadow-[0_4px_12px_rgba(0,0,0,0.08)] ${
+                  flipped[i] ? "[transform:rotateY(180deg)]" : ""
+                } ${!flipped[i] ? `hover:-translate-y-1.5 ${it.hover}` : ""}`}
+                style={{ borderTop: `4px solid ${it.accent}` }}
               >
-                <it.icon className={`h-6 w-6 ${it.iconClass}`} />
+                {/* Front */}
+                <div
+                  className="absolute inset-0 bg-white rounded-3d p-8"
+                  style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" as any }}
+                >
+                  <div
+                    className="h-12 w-12 rounded-full grid place-items-center"
+                    style={{ backgroundColor: `${it.accent}1A`, color: it.accent }}
+                  >
+                    <it.icon className={`h-6 w-6 ${it.iconClass}`} />
+                  </div>
+                  <h4 className="mt-4 text-xl font-heading font-semibold">{it.title}</h4>
+                  <p className="mt-2 text-sm md:text-base text-muted-foreground">{it.desc}</p>
+                  <div className="mt-4 text-xs text-muted-foreground">Cliquer pour voir un exemple concret</div>
+                </div>
+
+                {/* Back */}
+                <div
+                  className="absolute inset-0 rounded-3xl p-8 bg-white"
+                  style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" as any }}
+                >
+                  <h4 className="text-xl font-heading font-semibold">Exemple concret</h4>
+                  <p className="mt-2 text-sm md:text-base text-foreground/80">{it.example}</p>
+                  <div className="mt-4 text-xs text-muted-foreground">Cliquer à nouveau pour revenir</div>
+                </div>
               </div>
-              <h4 className="mt-4 text-xl font-heading font-semibold">{it.title}</h4>
-              <p className="mt-2 text-sm md:text-base text-muted-foreground">{it.desc}</p>
-            </article>
+            </div>
           </Reveal>
         ))}
       </div>
