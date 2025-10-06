@@ -169,24 +169,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Logos */}
-      <section className="bg-[#F9FAFB] section-y">
-        <div className="container-padded section-y">
-          <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Ils nous font confiance</h2>
-          </Reveal>
-          <Reveal delay={80}>
-            <p className="mt-2 text-muted-foreground">FPSG Digital Learning accompagne les plus grandes entreprises françaises dans la formation de leurs collaborateurs.</p>
-          </Reveal>
-          <div className="mt-8 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {["gilead","gerflor","thales","bnp","cocacola","eurotunnel"].map((name) => (
-              <div key={name} className="card p-4 bg-white grayscale hover:grayscale-0 transition">
-                <img src={`https://dummyimage.com/160x60/ffffff/cccccc&text=${name}`} alt={`Logo ${name}`} className="mx-auto" />
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Engagements */}
       <section className="bg-white section-y">
