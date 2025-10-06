@@ -23,12 +23,6 @@ export default function Approche() {
           <Reveal delay={100}>
             <p className="mt-4 text-lg md:text-xl text-white/80">De la salle au digital, FPSG transforme la formation en expérience apprenante.</p>
           </Reveal>
-          <Reveal delay={180}>
-            <div className="mt-8 cta-group">
-              <Link to="/nos-formations" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Découvrir nos formations</Link>
-              <Link to="/contact" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10 bg-white">Demander une démo</Link>
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -211,7 +205,6 @@ export default function Approche() {
               <p className="mt-2 text-white/80">Contactez nos experts pour une démonstration personnalisée.</p>
             </div>
             <div className="cta-group">
-              <Link to="/contact" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Demander une démo</Link>
               <Link to="/nos-formations" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10 bg-white">Voir les modules</Link>
             </div>
           </div>
