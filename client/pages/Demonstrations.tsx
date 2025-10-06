@@ -5,6 +5,7 @@ import { BarChart3, Gauge, LineChart, ThumbsUp, Eye, Lightbulb, Megaphone, Zap }
 import InteractiveSimulationCard from "@/components/interactive/InteractiveSimulationCard";
 import QuizSecurity from "@/components/interactive/QuizSecurity";
 import ImageRiskZones from "@/components/interactive/ImageRiskZones";
+import ImageRiskOnboarding from "@/components/interactive/ImageRiskOnboarding";
 import InteractiveVideoDecisions from "@/components/interactive/InteractiveVideoDecisions";
 import CultureSafetyDnD from "@/components/interactive/CultureSafetyDnD";
 import SureteGuidelinesCards from "@/components/interactive/SureteGuidelinesCards";
