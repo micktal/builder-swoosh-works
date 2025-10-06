@@ -170,8 +170,9 @@ export default function Formations() {
             ].map((m, i) => (
               <Reveal key={m.t} delay={i * 80}>
                 <div className="card overflow-hidden">
-                  <div className="aspect-[16/10] bg-black/5">
-                    <iframe src={m.src} title={m.t} className="h-full w-full" frameBorder="0" />
+                  <div className="bg-black/5">
+                    <div className="text-center text-xs text-muted-foreground pt-4">Exercice interactif</div>
+                    <iframe src={m.src} title={m.t} className="embed-frame" frameBorder="0" />
                   </div>
                   <div className="p-4 text-sm text-muted-foreground">Extrait de démonstration – version e-learning FPSG.</div>
                 </div>
