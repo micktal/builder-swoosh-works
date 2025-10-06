@@ -126,7 +126,7 @@ export default function Formations() {
       </section>
 
       {/* Avantages entreprise */}
-      <section className="bg-white">
+      <section className="bg-white section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Pourquoi digitaliser vos formations ?</h2>
