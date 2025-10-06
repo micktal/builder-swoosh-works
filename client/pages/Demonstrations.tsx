@@ -1,7 +1,7 @@
 import Reveal from "@/components/Reveal";
 import { ProgressOnView, CountUpOnView } from "@/components/metrics";
 import { Link } from "react-router-dom";
-import { BarChart3, Gauge, LineChart, ThumbsUp, Eye, Lightbulb, Megaphone, Zap } from "lucide-react";
+import { BarChart3, Gauge, LineChart, ThumbsUp } from "lucide-react";
 import QuizSecurity from "@/components/interactive/QuizSecurity";
 import ImageRiskOnboarding from "@/components/interactive/ImageRiskOnboarding";
 import InteractiveVideoDecisions from "@/components/interactive/InteractiveVideoDecisions";
@@ -95,32 +95,6 @@ export default function Demonstrations() {
         </div>
       </section>
 
-      {/* SECTION 3 — LES 4 PILIERS FPSG */}
-      <section className="bg-white section-y">
-        <div className="container-padded section-y">
-          <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Les 4 piliers FPSG</h2>
-          </Reveal>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { t: "Observer", d: "Repérer les signaux faibles, les comportements à risque.", icon: Eye },
-              { t: "Anticiper", d: "Prévenir avant d’avoir à corriger.", icon: Lightbulb },
-              { t: "Communiquer", d: "Partager l’information et la vigilance.", icon: Megaphone },
-              { t: "Agir", d: "Intervenir vite, efficacement et en sécurité.", icon: Zap },
-            ].map((c, i) => (
-              <Reveal key={c.t} delay={i * 100}>
-                <article className="card p-6 hover:shadow-lg transition-transform hover:-translate-y-0.5">
-                  <div className="h-12 w-12 rounded-full bg-primary/10 text-primary grid place-items-center">
-                    <c.icon className="h-6 w-6" />
-                  </div>
-                  <h3 className="mt-4 text-xl font-heading font-semibold">{c.t}</h3>
-                  <p className="mt-2 text-muted-foreground">{c.d}</p>
-                </article>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Exercices H5P */}
       <section className="bg-white section-y" id="h5p">
