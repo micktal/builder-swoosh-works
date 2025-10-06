@@ -21,7 +21,7 @@ export default function Formations() {
             <p className="mt-3 max-w-3xl text-white/80">Des modules interactifs et mesurables pour développer les compétences humaines au cœur de la sécurité.</p>
           </Reveal>
           <Reveal delay={160}>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <div className="mt-8 cta-group">
               <Link to="/contact" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Demander une démo gratuite</Link>
               <Link to="/contact" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10 bg-white">Contactez-nous</Link>
             </div>
@@ -108,7 +108,7 @@ export default function Formations() {
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {[
               { t: "Scénarios interactifs", d: "Cas concrets et mises en situation réelles.", icon: PlayCircle },
-              { t: "Feedback immédiat", d: "Évaluations int��grées et retours dynamiques.", icon: BadgeCheck },
+              { t: "Feedback immédiat", d: "Évaluations intégrées et retours dynamiques.", icon: BadgeCheck },
               { t: "Progression guidée", d: "Parcours structuré selon Bloom.", icon: GraduationCap },
             ].map((f, i) => (
               <Reveal key={f.t} delay={i * 80}>
