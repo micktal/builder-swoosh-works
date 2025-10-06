@@ -105,7 +105,8 @@
 
 @layer components {
   .container-padded { @apply container px-4 sm:px-6 lg:px-8; }
-  .btn-cta { @apply inline-flex items-center justify-center rounded-[10px] bg-primary text-white px-6 py-3 shadow-[0_8px_24px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] transition-all; font-family: theme("fontFamily.heading"); }
-  .card { @apply rounded-[10px] bg-card text-card-foreground shadow-[0_8px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1)] transition-all; }
+  .btn-cta { @apply inline-flex items-center justify-center rounded-[8px] bg-primary text-white px-6 py-3 shadow-[0_8px_24px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all font-semibold; font-family: theme("fontFamily.heading"); }
+  .card { @apply rounded-[10px] bg-card text-card-foreground shadow-[0_8px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1)] hover:-translate-y-0.5 transition-all; }
   .badge-soft { @apply inline-flex items-center rounded-full bg-accent px-3 py-1 text-sm font-medium text-accent-foreground; }
+  .btn-outline-green { @apply inline-flex items-center justify-center rounded-[8px] border border-primary text-primary px-6 py-3 hover:bg-primary/10 transition-all font-semibold; font-family: theme("fontFamily.heading"); }
 }
