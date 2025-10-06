@@ -30,7 +30,7 @@ export default function Formations() {
       </section>
 
       {/* Catégories */}
-      <section className="bg-[#F9FAFB]" id="categories">
+      <section className="bg-[#F9FAFB] section-y" id="categories">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">6 univers pour renforcer vos équipes</h2>
