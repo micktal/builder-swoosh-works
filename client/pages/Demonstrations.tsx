@@ -136,6 +136,9 @@ export default function Demonstrations() {
             <Reveal>
               <QuizSecurity />
             </Reveal>
+            <Reveal delay={80}>
+              <ActionPriorityOrder />
+            </Reveal>
             <Reveal delay={160}>
               <InteractiveVideoDecisions
                 title="Vidéo interactive – Réagir au bon moment"
