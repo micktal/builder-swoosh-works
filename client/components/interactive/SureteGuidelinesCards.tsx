@@ -77,14 +77,14 @@ export default function SureteGuidelinesCards() {
               onKeyDown={(e) => (e.key === "Enter" || e.key === " ") && (e.preventDefault(), toggle(i))}
             >
               <div
-                className={`relative h-full min-h-[220px] rounded-3xl transition-all duration-500 [transform-style:preserve-3d] shadow-[0_4px_12px_rgba(0,0,0,0.08)] ${
+                className={`relative h-full min-h-[280px] md:min-h-[320px] rounded-3xl transition-all duration-500 [transform-style:preserve-3d] shadow-[0_4px_12px_rgba(0,0,0,0.08)] ${
                   flipped[i] ? "[transform:rotateY(180deg)]" : ""
                 } ${!flipped[i] ? `hover:-translate-y-1.5 ${it.hover}` : ""}`}
                 style={{ borderTop: `4px solid ${it.accent}` }}
               >
                 {/* Front */}
                 <div
-                  className="absolute inset-0 bg-white rounded-3d p-8"
+                  className="absolute inset-0 bg-white rounded-3d p-6 md:p-8"
                   style={{ backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" as any }}
                 >
                   <div
@@ -93,18 +93,18 @@ export default function SureteGuidelinesCards() {
                   >
                     <it.icon className={`h-6 w-6 ${it.iconClass}`} />
                   </div>
-                  <h4 className="mt-4 text-xl font-heading font-semibold">{it.title}</h4>
-                  <p className="mt-2 text-sm md:text-base text-muted-foreground">{it.desc}</p>
+                  <h4 className="mt-4 text-xl font-heading font-semibold leading-snug break-words">{it.title}</h4>
+                  <p className="mt-2 text-sm md:text-base text-muted-foreground leading-relaxed break-words">{it.desc}</p>
                   <div className="mt-4 text-xs text-muted-foreground">Cliquer pour voir un exemple concret</div>
                 </div>
 
                 {/* Back */}
                 <div
-                  className="absolute inset-0 rounded-3xl p-8 bg-white"
+                  className="absolute inset-0 rounded-3xl p-6 md:p-8 bg-white"
                   style={{ transform: "rotateY(180deg)", backfaceVisibility: "hidden", WebkitBackfaceVisibility: "hidden" as any }}
                 >
-                  <h4 className="text-xl font-heading font-semibold">Exemple concret</h4>
-                  <p className="mt-2 text-sm md:text-base text-foreground/80">{it.example}</p>
+                  <h4 className="text-xl font-heading font-semibold leading-snug break-words">Exemple concret</h4>
+                  <p className="mt-2 text-sm md:text-base text-foreground/80 leading-relaxed break-words">{it.example}</p>
                   <div className="mt-4 text-xs text-muted-foreground">Cliquer à nouveau pour revenir</div>
                 </div>
               </div>
