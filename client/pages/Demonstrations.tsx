@@ -6,6 +6,7 @@ import InteractiveSimulationCard from "@/components/interactive/InteractiveSimul
 import QuizSecurity from "@/components/interactive/QuizSecurity";
 import ImageRiskZones from "@/components/interactive/ImageRiskZones";
 import InteractiveVideoDecisions from "@/components/interactive/InteractiveVideoDecisions";
+import CultureSafetyDnD from "@/components/interactive/CultureSafetyDnD";
 
 export default function Demonstrations() {
   const heroVideo = "https://videos.pexels.com/video-files/3044654/3044654-hd_1280_720_50fps.mp4";
@@ -67,20 +68,26 @@ export default function Demonstrations() {
                 ]}
               />
             </Reveal>
-            {articulate.slice(1).map((m, i) => (
-              <Reveal key={m.t} delay={(i + 1) * 80}>
-                <article className="card overflow-hidden">
-                  <div className="p-5">
-                    <h3 className="text-lg font-heading font-semibold">{m.t}</h3>
-                    <p className="mt-1 text-muted-foreground">{m.d}</p>
-                  </div>
-                  <div className="bg-black/5">
-                    <iframe src={m.src} title={m.t} className="embed-frame" frameBorder={0} />
-                  </div>
-                  <div className="p-4 text-center text-sm text-muted-foreground">Extrait de démonstration – FPSG Digital Learning.</div>
-                </article>
-              </Reveal>
-            ))}
+            {articulate
+              .slice(1)
+              .filter((m) => m.t !== "Culture sécurité FPSG")
+              .map((m, i) => (
+                <Reveal key={m.t} delay={(i + 1) * 80}>
+                  <article className="card overflow-hidden">
+                    <div className="p-5">
+                      <h3 className="text-lg font-heading font-semibold">{m.t}</h3>
+                      <p className="mt-1 text-muted-foreground">{m.d}</p>
+                    </div>
+                    <div className="bg-black/5">
+                      <iframe src={m.src} title={m.t} className="embed-frame" frameBorder={0} />
+                    </div>
+                    <div className="p-4 text-center text-sm text-muted-foreground">Extrait de démonstration – FPSG Digital Learning.</div>
+                  </article>
+                </Reveal>
+              ))}
+            <Reveal delay={240}>
+              <CultureSafetyDnD />
+            </Reveal>
           </div>
         </div>
       </section>
