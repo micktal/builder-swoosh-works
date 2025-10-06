@@ -24,7 +24,7 @@ export default function Demonstrations() {
             <p className="mt-3 max-w-3xl text-white/80">Plongez dans l’univers FPSG Digital Learning à travers des extraits réels de nos modules e-learning.</p>
           </Reveal>
           <Reveal delay={160}>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <div className="mt-8 cta-group">
               <Link to="/contact" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Demander une démo complète</Link>
               <Link to="/contact" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10 bg-white">Contactez nos équipes</Link>
             </div>
@@ -33,7 +33,7 @@ export default function Demonstrations() {
       </section>
 
       {/* Exemples Articulate */}
-      <section className="bg-[#F9FAFB]" id="articulate">
+      <section className="bg-[#F9FAFB] section-y" id="articulate">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Modules e-learning interactifs (Articulate)</h2>
@@ -54,8 +54,8 @@ export default function Demonstrations() {
                     <h3 className="text-lg font-heading font-semibold">{m.t}</h3>
                     <p className="mt-1 text-muted-foreground">{m.d}</p>
                   </div>
-                  <div className="aspect-[16/10] bg-black/5">
-                    <iframe src={m.src} title={m.t} className="h-full w-full" frameBorder={0} />
+                  <div className="bg-black/5">
+                    <iframe src={m.src} title={m.t} className="embed-frame" frameBorder={0} />
                   </div>
                   <div className="p-4 text-center text-sm text-muted-foreground">Extrait de démonstration – FPSG Digital Learning.</div>
                 </article>
@@ -66,7 +66,7 @@ export default function Demonstrations() {
       </section>
 
       {/* Exercices H5P */}
-      <section className="bg-white" id="h5p">
+      <section className="bg-white section-y" id="h5p">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Testez vos réflexes avec nos exercices interactifs</h2>
@@ -85,8 +85,9 @@ export default function Demonstrations() {
                   <div className="p-5">
                     <h3 className="text-lg font-heading font-semibold">{m.t}</h3>
                   </div>
-                  <div className="aspect-[16/10] bg-black/5">
-                    <iframe src={m.src} title={m.t} className="h-full w-full" frameBorder={0} allowFullScreen />
+                  <div className="bg-black/5">
+                    <div className="text-center text-xs text-muted-foreground pt-4">Exercice interactif</div>
+                    <iframe src={m.src} title={m.t} className="embed-frame" frameBorder={0} allowFullScreen />
                   </div>
                   <div className="p-4 text-sm text-muted-foreground">Extrait de démonstration – FPSG Digital Learning.</div>
                   <div className="px-5 pb-5">
@@ -100,7 +101,7 @@ export default function Demonstrations() {
       </section>
 
       {/* Résultats & progression */}
-      <section className="bg-[#F9FAFB]">
+      <section className="bg-[#F9FAFB] section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Un apprentissage engageant et mesurable</h2>
@@ -135,7 +136,7 @@ export default function Demonstrations() {
       </section>
 
       {/* Pourquoi ces démonstrations comptent */}
-      <section className="bg-white">
+      <section className="bg-white section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">La preuve par l’expérience</h2>
@@ -156,7 +157,7 @@ export default function Demonstrations() {
       </section>
 
       {/* CTA finale */}
-      <section className="bg-[#0E1E2B] text-white">
+      <section className="bg-[#0E1E2B] text-white section-y">
         <div className="container-padded py-14 md:py-16 text-center">
           <Reveal>
             <h3 className="text-2xl md:text-3xl font-heading font-bold">Envie d’en voir plus ?</h3>
