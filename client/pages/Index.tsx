@@ -152,8 +152,111 @@ export default function Index() {
                       )}
                     </div>
                     {i === 0 && showUseCase && (
-                      <div className="mt-4 bg-black/5 rounded-md overflow-hidden">
-                        <iframe src="https://modules.fpsg.fr/visiteur/index.html" title="Gérer un visiteur mécontent" className="embed-frame" frameBorder={0} />
+                      <div className="mt-4 card p-6">
+                        <div className="text-xs uppercase tracking-wide text-primary/80">Titre du module</div>
+                        <h4 className="mt-1 text-xl font-heading font-semibold">Gérer un visiteur mécontent – Simulation FPSG : la posture assertive</h4>
+
+                        <div className="mt-4 space-y-4 text-sm leading-relaxed">
+                          <div>
+                            <div className="font-semibold">Contexte du scénario</div>
+                            <ul className="list-disc pl-5 mt-1 space-y-1">
+                              <li><span className="font-medium">Lieu:</span> hall d’accueil d’une entreprise (réception FPSG ou poste de sûreté).</li>
+                              <li><span className="font-medium">Personnages:</span> Camille (agent d’accueil / agent de sûreté), M. Durand (visiteur mécontent).</li>
+                              <li><span className="font-medium">Ambiance:</span> agitation modérée, tension croissante mais contrôlable.</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 1 – Introduction vidéo / narration</div>
+                            <p className="mt-1 italic">Narrateur: “Un visiteur se présente à l’accueil, contrarié. Sa demande n’a pas été anticipée, et la situation dégénère. Comment réagir avec calme, empathie et fermeté ?”</p>
+                            <ul className="list-disc pl-5 mt-2 space-y-1">
+                              <li><span className="font-medium">Mission:</span> Maintenir la sérénité tout en gérant la frustration du visiteur.</li>
+                              <li><span className="font-medium">Bouton:</span> “Commencer la simulation”</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 2 – Première interaction</div>
+                            <p className="mt-1">Visiteur: “C’est pas possible, j’ai rendez-vous depuis une heure et personne ne vient me chercher !”</p>
+                            <div className="mt-2">
+                              <div className="font-medium">Choix</div>
+                              <ul className="list-disc pl-5 mt-1 space-y-1">
+                                <li>A. “Je ne suis pas responsable, appelez votre contact.” <span className="text-red-600">(réaction défensive)</span></li>
+                                <li>B. “Je comprends, je vais voir ce que je peux faire pour vous aider.” <span className="text-green-700">(assertif)</span></li>
+                                <li>C. “Si vous continuez à vous énerver, je ne vous reçois pas.” <span className="text-red-600">(agressif)</span></li>
+                              </ul>
+                              <div className="mt-2 font-medium">Feedback</div>
+                              <ul className="list-disc pl-5 mt-1 space-y-1">
+                                <li>A → Réponse défensive : tu risques d’augmenter la tension.</li>
+                                <li>B → Bonne approche : reconnaissance + action.</li>
+                                <li>C → Réponse autoritaire : tu coupes le dialogue.</li>
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 3 – Deuxième séquence (émotionnelle)</div>
+                            <p className="mt-1">Visiteur: “On me balade depuis tout à l’heure, c’est inadmissible !”</p>
+                            <div className="mt-2">
+                              <div className="font-medium">Choix</div>
+                              <ul className="list-disc pl-5 mt-1 space-y-1">
+                                <li>A. “Je vois que vous êtes en colère, mais restons calmes.” <span className="text-green-700">(✓)</span></li>
+                                <li>B. “Ce n’est pas ma faute.”</li>
+                                <li>C. “Je vais appeler la sécurité.”</li>
+                              </ul>
+                              <div className="mt-2 font-medium">Feedback</div>
+                              <ul className="list-disc pl-5 mt-1 space-y-1">
+                                <li>A → Reconnaître l’émotion permet de désamorcer la colère.</li>
+                                <li>B → Évite la justification : reste sur le besoin de la personne.</li>
+                                <li>C → Tu déclenches un rapport de force inutile.</li>
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 4 – Troisième séquence (gestion assertive)</div>
+                            <p className="mt-1">Visiteur: “Je veux parler à votre responsable, maintenant !”</p>
+                            <div className="mt-2">
+                              <div className="font-medium">Choix</div>
+                              <ul className="list-disc pl-5 mt-1 space-y-1">
+                                <li>A. “Je peux prévenir mon responsable, mais je veux d’abord comprendre ce qui pose problème.” <span className="text-green-700">(✓)</span></li>
+                                <li>B. “Attendez, je ne peux pas faire ça.”</li>
+                                <li>C. “Vous exagérez, tout le monde attend.”</li>
+                              </ul>
+                              <div className="mt-2 font-medium">Feedback</div>
+                              <ul className="list-disc pl-5 mt-1 space-y-1">
+                                <li>A → Tu montres ton ouverture tout en gardant le contrôle.</li>
+                                <li>B → Refus sec : perte d’écoute.</li>
+                                <li>C → Comparaison : tu minimises son ressenti.</li>
+                              </ul>
+                            </div>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 5 – Conclusion / débrief</div>
+                            <p className="mt-1">L’ambiance se détend, le visiteur s’excuse: “Désolé, j’étais juste stressé par mon rendez-vous.”</p>
+                            <p className="mt-1 italic">Narrateur: “Bravo, tu as su adopter une posture assertive : calme, écoute et professionnalisme.”</p>
+                            <ul className="list-disc pl-5 mt-2 space-y-1">
+                              <li>Accueillir l’émotion sans l’amplifier</li>
+                              <li>Exprimer sa position sans se justifier</li>
+                              <li>Proposer une solution concrète</li>
+                            </ul>
+                            <div className="mt-2 text-xs text-muted-foreground">Bonus: barre de progression “Tension → Calme” qui descend à la fin.</div>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 6 – Fiche de synthèse</div>
+                            <div className="mt-1">Les 3 piliers de la communication assertive FPSG :</div>
+                            <ol className="list-decimal pl-5 mt-1 space-y-1">
+                              <li>Empathie → “Je comprends votre ressenti.”</li>
+                              <li>Clarté → “Voici ce que je peux faire maintenant.”</li>
+                              <li>Fermeté sereine → “Je ne peux pas accéder à cette demande, mais voici une alternative.”</li>
+                            </ol>
+                            <blockquote className="mt-2 italic">“La meilleure réponse à la colère, c’est la clarté calme.”</blockquote>
+                          </div>
+                        </div>
+
+                        <div className="mt-4 text-xs text-muted-foreground">Extrait de démonstration – FPSG Digital Learning.</div>
                       </div>
                     )}
                   </div>
