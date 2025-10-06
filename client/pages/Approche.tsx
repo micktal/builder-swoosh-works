@@ -9,7 +9,7 @@ export default function Approche() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#0E1E2B] text-white">
+      <section className="relative overflow-hidden bg-[#0E1E2B] text-white section-y">
         <div className="absolute inset-0 -z-10">
           <video className="h-full w-full object-cover opacity-25" autoPlay muted loop playsInline poster={heroPoster}>
             <source src={heroVideo} type="video/mp4" />
@@ -24,7 +24,7 @@ export default function Approche() {
             <p className="mt-4 text-lg md:text-xl text-white/80">De la salle au digital, FPSG transforme la formation en expérience apprenante.</p>
           </Reveal>
           <Reveal delay={180}>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <div className="mt-8 cta-group">
               <Link to="/nos-formations" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Découvrir nos formations</Link>
               <Link to="/contact" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10 bg-white">Demander une démo</Link>
             </div>
@@ -33,7 +33,7 @@ export default function Approche() {
       </section>
 
       {/* Méthode en 4 étapes */}
-      <section className="bg-white">
+      <section className="bg-white section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Notre méthode en 4 étapes simples</h2>
@@ -70,7 +70,7 @@ export default function Approche() {
       </section>
 
       {/* Pédagogie Bloom */}
-      <section className="bg-[#F9FAFB]">
+      <section className="bg-[#F9FAFB] section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Une pédagogie active et mesurable – le modèle Bloom</h2>
@@ -100,7 +100,7 @@ export default function Approche() {
               <img
                 src="https://images.unsplash.com/photo-1523580846011-d3a5bc25702b?q=80&w=1200&auto=format&fit=crop"
                 alt="Schéma de la pyramide de Bloom"
-                className="rounded-[10px] shadow-[0_12px_32px_rgba(0,0,0,0.1)]"
+                className="rounded-[8px] shadow-none md:shadow-[0_12px_32px_rgba(0,0,0,0.1)]"
               />
             </div>
           </div>
@@ -108,7 +108,7 @@ export default function Approche() {
       </section>
 
       {/* Approche data-driven */}
-      <section className="bg-white">
+      <section className="bg-white section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Une approche data-driven pour mesurer la performance</h2>
@@ -137,7 +137,7 @@ export default function Approche() {
       </section>
 
       {/* Impact humain mesurable */}
-      <section className="bg-[#F9FAFB]">
+      <section className="bg-[#F9FAFB] section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">L’humain au cœur du digital</h2>
@@ -171,7 +171,7 @@ export default function Approche() {
       </section>
 
       {/* Chiffres et preuves */}
-      <section className="bg-white">
+      <section className="bg-white section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Des résultats concrets</h2>
@@ -210,7 +210,7 @@ export default function Approche() {
               <h3 className="text-2xl md:text-3xl font-heading font-bold">Digitalisez vos formations avec FPSG.</h3>
               <p className="mt-2 text-white/80">Contactez nos experts pour une démonstration personnalisée.</p>
             </div>
-            <div className="flex flex-col sm:flex-row gap-3">
+            <div className="cta-group">
               <Link to="/contact" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Demander une démo</Link>
               <Link to="/nos-formations" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10 bg-white">Voir les modules</Link>
             </div>
