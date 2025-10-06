@@ -17,6 +17,7 @@ import Placeholder from "./pages/Placeholder";
 import Approche from "./pages/Approche";
 import Formations from "./pages/Formations";
 import Demonstrations from "./pages/Demonstrations";
+import Contact from "./pages/Contact";
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
