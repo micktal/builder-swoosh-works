@@ -49,7 +49,7 @@ interface InteractiveVideoDecisionsProps {
   liveHotspots?: LiveHotspots;
 }
 
-export default function InteractiveVideoDecisions({ src, poster, title, description = "Faites les bons choix au bon moment.", points }: InteractiveVideoDecisionsProps) {
+export default function InteractiveVideoDecisions({ src, poster, title, description = "Faites les bons choix au bon moment.", points, liveHotspots }: InteractiveVideoDecisionsProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [currentIdx, setCurrentIdx] = useState<number>(-1);
   const [answered, setAnswered] = useState<Record<number, boolean>>({});
@@ -151,7 +151,7 @@ export default function InteractiveVideoDecisions({ src, poster, title, descript
           </video>
 
           {/* Live hotspots overlay (active while video plays) */}
-          {liveHotspots && (!currentIdx || currentIdx < 0) && (
+          {liveHotspots && currentIdx < 0 && (
             (() => {
               const active = t >= liveHotspots.start && (liveHotspots.end ? t <= liveHotspots.end : true);
               if (!active) return null;
