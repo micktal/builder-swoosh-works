@@ -81,7 +81,7 @@ export default function Formations() {
             ].map((m, i) => (
               <Reveal key={m.t} delay={i * 80}>
                 <article className="card overflow-hidden">
-                  <img src={m.img} alt="" className="h-44 w-full object-cover" />
+                  <img src={m.img} alt="" className="h-44 w-full object-cover rounded-[8px]" />
                   <div className="p-5">
                     <h3 className="text-lg font-heading font-semibold">{m.t}</h3>
                     <p className="mt-1 text-muted-foreground">{m.d}</p>
