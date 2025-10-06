@@ -65,7 +65,7 @@ export default function Formations() {
       </section>
 
       {/* Focus formations phares */}
-      <section className="bg-white" id="focus">
+      <section className="bg-white section-y" id="focus">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Des modules concrets, validés par nos experts</h2>
