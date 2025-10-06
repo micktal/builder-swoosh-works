@@ -505,21 +505,6 @@ export default function Index() {
         </div>
       </section>
 
-      {/* CTA finale */}
-      <section className="bg-[#0E1E2B] text-white section-y">
-        <div className="container-padded py-14 md:py-16">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
-            <div>
-              <h3 className="text-2xl md:text-3xl font-heading font-bold">Digitalisez vos formations comportementales, simplement.</h3>
-              <p className="mt-2 text-white/80">Contactez nos experts et découvrez comment FPSG modernise la prévention.</p>
-            </div>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <Link to="/contact" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Demander une démo</Link>
-              <Link to="/contact" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10 bg-white">Nous contacter</Link>
-            </div>
-          </div>
-        </div>
-      </section>
     </main>
   );
 }
