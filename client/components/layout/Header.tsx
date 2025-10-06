@@ -16,7 +16,7 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full bg-white/90 backdrop-blur shadow-sm">
+    <header className="sticky top-0 z-40 w-full bg-white/90 backdrop-blur shadow-sm animate-fade-down">
       <div className="container-padded flex h-20 items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
           <img
