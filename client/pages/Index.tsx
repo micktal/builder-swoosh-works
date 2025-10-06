@@ -144,7 +144,11 @@ export default function Index() {
                     <h3 className="text-lg font-heading font-semibold">{m.t}</h3>
                     <p className="mt-1 text-muted-foreground">{m.d}</p>
                     <div className="mt-4">
-                      <Link to="/demonstrations" className="btn-cta">Voir une démo</Link>
+                      {i === 0 ? (
+                        <span className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary">Use case</span>
+                      ) : (
+                        <Link to="/demonstrations" className="btn-cta">Voir une démo</Link>
+                      )}
                     </div>
                   </div>
                 </article>
