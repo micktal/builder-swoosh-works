@@ -5,6 +5,7 @@ import { BarChart3, Gauge, LineChart, ThumbsUp } from "lucide-react";
 import InteractiveSimulationCard from "@/components/interactive/InteractiveSimulationCard";
 import QuizSecurity from "@/components/interactive/QuizSecurity";
 import ImageRiskZones from "@/components/interactive/ImageRiskZones";
+import InteractiveVideoDecisions from "@/components/interactive/InteractiveVideoDecisions";
 
 export default function Demonstrations() {
   const heroVideo = "https://videos.pexels.com/video-files/3044654/3044654-hd_1280_720_50fps.mp4";
@@ -100,25 +101,42 @@ export default function Demonstrations() {
             <Reveal delay={80}>
               <ImageRiskZones />
             </Reveal>
-            {[
-              { t: "Vidéo interactive – Réagir au bon moment", src: "https://yourcompany.h5p.com/content/135792468/embed" },
-            ].map((m, i) => (
-              <Reveal key={m.t} delay={(i + 2) * 80}>
-                <article className="card overflow-hidden h-full flex flex-col">
-                  <div className="p-5">
-                    <h3 className="text-lg font-heading font-semibold">{m.t}</h3>
-                  </div>
-                  <div className="bg-black/5">
-                    <div className="text-center text-xs text-muted-foreground pt-4">Exercice interactif</div>
-                    <iframe src={m.src} title={m.t} className="embed-frame" frameBorder={0} allowFullScreen />
-                  </div>
-                  <div className="p-4 text-sm text-muted-foreground">Extrait de démonstration – FPSG Digital Learning.</div>
-                  <div className="px-5 pb-5">
-                    <a href={m.src} target="_blank" rel="noreferrer" className="btn-cta">Faire l’exercice</a>
-                  </div>
-                </article>
-              </Reveal>
-            ))}
+            <Reveal delay={160}>
+              <InteractiveVideoDecisions
+                title="Vidéo interactive – Réagir au bon moment"
+                description="Exercice: se mettre en sécurité et alerter au moment opportun."
+                src="https://cdn.builder.io/o/assets%2Fd93d9a0ec7824aa1ac4d890a1f90a2ec%2Fd433eeb9d698411b9587a195480bbb40?alt=media&token=b5ea1efc-988d-4828-8529-6b8da4c89041&apiKey=d93d9a0ec7824aa1ac4d890a1f90a2ec"
+                points={[
+                  {
+                    t: 18,
+                    prompt: "Des individus pénètrent dans le magasin. Quelle première réaction ?",
+                    choices: [
+                      { id: "obs", label: "Observer discrètement et se mettre à couvert", correct: true, feedback: "Bonne réaction: priorisez votre sécurité et l'observation.", },
+                      { id: "int", label: "Intervenir immédiatement", correct: false, feedback: "Risque élevé. Ne vous exposez pas.", rewind: 8 },
+                      { id: "fil", label: "Filmer la scène", correct: false, feedback: "Non: votre sécurité prime. Cachez-vous d'abord.", rewind: 8 },
+                    ],
+                  },
+                  {
+                    t: 42,
+                    prompt: "Vous êtes proche d'un étalage. Que faire ?",
+                    choices: [
+                      { id: "hide", label: "Se dissimuler derrière l'étalage, hors du champ de vision", correct: true, feedback: "Correct: mettez une barrière visuelle entre vous et le danger.", },
+                      { id: "fu", label: "S'enfuir en courant dans l'allée principale", correct: false, feedback: "Potentiellement dangereux. Préférez un couvert stable.", rewind: 10 },
+                      { id: "par", label: "Se rapprocher pour mieux voir", correct: false, feedback: "Restez à couvert: distance et discrétion.", rewind: 10 },
+                    ],
+                  },
+                  {
+                    t: 65,
+                    prompt: "Le calme relatif revient. Prochaine étape ?",
+                    choices: [
+                      { id: "alert", label: "Alerter selon la procédure et rester à couvert jusqu'au signal", correct: true, feedback: "Exact: alerte + sécurité personnelle.", },
+                      { id: "sort", label: "Sortir immédiatement sans vérifier", correct: false, feedback: "Restez en sécurité jusqu'aux consignes.", rewind: 6 },
+                      { id: "rien", label: "Ne rien faire", correct: false, feedback: "Procédure d'alerte nécessaire.", rewind: 6 },
+                    ],
+                  },
+                ]}
+              />
+            </Reveal>
           </div>
         </div>
       </section>
