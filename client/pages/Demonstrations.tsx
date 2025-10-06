@@ -5,8 +5,8 @@ import { BarChart3, Gauge, LineChart, ThumbsUp } from "lucide-react";
 import InteractiveSimulationCard from "@/components/interactive/InteractiveSimulationCard";
 
 export default function Demonstrations() {
-  const heroVideo = "https://cdn.coverr.co/videos/coverr-business-team-working-7737/1080p.mp4";
-  const heroPoster = "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1600&auto=format&fit=crop";
+  const heroVideo = "https://videos.pexels.com/video-files/3044654/3044654-hd_1280_720_50fps.mp4";
+  const heroPoster = "https://images.pexels.com/photos/7658369/pexels-photo-7658369.jpeg";
   const articulate = [
     { t: "Gérer un visiteur mécontent", d: "Simulation interactive de communication assertive.", src: "https://modules.fpsg.fr/visiteur/index.html" },
     { t: "Réagir face à une situation suspecte", d: "Scénario immersif de sûreté et vigilance comportementale.", src: "https://modules.fpsg.fr/surete/index.html" },
