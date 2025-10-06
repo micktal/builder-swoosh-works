@@ -161,37 +161,6 @@ export default function Approche() {
         </div>
       </section>
 
-      {/* Chiffres et preuves */}
-      <section className="bg-white section-y">
-        <div className="container-padded section-y">
-          <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Des résultats concrets</h2>
-          </Reveal>
-          <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            <div className="card p-6 text-center">
-              <CountUpOnView value={96} suffix=" %" className="text-4xl font-heading font-extrabold text-primary" />
-              <div className="mt-2 text-muted-foreground">satisfaction apprenants</div>
-            </div>
-            <div className="card p-6 text-center">
-              <div className="text-4xl font-heading font-extrabold text-primary">
-                +<CountUpOnView value={40} suffix=" %" />
-              </div>
-              <div className="mt-2 text-muted-foreground">de rétention après 3 mois</div>
-            </div>
-            <div className="card p-6 text-center">
-              <div className="text-4xl font-heading font-extrabold text-primary">
-                -<CountUpOnView value={30} suffix=" %" />
-              </div>
-              <div className="mt-2 text-muted-foreground">de coûts de formation</div>
-            </div>
-            <div className="card p-6 text-center">
-              <CountUpOnView value={3} suffix=" à 10 jours" className="text-4xl font-heading font-extrabold text-primary" />
-              <div className="mt-2 text-muted-foreground">pour le déploiement</div>
-            </div>
-          </div>
-          <ProgressOnView value={85} label="Taux de réussite moyen" />
-        </div>
-      </section>
 
     </main>
   );
