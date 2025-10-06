@@ -43,17 +43,6 @@ export default function Index() {
 
   return (
     <main>
-      <section className="container-padded section-y">
-        <div className="bg-black/5 rounded-md overflow-hidden">
-          <video
-            src="https://cdn.builder.io/o/assets%2Fd93d9a0ec7824aa1ac4d890a1f90a2ec%2F6763bd8c32934865b7e746c20f0c9d52?alt=media&token=08262f8b-d1fa-4b78-b8c6-b5128808924a&apiKey=d93d9a0ec7824aa1ac4d890a1f90a2ec"
-            controls
-            playsInline
-            className="w-full h-auto rounded-[8px]"
-          />
-        </div>
-      </section>
-
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#0E1E2B] text-white section-y">
         <div className="absolute inset-0 -z-10">
@@ -77,6 +66,16 @@ export default function Index() {
           </Reveal>
           <Reveal delay={100}>
             <p className="mt-4 text-lg md:text-xl text-white/80">Former. Innover. Digitaliser.</p>
+          </Reveal>
+          <Reveal delay={180}>
+            <div className="mt-6 bg-white/5 rounded-[12px] p-3 ring-1 ring-white/10">
+              <video
+                src="https://cdn.builder.io/o/assets%2Fd93d9a0ec7824aa1ac4d890a1f90a2ec%2F6763bd8c32934865b7e746c20f0c9d52?alt=media&token=08262f8b-d1fa-4b78-b8c6-b5128808924a&apiKey=d93d9a0ec7824aa1ac4d890a1f90a2ec"
+                controls
+                playsInline
+                className="w-full h-auto rounded-[8px] shadow-2xl shadow-black/20"
+              />
+            </div>
           </Reveal>
         </div>
       </section>
