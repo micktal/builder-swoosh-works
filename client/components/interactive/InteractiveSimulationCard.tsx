@@ -17,27 +17,17 @@ interface InteractiveSimulationCardProps {
 }
 
 export function InteractiveSimulationCard({ title, description, src, objectives = [], badges = ["Simulation", "Communication"] }: InteractiveSimulationCardProps) {
-  const [mountEmbed, setMountEmbed] = useState(false);
   const [loaded, setLoaded] = useState(false);
   const [open, setOpen] = useState(false);
+  const [showFallback, setShowFallback] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
 
   useEffect(() => {
-    const node = containerRef.current;
-    if (!node) return;
-    const io = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            setMountEmbed(true);
-          }
-        });
-      },
-      { rootMargin: "200px 0px", threshold: 0.1 }
-    );
-    io.observe(node);
-    return () => io.disconnect();
-  }, []);
+    const id = window.setTimeout(() => {
+      if (!loaded) setShowFallback(true);
+    }, 4000);
+    return () => window.clearTimeout(id);
+  }, [loaded]);
 
   const openNewTabHref = useMemo(() => src, [src]);
 
@@ -57,35 +47,26 @@ export function InteractiveSimulationCard({ title, description, src, objectives 
       <CardContent>
         <div ref={containerRef} className="relative">
           <AspectRatio ratio={16 / 9} className="bg-black/5 rounded-[8px] overflow-hidden">
-            {!mountEmbed && (
-              <div className="absolute inset-0 grid place-items-center">
-                <div className="w-full h-full absolute inset-0">
-                  <Skeleton className="w-full h-full" />
-                </div>
-                <Button
-                  onClick={() => setMountEmbed(true)}
-                  className="relative z-10 inline-flex items-center gap-2 bg-[#006B46] hover:bg-[#006B46]/90"
-                >
-                  <Play className="h-4 w-4" />
-                  Lancer la simulation
-                </Button>
-              </div>
-            )}
-            {mountEmbed && (
-              <iframe
-                src={src}
-                title={title}
-                className="absolute inset-0 w-full h-full"
-                frameBorder={0}
-                allowFullScreen
-                loading="lazy"
-                onLoad={() => setLoaded(true)}
-              />
-            )}
+            <iframe
+              src={src}
+              title={title}
+              className="absolute inset-0 w-full h-full"
+              frameBorder={0}
+              allowFullScreen
+              loading="lazy"
+              onLoad={() => setLoaded(true)}
+            />
           </AspectRatio>
-          {!loaded && mountEmbed && (
+          {!loaded && (
             <div className="pointer-events-none absolute inset-0">
               <Skeleton className="w-full h-full" />
+            </div>
+          )}
+          {showFallback && !loaded && (
+            <div className="absolute bottom-2 right-2">
+              <a href={src} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-md bg-white/90 shadow-md">
+                Ouvrir dans un onglet <ExternalLink className="h-3.5 w-3.5" />
+              </a>
             </div>
           )}
         </div>
