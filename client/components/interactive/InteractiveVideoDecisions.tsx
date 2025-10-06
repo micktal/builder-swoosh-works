@@ -33,12 +33,20 @@ type DecisionPoint = {
   hotspots?: Hotspot[];
 };
 
+interface LiveHotspots {
+  start: number; // seconds when hotspots become active
+  end?: number; // optional end; if omitted, active until video end
+  items: Hotspot[];
+  prompt?: string;
+}
+
 interface InteractiveVideoDecisionsProps {
   src: string;
   poster?: string;
   title: string;
   description?: string;
   points: DecisionPoint[];
+  liveHotspots?: LiveHotspots;
 }
 
 export default function InteractiveVideoDecisions({ src, poster, title, description = "Faites les bons choix au bon moment.", points }: InteractiveVideoDecisionsProps) {
@@ -47,19 +55,24 @@ export default function InteractiveVideoDecisions({ src, poster, title, descript
   const [answered, setAnswered] = useState<Record<number, boolean>>({});
   const [lastFeedback, setLastFeedback] = useState<{ ok: boolean; msg: string } | null>(null);
   const [isFs, setIsFs] = useState(false);
+  const [t, setT] = useState(0);
+  const [liveFound, setLiveFound] = useState<Record<string, boolean>>({});
 
   const total = points.length;
   const correctCount = useMemo(() => Object.values(answered).filter(Boolean).length, [answered]);
   const progress = Math.round((correctCount / total) * 100);
+  const liveTotal = useMemo(() => liveHotspots?.items.length ?? 0, [liveHotspots]);
+  const liveCount = useMemo(() => Object.values(liveFound).filter(Boolean).length, [liveFound]);
 
   // Pause at decision timestamps
   useEffect(() => {
     const v = videoRef.current;
     if (!v) return;
     const onTime = () => {
+      setT(v.currentTime);
       if (currentIdx >= 0) return; // overlay already open
-      const t = v.currentTime;
-      const nextIdx = points.findIndex((p, i) => !answered[i] && Math.floor(t) >= Math.floor(p.t));
+      const now = v.currentTime;
+      const nextIdx = points.findIndex((p, i) => !answered[i] && Math.floor(now) >= Math.floor(p.t));
       if (nextIdx !== -1) {
         v.pause();
         setCurrentIdx(nextIdx);
@@ -127,12 +140,43 @@ export default function InteractiveVideoDecisions({ src, poster, title, descript
       </CardHeader>
       <CardContent className="flex-1">
         <Progress value={progress} />
-        <div className="mt-3 text-sm text-muted-foreground">{correctCount} / {total} décisions validées</div>
+        <div className="mt-2 text-sm text-muted-foreground">{correctCount} / {total} décisions validées</div>
+        {liveHotspots && (
+          <div className="mt-1 text-xs text-muted-foreground">Hotspots trouvés: {liveCount} / {liveTotal}</div>
+        )}
 
         <div className="relative mt-4">
           <video ref={videoRef} className="w-full rounded-[8px]" controls playsInline poster={poster}>
             <source src={src} type="video/mp4" />
           </video>
+
+          {/* Live hotspots overlay (active while video plays) */}
+          {liveHotspots && (!currentIdx || currentIdx < 0) && (
+            (() => {
+              const active = t >= liveHotspots.start && (liveHotspots.end ? t <= liveHotspots.end : true);
+              if (!active) return null;
+              return (
+                <div className="absolute inset-0">
+                  {liveHotspots.items.map(h => (
+                    <button
+                      key={h.id}
+                      aria-label={h.label}
+                      onClick={() => {
+                        const c = { id: h.id, label: h.label, correct: h.correct, feedback: h.feedback, rewind: h.rewind } as Choice;
+                        handleChoice(c);
+                        if (h.correct) setLiveFound((s) => ({ ...s, [h.id]: true }));
+                      }}
+                      style={{ left: `${h.x}%`, top: `${h.y}%`, width: `${h.w}%`, height: `${h.h}%` }}
+                      className={`absolute -translate-x-1/2 -translate-y-1/2 rounded-[6px] focus:outline-none focus-visible:ring-2 ${
+                        h.correct ? "ring-green-400/60" : "ring-primary/60"
+                      } hover:bg-white/5 active:bg-white/10`}
+                      title={h.label}
+                    />
+                  ))}
+                </div>
+              );
+            })()
+          )}
 
           {currentIdx >= 0 && (
             <div className="absolute inset-0 bg-black/60 text-white grid place-items-center p-4">
