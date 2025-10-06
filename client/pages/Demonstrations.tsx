@@ -57,19 +57,7 @@ export default function Demonstrations() {
           </Reveal>
           <div className="mt-8 grid gap-8 md:grid-cols-2">
             <Reveal>
-              <InteractiveSimulationCard
-                title={articulate[0].t}
-                description={articulate[0].d}
-                src={articulate[0].src}
-                badges={["Simulation", "Communication assertive"]}
-                objectives={[
-                  "Accueillir et désamorcer l’émotion avec une posture calme et professionnelle",
-                  "Reformuler et valider les attentes du visiteur pour montrer l’écoute",
-                  "Poser un cadre clair et des limites sans agressivité",
-                  "Proposer une solution réaliste et orienter vers la bonne ressource",
-                  "Conclure positivement en s’assurant de la satisfaction finale",
-                ]}
-              />
+              <HazardMemory />
             </Reveal>
             {articulate
               .slice(1)
@@ -161,7 +149,7 @@ export default function Demonstrations() {
                     choices: [
                       { id: "obs", label: "Observer discrètement et se mettre à couvert", correct: true, feedback: "Bonne réaction: priorisez votre sécurité et l'observation.", },
                       { id: "int", label: "Intervenir immédiatement", correct: false, feedback: "Risque élevé. Ne vous exposez pas.", rewind: 8 },
-                      { id: "fil", label: "Filmer la scène", correct: false, feedback: "Non: votre sécurité prime. Cachez-vous d'abord.", rewind: 8 },
+                      { id: "fil", label: "Filmer la sc��ne", correct: false, feedback: "Non: votre sécurité prime. Cachez-vous d'abord.", rewind: 8 },
                     ],
                   },
                   {
