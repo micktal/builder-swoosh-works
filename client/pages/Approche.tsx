@@ -34,7 +34,7 @@ export default function Approche() {
 
       {/* Méthode en 4 étapes */}
       <section className="bg-white section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded section-y">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Notre méthode en 4 étapes simples</h2>
           </Reveal>
@@ -71,7 +71,7 @@ export default function Approche() {
 
       {/* Pédagogie Bloom */}
       <section className="bg-[#F9FAFB] section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded section-y">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Une pédagogie active et mesurable – le modèle Bloom</h2>
           </Reveal>
@@ -109,7 +109,7 @@ export default function Approche() {
 
       {/* Approche data-driven */}
       <section className="bg-white section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded section-y">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Une approche data-driven pour mesurer la performance</h2>
           </Reveal>
@@ -138,7 +138,7 @@ export default function Approche() {
 
       {/* Impact humain mesurable */}
       <section className="bg-[#F9FAFB] section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded section-y">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">L’humain au cœur du digital</h2>
           </Reveal>
@@ -172,7 +172,7 @@ export default function Approche() {
 
       {/* Chiffres et preuves */}
       <section className="bg-white section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded section-y">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Des résultats concrets</h2>
           </Reveal>
