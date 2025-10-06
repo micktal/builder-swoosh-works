@@ -37,12 +37,6 @@ export default function Demonstrations() {
           <Reveal delay={80}>
             <p className="mt-3 max-w-3xl text-white/80">Plongez dans l’univers FPSG Digital Learning à travers des extraits réels de nos modules e-learning.</p>
           </Reveal>
-          <Reveal delay={160}>
-            <div className="mt-8 cta-group">
-              <Link to="/contact" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Demander une démo complète</Link>
-              <Link to="/contact" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10 bg-white">Contactez nos équipes</Link>
-            </div>
-          </Reveal>
         </div>
       </section>
 
@@ -50,7 +44,7 @@ export default function Demonstrations() {
       <section className="bg-[#F9FAFB] section-y" id="articulate">
         <div className="container-padded section-y">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Modules e-learning interactifs (Articulate)</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">Modules e-learning interactifs</h2>
           </Reveal>
           <Reveal delay={80}>
             <p className="mt-3 max-w-3xl text-muted-foreground">Des extraits issus de nos formations digitales, conçues avec la pédagogie FPSG.</p>
@@ -252,23 +246,6 @@ export default function Demonstrations() {
         </div>
       </section>
 
-      {/* CTA finale */}
-      <section className="bg-[#0E1E2B] text-white section-y">
-        <div className="container-padded py-8 md:py-12 text-center">
-          <Reveal>
-            <h3 className="text-2xl md:text-3xl font-heading font-bold">Envie d’en voir plus ?</h3>
-          </Reveal>
-          <Reveal delay={80}>
-            <p className="mt-2 text-white/80">Demandez une démonstration complète et découvrez comment FPSG peut digitaliser vos formations.</p>
-          </Reveal>
-          <Reveal delay={140}>
-            <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
-              <Link to="/contact" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Demander une démo complète</Link>
-              <Link to="/nos-formations" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10 bg-white">Voir nos formations</Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
     </main>
   );
 }
