@@ -2,13 +2,14 @@ import Reveal from "@/components/Reveal";
 import { ProgressOnView, CountUpOnView } from "@/components/metrics";
 import { Link } from "react-router-dom";
 import { BarChart3, Gauge, LineChart, ThumbsUp, Eye, Lightbulb, Megaphone, Zap } from "lucide-react";
-import InteractiveSimulationCard from "@/components/interactive/InteractiveSimulationCard";
 import QuizSecurity from "@/components/interactive/QuizSecurity";
 import ImageRiskOnboarding from "@/components/interactive/ImageRiskOnboarding";
 import InteractiveVideoDecisions from "@/components/interactive/InteractiveVideoDecisions";
 import CultureSafetyDnD from "@/components/interactive/CultureSafetyDnD";
 import SureteGuidelinesCards from "@/components/interactive/SureteGuidelinesCards";
 import ActionPriorityOrder from "@/components/interactive/ActionPriorityOrder";
+import HazardMemory from "@/components/interactive/HazardMemory";
+import RpsVideoTranscript from "@/components/interactive/RpsVideoTranscript";
 import HazardMemory from "@/components/interactive/HazardMemory";
 
 export default function Demonstrations() {
@@ -59,11 +60,14 @@ export default function Demonstrations() {
             <Reveal>
               <HazardMemory />
             </Reveal>
+            <Reveal delay={80}>
+              <RpsVideoTranscript />
+            </Reveal>
             {articulate
               .slice(1)
-              .filter((m) => m.t !== "Culture sécurité FPSG" && m.t !== "Réagir face à une situation suspecte")
+              .filter((m) => m.t !== "Culture sécurité FPSG" && m.t !== "Réagir face à une situation suspecte" && m.t !== "Prévenir les RPS au quotidien")
               .map((m, i) => (
-                <Reveal key={m.t} delay={(i + 1) * 80}>
+                <Reveal key={m.t} delay={(i + 2) * 80}>
                   <article className="card overflow-hidden">
                     <div className="p-5">
                       <h3 className="text-lg font-heading font-semibold">{m.t}</h3>
@@ -149,7 +153,7 @@ export default function Demonstrations() {
                     choices: [
                       { id: "obs", label: "Observer discrètement et se mettre à couvert", correct: true, feedback: "Bonne réaction: priorisez votre sécurité et l'observation.", },
                       { id: "int", label: "Intervenir immédiatement", correct: false, feedback: "Risque élevé. Ne vous exposez pas.", rewind: 8 },
-                      { id: "fil", label: "Filmer la sc��ne", correct: false, feedback: "Non: votre sécurité prime. Cachez-vous d'abord.", rewind: 8 },
+                      { id: "fil", label: "Filmer la scène", correct: false, feedback: "Non: votre sécurité prime. Cachez-vous d'abord.", rewind: 8 },
                     ],
                   },
                   {
