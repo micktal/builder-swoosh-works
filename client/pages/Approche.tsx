@@ -258,7 +258,7 @@ export default function Approche() {
               className="rounded-[10px] shadow-[0_12px_32px_rgba(0,0,0,0.1)]"
             />
             <div>
-              <p className="text-muted-foreground">Chaque module est conçu et validé par nos formateurs experts, psychologues et ingénieurs pédagogiques. Le digital ne remplace pas l’humain : il le renforce.</p>
+              <p className="text-muted-foreground">Chaque module est conçu et validé par nos formateurs experts et ingénieurs pédagogiques. Le digital ne remplace pas l’humain : il le renforce.</p>
               <ul className="mt-4 space-y-2">
                 {[
                   "Formations conçues avec nos experts terrain",
