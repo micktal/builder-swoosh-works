@@ -40,7 +40,7 @@ export default function Index() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#0E1E2B] text-white">
+      <section className="relative overflow-hidden bg-[#0E1E2B] text-white section-y">
         <div className="absolute inset-0 -z-10">
           <video
             className="h-full w-full object-cover opacity-30"
@@ -64,7 +64,7 @@ export default function Index() {
             <p className="mt-4 text-lg md:text-xl text-white/80">Former. Innover. Digitaliser.</p>
           </Reveal>
           <Reveal delay={180}>
-            <div className="mt-8 flex flex-col sm:flex-row gap-3">
+            <div className="mt-8 cta-group">
               <Link to="/contact" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Demander une démo gratuite</Link>
               <Link to="/nos-formations" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10">Découvrir nos formations</Link>
             </div>
@@ -73,7 +73,7 @@ export default function Index() {
       </section>
 
       {/* Pourquoi choisir le digital learning FPSG ? */}
-      <section className="container-padded py-12 md:py-20">
+      <section className="container-padded section-y">
         <Reveal>
           <h2 className="text-3xl md:text-4xl font-heading font-bold">Pourquoi choisir le digital learning FPSG ?</h2>
         </Reveal>
@@ -97,7 +97,7 @@ export default function Index() {
       </section>
 
       {/* Notre méthode en 4 étapes simples */}
-      <section className="bg-white">
+      <section className="bg-white section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Notre méthode en 4 étapes simples</h2>
@@ -134,7 +134,7 @@ export default function Index() {
       </section>
 
       {/* Exemples de formations */}
-      <section className="bg-[#F9FAFB]">
+      <section className="bg-[#F9FAFB] section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Des modules concrets, ancrés dans le réel.</h2>
@@ -148,7 +148,7 @@ export default function Index() {
             ].map((m, i) => (
               <Reveal key={m.t} delay={i * 100}>
                 <article className="card overflow-hidden">
-                  <img src={m.img} alt="" className="h-48 w-full object-cover" />
+                  <img src={m.img} alt="" className="h-48 w-full object-cover rounded-[8px]" />
                   <div className="p-5">
                     <h3 className="text-lg font-heading font-semibold">{m.t}</h3>
                     <p className="mt-1 text-muted-foreground">{m.d}</p>
@@ -164,7 +164,7 @@ export default function Index() {
       </section>
 
       {/* Des résultats mesurables */}
-      <section className="bg-white">
+      <section className="bg-white section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Des résultats mesurables à chaque étape.</h2>
@@ -189,7 +189,7 @@ export default function Index() {
       </section>
 
       {/* Témoignages */}
-      <section className="bg-[#F9FAFB]">
+      <section className="bg-[#F9FAFB] section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Ils ont choisi la pédagogie FPSG</h2>
@@ -218,9 +218,9 @@ export default function Index() {
       </section>
 
       {/* CTA finale */}
-      <section className="bg-[#0E1E2B] text-white">
+      <section className="bg-[#0E1E2B] text-white section-y">
         <div className="container-padded py-14 md:py-16">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
             <div>
               <h3 className="text-2xl md:text-3xl font-heading font-bold">Digitalisez vos formations comportementales, simplement.</h3>
               <p className="mt-2 text-white/80">Contactez nos experts et découvrez comment FPSG modernise la prévention.</p>
