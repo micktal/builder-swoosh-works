@@ -25,10 +25,7 @@ const App = () => (
         <Header />
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route
-            path="/notre-approche"
-            element={<Placeholder title="Notre approche" description="Découvrez notre processus en 4 étapes, inspiré de la taxonomie de Bloom, pour des apprentissages concrets et mesurables." />}
-          />
+          <Route path="/notre-approche" element={<Approche />} />
           <Route
             path="/nos-formations"
             element={<Placeholder title="Nos formations" description="Parcourez nos modules: management, sécurité/sûreté, prévention, accueil, gestion de crise et plus encore." />}
