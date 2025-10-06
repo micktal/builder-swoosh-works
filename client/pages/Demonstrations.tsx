@@ -82,6 +82,15 @@ export default function Demonstrations() {
             <Reveal delay={240}>
               <CultureSafetyDnD />
             </Reveal>
+            <Reveal delay={280}>
+              <OnboardingBranching />
+            </Reveal>
+            <Reveal delay={320}>
+              <EscapeGameMini />
+            </Reveal>
+            <Reveal delay={360}>
+              <CrisisSimulation />
+            </Reveal>
           </div>
         </div>
       </section>
