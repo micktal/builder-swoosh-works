@@ -97,7 +97,7 @@ export default function Formations() {
       </section>
 
       {/* Expérience e-learning engageante */}
-      <section className="bg-[#F9FAFB]">
+      <section className="bg-[#F9FAFB] section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Une pédagogie active et immersive</h2>
@@ -108,7 +108,7 @@ export default function Formations() {
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {[
               { t: "Scénarios interactifs", d: "Cas concrets et mises en situation réelles.", icon: PlayCircle },
-              { t: "Feedback immédiat", d: "Évaluations intégrées et retours dynamiques.", icon: BadgeCheck },
+              { t: "Feedback immédiat", d: "��valuations intégrées et retours dynamiques.", icon: BadgeCheck },
               { t: "Progression guidée", d: "Parcours structuré selon Bloom.", icon: GraduationCap },
             ].map((f, i) => (
               <Reveal key={f.t} delay={i * 80}>
