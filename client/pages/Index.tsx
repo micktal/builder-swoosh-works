@@ -63,12 +63,6 @@ export default function Index() {
           <Reveal delay={100}>
             <p className="mt-4 text-lg md:text-xl text-white/80">Former. Innover. Digitaliser.</p>
           </Reveal>
-          <Reveal delay={180}>
-            <div className="mt-8 cta-group">
-              <Link to="/contact" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Demander une démo gratuite</Link>
-              <Link to="/nos-formations" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10">Découvrir nos formations</Link>
-            </div>
-          </Reveal>
         </div>
       </section>
 
