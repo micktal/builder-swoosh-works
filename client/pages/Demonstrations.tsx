@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { BarChart3, Gauge, LineChart, ThumbsUp, Eye, Lightbulb, Megaphone, Zap } from "lucide-react";
 import InteractiveSimulationCard from "@/components/interactive/InteractiveSimulationCard";
 import QuizSecurity from "@/components/interactive/QuizSecurity";
-import ImageRiskZones from "@/components/interactive/ImageRiskZones";
 import ImageRiskOnboarding from "@/components/interactive/ImageRiskOnboarding";
 import InteractiveVideoDecisions from "@/components/interactive/InteractiveVideoDecisions";
 import CultureSafetyDnD from "@/components/interactive/CultureSafetyDnD";
@@ -176,7 +175,7 @@ export default function Demonstrations() {
                     t: 65,
                     prompt: "Le calme relatif revient. Prochaine étape ?",
                     choices: [
-                      { id: "alert", label: "Alerter selon la procédure et rester à couvert jusqu'au signal", correct: true, feedback: "Exact: alerte + sécurit�� personnelle.", },
+                      { id: "alert", label: "Alerter selon la procédure et rester à couvert jusqu'au signal", correct: true, feedback: "Exact: alerte + sécurité personnelle.", },
                       { id: "sort", label: "Sortir immédiatement sans vérifier", correct: false, feedback: "Restez en sécurité jusqu'aux consignes.", rewind: 6 },
                       { id: "rien", label: "Ne rien faire", correct: false, feedback: "Procédure d'alerte nécessaire.", rewind: 6 },
                     ],
@@ -197,11 +196,8 @@ export default function Demonstrations() {
           <Reveal delay={80}>
             <p className="mt-3 max-w-3xl text-muted-foreground">Testez votre œil de prévention : cliquez sur les zones de danger dans la scène suivante.</p>
           </Reveal>
-          <div className="mt-8 grid gap-8 md:grid-cols-2">
+          <div className="mt-8 grid gap-8 md:grid-cols-1">
             <Reveal>
-              <ImageRiskZones />
-            </Reveal>
-            <Reveal delay={80}>
               <ImageRiskOnboarding />
             </Reveal>
           </div>
