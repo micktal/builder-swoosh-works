@@ -11,17 +11,39 @@ import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
 
+import Header from "@/components/layout/Header";
+import Footer from "@/components/layout/Footer";
+import Placeholder from "./pages/Placeholder";
+
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <TooltipProvider>
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <Header />
         <Routes>
           <Route path="/" element={<Index />} />
+          <Route
+            path="/notre-approche"
+            element={<Placeholder title="Notre approche" description="Découvrez notre processus en 4 étapes, inspiré de la taxonomie de Bloom, pour des apprentissages concrets et mesurables." />}
+          />
+          <Route
+            path="/nos-formations"
+            element={<Placeholder title="Nos formations" description="Parcourez nos modules: management, sécurité/sûreté, prévention, accueil, gestion de crise et plus encore." />}
+          />
+          <Route
+            path="/demonstrations"
+            element={<Placeholder title="Démonstrations" description="Intégration possible d'iframes Articulate. Demandez une démo personnalisée." />}
+          />
+          <Route
+            path="/contact"
+            element={<Placeholder title="Contact / Demande de démo" description="Un membre de l'équipe vous recontacte rapidement." />}
+          />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
