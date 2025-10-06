@@ -102,7 +102,7 @@ export default function Index() {
       <section className="bg-accent/50">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
-            <h2 className="text-3xl md:4xl font-heading font-bold">Notre approche en 4 étapes</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">Notre approche en 4 étapes</h2>
           </Reveal>
           <div className="mt-10 grid gap-8 md:grid-cols-4">
             {steps.map((s, i) => (
