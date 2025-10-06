@@ -2,10 +2,27 @@ import React, { useEffect, useMemo, useRef, useState } from "react";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
-import { Dialog, DialogContent, DialogHeader, DialogTitle } from "@/components/ui/dialog";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
 import { Skeleton } from "@/components/ui/skeleton";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { ExternalLink, Maximize2 } from "lucide-react";
 
 interface InteractiveSimulationCardProps {
@@ -16,7 +33,13 @@ interface InteractiveSimulationCardProps {
   badges?: string[];
 }
 
-export function InteractiveSimulationCard({ title, description, src, objectives = [], badges = ["Simulation", "Communication"] }: InteractiveSimulationCardProps) {
+export function InteractiveSimulationCard({
+  title,
+  description,
+  src,
+  objectives = [],
+  badges = ["Simulation", "Communication"],
+}: InteractiveSimulationCardProps) {
   const [loaded, setLoaded] = useState(false);
   const [open, setOpen] = useState(false);
   const [showFallback, setShowFallback] = useState(false);
@@ -41,12 +64,19 @@ export function InteractiveSimulationCard({ title, description, src, objectives 
             </Badge>
           ))}
         </div>
-        <CardTitle className="text-lg font-heading font-semibold">{title}</CardTitle>
-        <CardDescription className="mt-1 text-muted-foreground">{description}</CardDescription>
+        <CardTitle className="text-lg font-heading font-semibold">
+          {title}
+        </CardTitle>
+        <CardDescription className="mt-1 text-muted-foreground">
+          {description}
+        </CardDescription>
       </CardHeader>
       <CardContent>
         <div ref={containerRef} className="relative">
-          <AspectRatio ratio={16 / 9} className="bg-black/5 rounded-[8px] overflow-hidden">
+          <AspectRatio
+            ratio={16 / 9}
+            className="bg-black/5 rounded-[8px] overflow-hidden"
+          >
             <iframe
               src={src}
               title={title}
@@ -64,7 +94,12 @@ export function InteractiveSimulationCard({ title, description, src, objectives 
           )}
           {showFallback && !loaded && (
             <div className="absolute bottom-2 right-2">
-              <a href={src} target="_blank" rel="noreferrer" className="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-md bg-white/90 shadow-md">
+              <a
+                href={src}
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center gap-2 px-3 py-2 text-xs rounded-md bg-white/90 shadow-md"
+              >
                 Ouvrir dans un onglet <ExternalLink className="h-3.5 w-3.5" />
               </a>
             </div>
@@ -88,12 +123,23 @@ export function InteractiveSimulationCard({ title, description, src, objectives 
         )}
       </CardContent>
       <CardFooter className="flex items-center justify-between gap-3">
-        <span className="text-sm text-muted-foreground">Extrait de démonstration – FPSG Digital Learning.</span>
+        <span className="text-sm text-muted-foreground">
+          Extrait de démonstration – FPSG Digital Learning.
+        </span>
         <div className="flex items-center gap-2">
-          <Button variant="outline" onClick={() => setOpen(true)} className="hidden sm:inline-flex">
+          <Button
+            variant="outline"
+            onClick={() => setOpen(true)}
+            className="hidden sm:inline-flex"
+          >
             <Maximize2 className="h-4 w-4 mr-2" /> Plein écran
           </Button>
-          <a href={openNewTabHref} target="_blank" rel="noreferrer" className="inline-flex items-center text-primary text-sm font-medium">
+          <a
+            href={openNewTabHref}
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center text-primary text-sm font-medium"
+          >
             Ouvrir <ExternalLink className="h-4 w-4 ml-1" />
           </a>
         </div>
@@ -105,7 +151,10 @@ export function InteractiveSimulationCard({ title, description, src, objectives 
             <DialogTitle className="text-base">{title}</DialogTitle>
           </DialogHeader>
           <div className="px-4 pb-4">
-            <AspectRatio ratio={16 / 9} className="bg-black/5 rounded-[8px] overflow-hidden">
+            <AspectRatio
+              ratio={16 / 9}
+              className="bg-black/5 rounded-[8px] overflow-hidden"
+            >
               {/* Mount a second iframe instance inside the dialog when opened for best UX */}
               {open && (
                 <iframe

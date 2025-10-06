@@ -1,5 +1,12 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
@@ -49,21 +56,43 @@ interface InteractiveVideoDecisionsProps {
   liveHotspots?: LiveHotspots;
 }
 
-export default function InteractiveVideoDecisions({ src, poster, title, description = "Faites les bons choix au bon moment.", points, liveHotspots }: InteractiveVideoDecisionsProps) {
+export default function InteractiveVideoDecisions({
+  src,
+  poster,
+  title,
+  description = "Faites les bons choix au bon moment.",
+  points,
+  liveHotspots,
+}: InteractiveVideoDecisionsProps) {
   const videoRef = useRef<HTMLVideoElement | null>(null);
   const [currentIdx, setCurrentIdx] = useState<number>(-1);
   const [answered, setAnswered] = useState<Record<number, boolean>>({});
-  const [lastFeedback, setLastFeedback] = useState<{ ok: boolean; msg: string } | null>(null);
-  const [liveToast, setLiveToast] = useState<{ ok: boolean; msg: string } | null>(null);
+  const [lastFeedback, setLastFeedback] = useState<{
+    ok: boolean;
+    msg: string;
+  } | null>(null);
+  const [liveToast, setLiveToast] = useState<{
+    ok: boolean;
+    msg: string;
+  } | null>(null);
   const [isFs, setIsFs] = useState(false);
   const [t, setT] = useState(0);
   const [liveFound, setLiveFound] = useState<Record<string, boolean>>({});
 
   const total = points.length;
-  const correctCount = useMemo(() => Object.values(answered).filter(Boolean).length, [answered]);
+  const correctCount = useMemo(
+    () => Object.values(answered).filter(Boolean).length,
+    [answered],
+  );
   const progress = Math.round((correctCount / total) * 100);
-  const liveTotal = useMemo(() => liveHotspots?.items.length ?? 0, [liveHotspots]);
-  const liveCount = useMemo(() => Object.values(liveFound).filter(Boolean).length, [liveFound]);
+  const liveTotal = useMemo(
+    () => liveHotspots?.items.length ?? 0,
+    [liveHotspots],
+  );
+  const liveCount = useMemo(
+    () => Object.values(liveFound).filter(Boolean).length,
+    [liveFound],
+  );
 
   // Pause at decision timestamps
   useEffect(() => {
@@ -73,7 +102,9 @@ export default function InteractiveVideoDecisions({ src, poster, title, descript
       setT(v.currentTime);
       if (currentIdx >= 0) return; // overlay already open
       const now = v.currentTime;
-      const nextIdx = points.findIndex((p, i) => !answered[i] && Math.floor(now) >= Math.floor(p.t));
+      const nextIdx = points.findIndex(
+        (p, i) => !answered[i] && Math.floor(now) >= Math.floor(p.t),
+      );
       if (nextIdx !== -1) {
         v.pause();
         setCurrentIdx(nextIdx);
@@ -146,83 +177,140 @@ export default function InteractiveVideoDecisions({ src, poster, title, descript
           <Badge className="badge-soft">Vidéo interactive</Badge>
           <Badge className="badge-soft">Réagir au bon moment</Badge>
         </div>
-        <CardTitle className="text-lg font-heading font-semibold">{title}</CardTitle>
+        <CardTitle className="text-lg font-heading font-semibold">
+          {title}
+        </CardTitle>
         <CardDescription>{description}</CardDescription>
       </CardHeader>
       <CardContent className="flex-1">
         <Progress value={progress} />
-        <div className="mt-2 text-sm text-muted-foreground">{correctCount} / {total} décisions validées</div>
+        <div className="mt-2 text-sm text-muted-foreground">
+          {correctCount} / {total} décisions validées
+        </div>
         {liveHotspots && (
-          <div className="mt-1 text-xs text-muted-foreground">Hotspots trouvés: {liveCount} / {liveTotal}</div>
+          <div className="mt-1 text-xs text-muted-foreground">
+            Hotspots trouvés: {liveCount} / {liveTotal}
+          </div>
         )}
 
         <div className="relative mt-4">
-          <video ref={videoRef} className="w-full rounded-[8px] relative z-0" controls playsInline poster={poster}>
+          <video
+            ref={videoRef}
+            className="w-full rounded-[8px] relative z-0"
+            controls
+            playsInline
+            poster={poster}
+          >
             <source src={src} type="video/mp4" />
           </video>
 
           {/* Live hotspots overlay (active while video plays) */}
-          {liveHotspots && currentIdx < 0 && (
+          {liveHotspots &&
+            currentIdx < 0 &&
             (() => {
-              const active = t >= liveHotspots.start && (liveHotspots.end ? t <= liveHotspots.end : true);
+              const active =
+                t >= liveHotspots.start &&
+                (liveHotspots.end ? t <= liveHotspots.end : true);
               if (!active) return null;
               return (
                 <div className="absolute inset-0 z-10">
                   {liveHotspots.prompt && (
-                    <div className="absolute left-2 top-2 px-2 py-1 text-xs rounded bg-black/50 text-white">{liveHotspots.prompt}</div>
+                    <div className="absolute left-2 top-2 px-2 py-1 text-xs rounded bg-black/50 text-white">
+                      {liveHotspots.prompt}
+                    </div>
                   )}
-                  {liveHotspots.items.map(h => (
+                  {liveHotspots.items.map((h) => (
                     <button
                       key={h.id}
                       aria-label={h.label}
                       onClick={(e) => {
                         e.stopPropagation();
-                        const c = { id: h.id, label: h.label, correct: h.correct, feedback: h.feedback, rewind: h.rewind } as Choice;
+                        const c = {
+                          id: h.id,
+                          label: h.label,
+                          correct: h.correct,
+                          feedback: h.feedback,
+                          rewind: h.rewind,
+                        } as Choice;
                         handleChoice(c);
-                        if (h.correct) setLiveFound((s) => ({ ...s, [h.id]: true }));
+                        if (h.correct)
+                          setLiveFound((s) => ({ ...s, [h.id]: true }));
                       }}
-                      style={{ left: `${h.x}%`, top: `${h.y}%`, width: `${h.w}%`, height: `${h.h}%` }}
+                      style={{
+                        left: `${h.x}%`,
+                        top: `${h.y}%`,
+                        width: `${h.w}%`,
+                        height: `${h.h}%`,
+                      }}
                       className={`absolute rounded-[6px] border-2 focus:outline-none focus-visible:ring-2 ${
-                        h.correct ? "border-green-400/80 focus-visible:ring-green-300/70" : "border-primary/80 focus-visible:ring-primary/70"
+                        h.correct
+                          ? "border-green-400/80 focus-visible:ring-green-300/70"
+                          : "border-primary/80 focus-visible:ring-primary/70"
                       } hover:bg-white/10 active:bg-white/20`}
                       title={h.label}
                     />
                   ))}
 
                   {liveToast && (
-                    <div className={`absolute left-1/2 -translate-x-1/2 bottom-3 px-3 py-2 rounded-md text-sm shadow-md ${liveToast.ok ? "bg-green-600 text-white" : "bg-red-600 text-white"}`}>
+                    <div
+                      className={`absolute left-1/2 -translate-x-1/2 bottom-3 px-3 py-2 rounded-md text-sm shadow-md ${liveToast.ok ? "bg-green-600 text-white" : "bg-red-600 text-white"}`}
+                    >
                       {liveToast.msg}
                     </div>
                   )}
                 </div>
               );
-            })()
-          )}
+            })()}
 
           {currentIdx >= 0 && (
             <div className="absolute inset-0 bg-black/60 text-white grid place-items-center p-4">
               <div className="relative w-full max-w-5xl">
-                <div className="text-sm text-white/80">Décision {currentIdx + 1} / {total}</div>
-                <div className="mt-2 text-lg font-semibold">{points[currentIdx].prompt}</div>
+                <div className="text-sm text-white/80">
+                  Décision {currentIdx + 1} / {total}
+                </div>
+                <div className="mt-2 text-lg font-semibold">
+                  {points[currentIdx].prompt}
+                </div>
 
                 {/* Hotspots mode */}
                 {points[currentIdx].hotspots && (
-                  <div className="mt-3 text-sm text-white/80">Cliquez sur la zone adéquate dans la vidéo.</div>
+                  <div className="mt-3 text-sm text-white/80">
+                    Cliquez sur la zone adéquate dans la vidéo.
+                  </div>
                 )}
 
                 <div className="relative mt-3">
                   {/* Mirror the video surface for hotspot clicks */}
                   {points[currentIdx].hotspots ? (
                     <div className="relative">
-                      <video className="w-full rounded-[8px] opacity-30" muted playsInline poster={poster}>
+                      <video
+                        className="w-full rounded-[8px] opacity-30"
+                        muted
+                        playsInline
+                        poster={poster}
+                      >
                         <source src={src} type="video/mp4" />
                       </video>
-                      {points[currentIdx].hotspots!.map(h => (
+                      {points[currentIdx].hotspots!.map((h) => (
                         <button
                           key={h.id}
                           aria-label={h.label}
-                          onClick={(e) => { e.stopPropagation(); handleChoice({ id: h.id, label: h.label, correct: h.correct, feedback: h.feedback, rewind: h.rewind }); }}
-                          style={{ left: `${h.x}%`, top: `${h.y}%`, width: `${h.w}%`, height: `${h.h}%` }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            handleChoice({
+                              id: h.id,
+                              label: h.label,
+                              correct: h.correct,
+                              feedback: h.feedback,
+                              rewind: h.rewind,
+                            });
+                          }}
+                          style={{
+                            left: `${h.x}%`,
+                            top: `${h.y}%`,
+                            width: `${h.w}%`,
+                            height: `${h.h}%`,
+                          }}
                           className={`absolute rounded-[6px] border-2 transition focus:outline-none focus-visible:ring-2 ${h.correct ? "border-green-400/80 focus-visible:ring-green-300/70" : "border-primary/80 focus-visible:ring-primary/70"}`}
                           title={h.label}
                         />
@@ -231,7 +319,11 @@ export default function InteractiveVideoDecisions({ src, poster, title, descript
                   ) : (
                     <div className="mt-4 grid gap-2 max-w-xl">
                       {points[currentIdx].choices?.map((c) => (
-                        <Button key={c.id} onClick={() => handleChoice(c)} className="justify-start">
+                        <Button
+                          key={c.id}
+                          onClick={() => handleChoice(c)}
+                          className="justify-start"
+                        >
                           {c.label}
                         </Button>
                       ))}
@@ -260,11 +352,23 @@ export default function InteractiveVideoDecisions({ src, poster, title, descript
         </div>
       </CardContent>
       <CardFooter className="flex items-center justify-between">
-        <span className="text-xs text-muted-foreground">Extrait de démonstration – FPSG Digital Learning.</span>
+        <span className="text-xs text-muted-foreground">
+          Extrait de démonstration – FPSG Digital Learning.
+        </span>
         <div className="flex items-center gap-2">
-          <Button variant="outline" onClick={restart}>Recommencer</Button>
-          <Button variant="outline" onClick={toggleFullscreen} aria-label={isFs ? "Quitter le plein écran" : "Plein écran"}>
-            {isFs ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
+          <Button variant="outline" onClick={restart}>
+            Recommencer
+          </Button>
+          <Button
+            variant="outline"
+            onClick={toggleFullscreen}
+            aria-label={isFs ? "Quitter le plein écran" : "Plein écran"}
+          >
+            {isFs ? (
+              <Minimize2 className="h-4 w-4" />
+            ) : (
+              <Maximize2 className="h-4 w-4" />
+            )}
           </Button>
         </div>
       </CardFooter>

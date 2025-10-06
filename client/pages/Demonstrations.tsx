@@ -15,30 +15,60 @@ import EscapeGameMini from "@/components/interactive/EscapeGameMini";
 import CrisisSimulation from "@/components/interactive/CrisisSimulation";
 
 export default function Demonstrations() {
-  const heroVideo = "https://videos.pexels.com/video-files/3044654/3044654-hd_1280_720_50fps.mp4";
-  const heroPoster = "https://images.pexels.com/photos/7658369/pexels-photo-7658369.jpeg";
+  const heroVideo =
+    "https://videos.pexels.com/video-files/3044654/3044654-hd_1280_720_50fps.mp4";
+  const heroPoster =
+    "https://images.pexels.com/photos/7658369/pexels-photo-7658369.jpeg";
   const articulate = [
-    { t: "Gérer un visiteur mécontent", d: "Simulation interactive de communication assertive.", src: "https://modules.fpsg.fr/visiteur/index.html" },
-    { t: "Réagir face à une situation suspecte", d: "Scénario immersif de sûreté et vigilance comportementale.", src: "https://modules.fpsg.fr/surete/index.html" },
-    { t: "Prévenir les RPS au quotidien", d: "Module bien-être et santé au travail.", src: "https://modules.fpsg.fr/rps/index.html" },
-    { t: "Culture sécurité FPSG", d: "Formation de sensibilisation à la culture prévention.", src: "https://modules.fpsg.fr/securite/index.html" },
+    {
+      t: "Gérer un visiteur mécontent",
+      d: "Simulation interactive de communication assertive.",
+      src: "https://modules.fpsg.fr/visiteur/index.html",
+    },
+    {
+      t: "Réagir face à une situation suspecte",
+      d: "Scénario immersif de sûreté et vigilance comportementale.",
+      src: "https://modules.fpsg.fr/surete/index.html",
+    },
+    {
+      t: "Prévenir les RPS au quotidien",
+      d: "Module bien-être et santé au travail.",
+      src: "https://modules.fpsg.fr/rps/index.html",
+    },
+    {
+      t: "Culture sécurité FPSG",
+      d: "Formation de sensibilisation à la culture prévention.",
+      src: "https://modules.fpsg.fr/securite/index.html",
+    },
   ] as const;
   return (
     <main>
       {/* Hero */}
       <section className="relative overflow-hidden bg-[#0E1E2B] text-white section-y">
         <div className="absolute inset-0 -z-10">
-          <video className="h-full w-full object-cover opacity-25" autoPlay muted loop playsInline poster={heroPoster}>
+          <video
+            className="h-full w-full object-cover opacity-25"
+            autoPlay
+            muted
+            loop
+            playsInline
+            poster={heroPoster}
+          >
             <source src={heroVideo} type="video/mp4" />
           </video>
           <div className="absolute inset-0 bg-gradient-to-b from-[#0E1E2B]/70 via-[#0E1E2B]/60 to-[#0E1E2B]" />
         </div>
         <div className="container-padded">
           <Reveal>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold leading-tight">Découvrez nos formations interactives.</h1>
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold leading-tight">
+              Découvrez nos formations interactives.
+            </h1>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-3 max-w-3xl text-white/80">Plongez dans l’univers FPSG Digital Learning à travers des extraits réels de nos modules e-learning.</p>
+            <p className="mt-3 max-w-3xl text-white/80">
+              Plongez dans l’univers FPSG Digital Learning à travers des
+              extraits réels de nos modules e-learning.
+            </p>
           </Reveal>
         </div>
       </section>
@@ -47,10 +77,15 @@ export default function Demonstrations() {
       <section className="bg-[#F9FAFB] section-y" id="articulate">
         <div className="container-padded section-y">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Modules e-learning interactifs</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+              Modules e-learning interactifs
+            </h2>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-3 max-w-3xl text-muted-foreground">Des extraits issus de nos formations digitales, conçues avec la pédagogie FPSG.</p>
+            <p className="mt-3 max-w-3xl text-muted-foreground">
+              Des extraits issus de nos formations digitales, conçues avec la
+              pédagogie FPSG.
+            </p>
           </Reveal>
           <div className="mt-8 grid gap-8 md:grid-cols-2">
             <Reveal>
@@ -61,18 +96,34 @@ export default function Demonstrations() {
             </Reveal>
             {articulate
               .slice(1)
-              .filter((m) => m.t !== "Culture sécurité FPSG" && m.t !== "Réagir face à une situation suspecte" && m.t !== "Prévenir les RPS au quotidien")
+              .filter(
+                (m) =>
+                  m.t !== "Culture sécurité FPSG" &&
+                  m.t !== "Réagir face à une situation suspecte" &&
+                  m.t !== "Prévenir les RPS au quotidien",
+              )
               .map((m, i) => (
                 <Reveal key={m.t} delay={(i + 2) * 80}>
                   <article className="card overflow-hidden">
                     <div className="p-5">
-                      <h3 className="text-lg font-heading font-semibold break-words leading-snug">{m.t}</h3>
-                      <p className="mt-1 text-muted-foreground break-words leading-relaxed text-sm">{m.d}</p>
+                      <h3 className="text-lg font-heading font-semibold break-words leading-snug">
+                        {m.t}
+                      </h3>
+                      <p className="mt-1 text-muted-foreground break-words leading-relaxed text-sm">
+                        {m.d}
+                      </p>
                     </div>
                     <div className="bg-black/5">
-                      <iframe src={m.src} title={m.t} className="embed-frame" frameBorder={0} />
+                      <iframe
+                        src={m.src}
+                        title={m.t}
+                        className="embed-frame"
+                        frameBorder={0}
+                      />
                     </div>
-                    <div className="p-4 text-center text-sm text-muted-foreground">Extrait de démonstration – FPSG Digital Learning.</div>
+                    <div className="p-4 text-center text-sm text-muted-foreground">
+                      Extrait de démonstration – FPSG Digital Learning.
+                    </div>
                   </article>
                 </Reveal>
               ))}
@@ -95,15 +146,19 @@ export default function Demonstrations() {
         </div>
       </section>
 
-
       {/* Exercices H5P */}
       <section className="bg-white section-y" id="h5p">
         <div className="container-padded section-y">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Testez vos réflexes avec nos exercices interactifs</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+              Testez vos réflexes avec nos exercices interactifs
+            </h2>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-3 max-w-3xl text-muted-foreground">Simulez les comportements de vos apprenants à travers ces mini-activités H5P intégrées directement sur la page.</p>
+            <p className="mt-3 max-w-3xl text-muted-foreground">
+              Simulez les comportements de vos apprenants à travers ces
+              mini-activités H5P intégrées directement sur la page.
+            </p>
           </Reveal>
           <div className="mt-8 grid gap-8 md:grid-cols-3">
             <Reveal>
@@ -120,36 +175,117 @@ export default function Demonstrations() {
                 liveHotspots={{
                   start: 30,
                   items: [
-                    { id: "colonne", x: 22, y: 56, w: 28, h: 36, label: "Derrière les colonnes", correct: true, feedback: "Bien: se couvrir derrière les colonnes réduit l'exposition.", },
-                    { id: "visible", x: 68, y: 44, w: 26, h: 34, label: "Endroit trop voyant", correct: false, feedback: "Non: cet endroit est exposé au champ de vision.", rewind: 6 },
+                    {
+                      id: "colonne",
+                      x: 22,
+                      y: 56,
+                      w: 28,
+                      h: 36,
+                      label: "Derrière les colonnes",
+                      correct: true,
+                      feedback:
+                        "Bien: se couvrir derrière les colonnes réduit l'exposition.",
+                    },
+                    {
+                      id: "visible",
+                      x: 68,
+                      y: 44,
+                      w: 26,
+                      h: 34,
+                      label: "Endroit trop voyant",
+                      correct: false,
+                      feedback:
+                        "Non: cet endroit est exposé au champ de vision.",
+                      rewind: 6,
+                    },
                   ],
-                  prompt: "Cliquez où vous vous cacheriez pendant la scène."
+                  prompt: "Cliquez où vous vous cacheriez pendant la scène.",
                 }}
                 points={[
                   {
                     t: 18,
-                    prompt: "Des individus pénètrent dans le magasin. Quelle première réaction ?",
+                    prompt:
+                      "Des individus pénètrent dans le magasin. Quelle première réaction ?",
                     choices: [
-                      { id: "obs", label: "Observer discrètement et se mettre à couvert", correct: true, feedback: "Bonne réaction: priorisez votre sécurité et l'observation.", },
-                      { id: "int", label: "Intervenir immédiatement", correct: false, feedback: "Risque élevé. Ne vous exposez pas.", rewind: 8 },
-                      { id: "fil", label: "Filmer la scène", correct: false, feedback: "Non: votre sécurité prime. Cachez-vous d'abord.", rewind: 8 },
+                      {
+                        id: "obs",
+                        label: "Observer discrètement et se mettre à couvert",
+                        correct: true,
+                        feedback:
+                          "Bonne réaction: priorisez votre sécurité et l'observation.",
+                      },
+                      {
+                        id: "int",
+                        label: "Intervenir immédiatement",
+                        correct: false,
+                        feedback: "Risque élevé. Ne vous exposez pas.",
+                        rewind: 8,
+                      },
+                      {
+                        id: "fil",
+                        label: "Filmer la scène",
+                        correct: false,
+                        feedback:
+                          "Non: votre sécurité prime. Cachez-vous d'abord.",
+                        rewind: 8,
+                      },
                     ],
                   },
                   {
                     t: 42,
-                    prompt: "Cliquez sur la zone où vous vous cacheriez derrière l'étalage.",
+                    prompt:
+                      "Cliquez sur la zone où vous vous cacheriez derrière l'étalage.",
                     hotspots: [
-                      { id: "cache-etalage", x: 18, y: 58, w: 28, h: 30, label: "Derrière l'étalage", correct: true, feedback: "Exact: se mettre à couvert derrière l'étalage réduit l'exposition.", },
-                      { id: "allee", x: 55, y: 45, w: 30, h: 35, label: "Allée ouverte", correct: false, feedback: "Non: l'allée est exposée. Préférez un couvert stable.", rewind: 10 },
+                      {
+                        id: "cache-etalage",
+                        x: 18,
+                        y: 58,
+                        w: 28,
+                        h: 30,
+                        label: "Derrière l'étalage",
+                        correct: true,
+                        feedback:
+                          "Exact: se mettre à couvert derrière l'étalage réduit l'exposition.",
+                      },
+                      {
+                        id: "allee",
+                        x: 55,
+                        y: 45,
+                        w: 30,
+                        h: 35,
+                        label: "Allée ouverte",
+                        correct: false,
+                        feedback:
+                          "Non: l'allée est exposée. Préférez un couvert stable.",
+                        rewind: 10,
+                      },
                     ],
                   },
                   {
                     t: 65,
                     prompt: "Le calme relatif revient. Prochaine étape ?",
                     choices: [
-                      { id: "alert", label: "Alerter selon la procédure et rester à couvert jusqu'au signal", correct: true, feedback: "Exact: alerte + sécurité personnelle.", },
-                      { id: "sort", label: "Sortir immédiatement sans vérifier", correct: false, feedback: "Restez en sécurité jusqu'aux consignes.", rewind: 6 },
-                      { id: "rien", label: "Ne rien faire", correct: false, feedback: "Procédure d'alerte nécessaire.", rewind: 6 },
+                      {
+                        id: "alert",
+                        label:
+                          "Alerter selon la procédure et rester à couvert jusqu'au signal",
+                        correct: true,
+                        feedback: "Exact: alerte + sécurité personnelle.",
+                      },
+                      {
+                        id: "sort",
+                        label: "Sortir immédiatement sans vérifier",
+                        correct: false,
+                        feedback: "Restez en sécurité jusqu'aux consignes.",
+                        rewind: 6,
+                      },
+                      {
+                        id: "rien",
+                        label: "Ne rien faire",
+                        correct: false,
+                        feedback: "Procédure d'alerte nécessaire.",
+                        rewind: 6,
+                      },
                     ],
                   },
                 ]}
@@ -163,10 +299,15 @@ export default function Demonstrations() {
       <section className="bg-white section-y">
         <div className="container-padded section-y">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Sauriez-vous repérer les risques ?</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+              Sauriez-vous repérer les risques ?
+            </h2>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-3 max-w-3xl text-muted-foreground">Testez votre œil de prévention : cliquez sur les zones de danger dans la scène suivante.</p>
+            <p className="mt-3 max-w-3xl text-muted-foreground">
+              Testez votre œil de prévention : cliquez sur les zones de danger
+              dans la scène suivante.
+            </p>
           </Reveal>
           <div className="mt-8 grid gap-8 md:grid-cols-1">
             <Reveal>
@@ -180,31 +321,52 @@ export default function Demonstrations() {
       <section className="bg-[#F9FAFB] section-y">
         <div className="container-padded section-y">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Un apprentissage engageant et mesurable</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+              Un apprentissage engageant et mesurable
+            </h2>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-3 max-w-3xl text-muted-foreground">Chaque module FPSG intègre des feedbacks en temps réel et des données de progression pour mesurer l’impact de la formation.</p>
+            <p className="mt-3 max-w-3xl text-muted-foreground">
+              Chaque module FPSG intègre des feedbacks en temps réel et des
+              données de progression pour mesurer l’impact de la formation.
+            </p>
           </Reveal>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             <div className="card p-6 text-center">
               <ThumbsUp className="mx-auto h-6 w-6 text-primary" />
-              <CountUpOnView value={96} suffix=" %" className="mt-2 text-3xl font-heading font-extrabold text-primary" />
-              <div className="mt-2 text-muted-foreground">satisfaction apprenants</div>
+              <CountUpOnView
+                value={96}
+                suffix=" %"
+                className="mt-2 text-3xl font-heading font-extrabold text-primary"
+              />
+              <div className="mt-2 text-muted-foreground">
+                satisfaction apprenants
+              </div>
             </div>
             <div className="card p-6 text-center">
               <LineChart className="mx-auto h-6 w-6 text-primary" />
-              <div className="mt-2 text-3xl font-heading font-extrabold text-primary">+<CountUpOnView value={40} suffix=" %" /></div>
-              <div className="mt-2 text-muted-foreground">rétention post-formation</div>
+              <div className="mt-2 text-3xl font-heading font-extrabold text-primary">
+                +<CountUpOnView value={40} suffix=" %" />
+              </div>
+              <div className="mt-2 text-muted-foreground">
+                rétention post-formation
+              </div>
             </div>
             <div className="card p-6 text-center">
               <Gauge className="mx-auto h-6 w-6 text-primary" />
-              <div className="mt-2 text-3xl font-heading font-extrabold text-primary"><CountUpOnView value={85} suffix=" %" /></div>
+              <div className="mt-2 text-3xl font-heading font-extrabold text-primary">
+                <CountUpOnView value={85} suffix=" %" />
+              </div>
               <div className="mt-2 text-muted-foreground">taux de réussite</div>
             </div>
             <div className="card p-6 text-center">
               <BarChart3 className="mx-auto h-6 w-6 text-primary" />
-              <div className="mt-2 text-3xl font-heading font-extrabold text-primary"><CountUpOnView value={10} suffix=" jours" /></div>
-              <div className="mt-2 text-muted-foreground">déploiement moyen</div>
+              <div className="mt-2 text-3xl font-heading font-extrabold text-primary">
+                <CountUpOnView value={10} suffix=" jours" />
+              </div>
+              <div className="mt-2 text-muted-foreground">
+                déploiement moyen
+              </div>
             </div>
           </div>
           <ProgressOnView value={85} label="Taux de réussite moyen" />
@@ -215,11 +377,18 @@ export default function Demonstrations() {
       <section className="bg-white section-y">
         <div className="container-padded section-y">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">La preuve par l’expérience</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+              La preuve par l’expérience
+            </h2>
           </Reveal>
           <div className="mt-8 grid gap-8 md:grid-cols-2 items-center">
             <div>
-              <p className="text-muted-foreground">Nous croyons que la meilleure preuve de notre savoir-faire est dans l’expérience directe. Ces extraits reflètent notre exigence : contenus immersifs, design sobre, pédagogie active et résultats mesurables.</p>
+              <p className="text-muted-foreground">
+                Nous croyons que la meilleure preuve de notre savoir-faire est
+                dans l’expérience directe. Ces extraits reflètent notre exigence
+                : contenus immersifs, design sobre, pédagogie active et
+                résultats mesurables.
+              </p>
             </div>
             <div>
               <img
@@ -231,7 +400,6 @@ export default function Demonstrations() {
           </div>
         </div>
       </section>
-
     </main>
   );
 }

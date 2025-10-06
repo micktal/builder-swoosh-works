@@ -12,23 +12,56 @@ export default function Footer() {
               className="h-12 w-auto brightness-0 invert opacity-90 transition hover:opacity-100"
             />
             <div>
-              <div className="font-heading font-bold text-white">FPSG Digital Learning</div>
+              <div className="font-heading font-bold text-white">
+                FPSG Digital Learning
+              </div>
               <div className="text-sm text-white/70">Groupe FIDUCIAL</div>
             </div>
           </div>
           <p className="mt-4 text-sm text-white/80 max-w-sm">
-            FPSG Digital Learning – Une autre vision de la formation. Des solutions digitales pour renforcer la culture sécurité et le leadership humain.
+            FPSG Digital Learning – Une autre vision de la formation. Des
+            solutions digitales pour renforcer la culture sécurité et le
+            leadership humain.
           </p>
         </div>
 
         <div>
           <h4 className="font-heading font-semibold mb-3">Navigation</h4>
           <ul className="space-y-2 text-sm text-white/90">
-            <li><Link className="hover:text-primary transition" to="/">Accueil</Link></li>
-            <li><Link className="hover:text-primary transition" to="/notre-approche">Notre approche</Link></li>
-            <li><Link className="hover:text-primary transition" to="/nos-formations">Nos formations</Link></li>
-            <li><Link className="hover:text-primary transition" to="/demonstrations">Démonstrations</Link></li>
-            <li><Link className="hover:text-primary transition" to="/contact">Contact</Link></li>
+            <li>
+              <Link className="hover:text-primary transition" to="/">
+                Accueil
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="hover:text-primary transition"
+                to="/notre-approche"
+              >
+                Notre approche
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="hover:text-primary transition"
+                to="/nos-formations"
+              >
+                Nos formations
+              </Link>
+            </li>
+            <li>
+              <Link
+                className="hover:text-primary transition"
+                to="/demonstrations"
+              >
+                Démonstrations
+              </Link>
+            </li>
+            <li>
+              <Link className="hover:text-primary transition" to="/contact">
+                Contact
+              </Link>
+            </li>
           </ul>
         </div>
 
@@ -44,7 +77,14 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-padded py-4 text-center text-[14px] text-[#DCE1E5]">
-          © 2025 FIDUCIAL FPSG – Tous droits réservés | <a href="#" className="hover:text-primary">Mentions légales</a> | <a href="#" className="hover:text-primary">Politique de confidentialité</a>
+          © 2025 FIDUCIAL FPSG – Tous droits réservés |{" "}
+          <a href="#" className="hover:text-primary">
+            Mentions légales
+          </a>{" "}
+          |{" "}
+          <a href="#" className="hover:text-primary">
+            Politique de confidentialité
+          </a>
         </div>
       </div>
     </footer>

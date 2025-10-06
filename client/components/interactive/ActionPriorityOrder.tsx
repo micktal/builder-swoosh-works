@@ -1,5 +1,12 @@
 import React, { useMemo, useState } from "react";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -16,7 +23,10 @@ export default function ActionPriorityOrder() {
   const [dragIdx, setDragIdx] = useState<number | null>(null);
   const [validated, setValidated] = useState(false);
 
-  const score = useMemo(() => items.filter((v, i) => v === CORRECT_ORDER[i]).length, [items]);
+  const score = useMemo(
+    () => items.filter((v, i) => v === CORRECT_ORDER[i]).length,
+    [items],
+  );
 
   function onDragStart(index: number) {
     setDragIdx(index);
@@ -55,8 +65,12 @@ export default function ActionPriorityOrder() {
           <Badge className="badge-soft">Ordonner</Badge>
           <Badge className="badge-soft">Priorité sûreté</Badge>
         </div>
-        <CardTitle className="text-lg font-heading font-semibold">Ordonner les actions – Réagir au bon moment</CardTitle>
-        <CardDescription>Placez les étapes dans le bon ordre de priorité.</CardDescription>
+        <CardTitle className="text-lg font-heading font-semibold">
+          Ordonner les actions – Réagir au bon moment
+        </CardTitle>
+        <CardDescription>
+          Placez les étapes dans le bon ordre de priorité.
+        </CardDescription>
       </CardHeader>
       <CardContent className="flex-1">
         <ol className="space-y-2">
@@ -71,7 +85,11 @@ export default function ActionPriorityOrder() {
                 onDragOver={onDragOver}
                 onDrop={() => onDrop(i)}
                 className={`flex items-center gap-3 p-3 rounded-md border bg-white transition ${
-                  correct ? "border-green-500/60 bg-green-50" : incorrect ? "border-red-500/60 bg-red-50" : "hover:bg-accent"
+                  correct
+                    ? "border-green-500/60 bg-green-50"
+                    : incorrect
+                      ? "border-red-500/60 bg-red-50"
+                      : "hover:bg-accent"
                 }`}
                 aria-label={`Étape ${i + 1}: ${label}`}
               >
@@ -80,8 +98,24 @@ export default function ActionPriorityOrder() {
                 </span>
                 <span className="flex-1">{label}</span>
                 <div className="flex gap-1">
-                  <Button type="button" variant="outline" size="sm" onClick={() => move(i, -1)} aria-label="Monter">↑</Button>
-                  <Button type="button" variant="outline" size="sm" onClick={() => move(i, +1)} aria-label="Descendre">↓</Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => move(i, -1)}
+                    aria-label="Monter"
+                  >
+                    ↑
+                  </Button>
+                  <Button
+                    type="button"
+                    variant="outline"
+                    size="sm"
+                    onClick={() => move(i, +1)}
+                    aria-label="Descendre"
+                  >
+                    ↓
+                  </Button>
                 </div>
               </li>
             );
@@ -93,21 +127,30 @@ export default function ActionPriorityOrder() {
             {score === CORRECT_ORDER.length ? (
               <Alert className="border-green-500/50">
                 <AlertTitle>Parfait</AlertTitle>
-                <AlertDescription>Vous avez respecté la priorisation des actions.</AlertDescription>
+                <AlertDescription>
+                  Vous avez respecté la priorisation des actions.
+                </AlertDescription>
               </Alert>
             ) : (
               <Alert variant="destructive">
                 <AlertTitle>À améliorer</AlertTitle>
-                <AlertDescription>Réorganisez pour placer les étapes dans l'ordre optimal de sûreté.</AlertDescription>
+                <AlertDescription>
+                  Réorganisez pour placer les étapes dans l'ordre optimal de
+                  sûreté.
+                </AlertDescription>
               </Alert>
             )}
           </div>
         )}
       </CardContent>
       <CardFooter className="flex items-center justify-between">
-        <span className="text-xs text-muted-foreground">Extrait de démonstration – FPSG Digital Learning.</span>
+        <span className="text-xs text-muted-foreground">
+          Extrait de démonstration – FPSG Digital Learning.
+        </span>
         <div className="flex items-center gap-2">
-          <Button variant="outline" onClick={reset}>Réinitialiser</Button>
+          <Button variant="outline" onClick={reset}>
+            Réinitialiser
+          </Button>
           <Button onClick={() => setValidated(true)}>Valider</Button>
         </div>
       </CardFooter>

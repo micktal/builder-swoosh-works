@@ -1,5 +1,12 @@
 import React, { useEffect, useMemo, useState } from "react";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Progress } from "@/components/ui/progress";
@@ -44,7 +51,10 @@ export default function HazardMemory() {
   const [moves, setMoves] = useState(0);
   const [locked, setLocked] = useState(false);
 
-  const matchedCount = useMemo(() => deck.filter((c) => c.matched).length, [deck]);
+  const matchedCount = useMemo(
+    () => deck.filter((c) => c.matched).length,
+    [deck],
+  );
   const totalPairs = BASE_CARDS.length;
   const progress = Math.round((matchedCount / (totalPairs * 2)) * 100);
   const allMatched = matchedCount === totalPairs * 2;
@@ -56,7 +66,11 @@ export default function HazardMemory() {
       const c1 = deck.find((c) => c.key === k1)!;
       const c2 = deck.find((c) => c.key === k2)!;
       const isMatch = c1.id === c2.id;
-      const next = deck.map((c) => (c.key === k1 || c.key === k2 ? { ...c, matched: isMatch ? true : c.matched } : c));
+      const next = deck.map((c) =>
+        c.key === k1 || c.key === k2
+          ? { ...c, matched: isMatch ? true : c.matched }
+          : c,
+      );
       const timeout = setTimeout(() => {
         setDeck(next);
         setFlipped([]);
@@ -90,12 +104,18 @@ export default function HazardMemory() {
           <Badge className="badge-soft">Simulation</Badge>
           <Badge className="badge-soft">Jeu mémoire</Badge>
         </div>
-        <CardTitle className="text-lg font-heading font-semibold">Jeu mémoire – Situations à risque</CardTitle>
-        <CardDescription>Retournez les cartes et associez les paires liées à la prévention.</CardDescription>
+        <CardTitle className="text-lg font-heading font-semibold">
+          Jeu mémoire – Situations à risque
+        </CardTitle>
+        <CardDescription>
+          Retournez les cartes et associez les paires liées à la prévention.
+        </CardDescription>
       </CardHeader>
       <CardContent className="flex-1">
         <Progress value={progress} />
-        <div className="mt-2 text-sm text-muted-foreground">{matchedCount / 2} / {totalPairs} paires trouvées • {moves} coups</div>
+        <div className="mt-2 text-sm text-muted-foreground">
+          {matchedCount / 2} / {totalPairs} paires trouvées • {moves} coups
+        </div>
         <div className="mt-4 grid grid-cols-3 sm:grid-cols-4 gap-3 select-none">
           {deck.map((c) => {
             const isFaceUp = flipped.includes(c.key) || c.matched;
@@ -109,8 +129,17 @@ export default function HazardMemory() {
                 } ${locked ? "cursor-wait" : "cursor-pointer"}`}
                 disabled={locked || c.matched}
               >
-                <span className={`transition-transform ${isFaceUp ? "scale-100 opacity-100" : "scale-75 opacity-0"}`}>{c.symbol}</span>
-                {!isFaceUp && <span className="absolute inset-0 rounded-md border-dashed border border-primary/40" aria-hidden />}
+                <span
+                  className={`transition-transform ${isFaceUp ? "scale-100 opacity-100" : "scale-75 opacity-0"}`}
+                >
+                  {c.symbol}
+                </span>
+                {!isFaceUp && (
+                  <span
+                    className="absolute inset-0 rounded-md border-dashed border border-primary/40"
+                    aria-hidden
+                  />
+                )}
               </button>
             );
           })}
@@ -120,15 +149,21 @@ export default function HazardMemory() {
           <div className="mt-4">
             <Alert className="border-green-500/50">
               <AlertTitle>Bravo !</AlertTitle>
-              <AlertDescription>Vous avez trouvé toutes les paires de risques en {moves} coups.</AlertDescription>
+              <AlertDescription>
+                Vous avez trouvé toutes les paires de risques en {moves} coups.
+              </AlertDescription>
             </Alert>
           </div>
         )}
       </CardContent>
       <CardFooter className="flex items-center justify-between">
-        <span className="text-xs text-muted-foreground">Extrait de démonstration – FPSG Digital Learning.</span>
+        <span className="text-xs text-muted-foreground">
+          Extrait de démonstration – FPSG Digital Learning.
+        </span>
         <div className="flex items-center gap-2">
-          <Button variant="outline" onClick={reset}>Réinitialiser</Button>
+          <Button variant="outline" onClick={reset}>
+            Réinitialiser
+          </Button>
         </div>
       </CardFooter>
     </Card>

@@ -1,5 +1,12 @@
 import React, { useMemo, useState } from "react";
-import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from "@/components/ui/card";
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+  CardDescription,
+} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
@@ -13,10 +20,26 @@ type Pillar = {
 };
 
 const PILLARS: Pillar[] = [
-  { id: "observer", label: "Observer", desc: "Repérer les signaux faibles, les comportements à risque." },
-  { id: "anticiper", label: "Anticiper", desc: "Prévenir avant d’avoir à corriger." },
-  { id: "communiquer", label: "Communiquer", desc: "Partager l’information et la vigilance." },
-  { id: "agir", label: "Agir", desc: "Intervenir vite, efficacement et en sécurité." },
+  {
+    id: "observer",
+    label: "Observer",
+    desc: "Repérer les signaux faibles, les comportements à risque.",
+  },
+  {
+    id: "anticiper",
+    label: "Anticiper",
+    desc: "Prévenir avant d’avoir à corriger.",
+  },
+  {
+    id: "communiquer",
+    label: "Communiquer",
+    desc: "Partager l’information et la vigilance.",
+  },
+  {
+    id: "agir",
+    label: "Agir",
+    desc: "Intervenir vite, efficacement et en sécurité.",
+  },
 ];
 
 export default function CultureSafetyDnD() {
@@ -29,8 +52,14 @@ export default function CultureSafetyDnD() {
   const [picked, setPicked] = useState<PillarId | null>(null);
   const [showResult, setShowResult] = useState(false);
 
-  const remaining = useMemo(() => PILLARS.filter(p => !Object.values(bins).includes(p.id)), [bins]);
-  const score = useMemo(() => Object.entries(bins).filter(([k, v]) => k === v).length, [bins]);
+  const remaining = useMemo(
+    () => PILLARS.filter((p) => !Object.values(bins).includes(p.id)),
+    [bins],
+  );
+  const score = useMemo(
+    () => Object.entries(bins).filter(([k, v]) => k === v).length,
+    [bins],
+  );
 
   function onDragStart(e: React.DragEvent<HTMLButtonElement>, id: PillarId) {
     e.dataTransfer.setData("text/plain", id);
@@ -68,8 +97,13 @@ export default function CultureSafetyDnD() {
           <Badge className="badge-soft">Drag & Drop</Badge>
           <Badge className="badge-soft">Culture prévention</Badge>
         </div>
-        <CardTitle className="text-lg font-heading font-semibold">Culture sécurité FPSG</CardTitle>
-        <CardDescription>Associez chaque pilier à sa définition pour valider votre compréhension.</CardDescription>
+        <CardTitle className="text-lg font-heading font-semibold">
+          Culture sécurité FPSG
+        </CardTitle>
+        <CardDescription>
+          Associez chaque pilier à sa définition pour valider votre
+          compréhension.
+        </CardDescription>
       </CardHeader>
       <CardContent className="flex-1">
         {/* Draggables */}
@@ -84,7 +118,9 @@ export default function CultureSafetyDnD() {
               aria-label={`Glisser « ${p.label} »`}
             >
               <div className="font-medium">{p.label}</div>
-              <div className="text-sm text-muted-foreground">Glissez sur la bonne définition</div>
+              <div className="text-sm text-muted-foreground">
+                Glissez sur la bonne définition
+              </div>
             </button>
           ))}
         </div>
@@ -101,7 +137,9 @@ export default function CultureSafetyDnD() {
                 <div className="font-medium">{p.desc}</div>
                 <div
                   className={`mt-3 min-h-12 rounded-md border-dashed border-2 grid place-items-center text-sm ${
-                    hasValue ? "border-foreground/20 bg-accent/40" : "border-muted-foreground/30"
+                    hasValue
+                      ? "border-foreground/20 bg-accent/40"
+                      : "border-muted-foreground/30"
                   }`}
                   onDragOver={allowDrop}
                   onDrop={(e) => onDrop(e, p.id)}
@@ -111,8 +149,12 @@ export default function CultureSafetyDnD() {
                     <span className="text-muted-foreground">Déposez ici…</span>
                   ) : (
                     <div className="w-full flex items-center justify-between px-3 py-2">
-                      <div className="font-medium">{PILLARS.find(x => x.id === dropped)!.label}</div>
-                      <div className={`text-xs ${isCorrect ? "text-green-700" : "text-red-700"}`}>
+                      <div className="font-medium">
+                        {PILLARS.find((x) => x.id === dropped)!.label}
+                      </div>
+                      <div
+                        className={`text-xs ${isCorrect ? "text-green-700" : "text-red-700"}`}
+                      >
                         {isCorrect ? "Correct" : "À revoir"}
                       </div>
                     </div>
@@ -120,7 +162,13 @@ export default function CultureSafetyDnD() {
                 </div>
                 {hasValue && (
                   <div className="mt-2 text-right">
-                    <Button variant="outline" size="sm" onClick={() => removeFromBin(p.id)}>Retirer</Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => removeFromBin(p.id)}
+                    >
+                      Retirer
+                    </Button>
                   </div>
                 )}
               </div>
@@ -133,21 +181,29 @@ export default function CultureSafetyDnD() {
             {score === PILLARS.length ? (
               <Alert className="border-green-500/50">
                 <AlertTitle>Bravo</AlertTitle>
-                <AlertDescription>Toutes les associations sont correctes.</AlertDescription>
+                <AlertDescription>
+                  Toutes les associations sont correctes.
+                </AlertDescription>
               </Alert>
             ) : (
               <Alert variant="destructive">
                 <AlertTitle>À approfondir</AlertTitle>
-                <AlertDescription>Revoyez les associations incorrectes puis validez à nouveau.</AlertDescription>
+                <AlertDescription>
+                  Revoyez les associations incorrectes puis validez à nouveau.
+                </AlertDescription>
               </Alert>
             )}
           </div>
         )}
       </CardContent>
       <CardFooter className="flex items-center justify-between">
-        <span className="text-xs text-muted-foreground">Extrait de démonstration – FPSG Digital Learning.</span>
+        <span className="text-xs text-muted-foreground">
+          Extrait de démonstration – FPSG Digital Learning.
+        </span>
         <div className="flex items-center gap-2">
-          <Button variant="outline" onClick={reset}>Réinitialiser</Button>
+          <Button variant="outline" onClick={reset}>
+            Réinitialiser
+          </Button>
           <Button onClick={() => setShowResult(true)}>Valider</Button>
         </div>
       </CardFooter>
