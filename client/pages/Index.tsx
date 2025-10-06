@@ -455,7 +455,7 @@ export default function Index() {
       <section className="bg-white section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Des résultats mesurables à chaque étape.</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">Des r��sultats mesurables à chaque étape.</h2>
           </Reveal>
           <div className="mt-8 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
             {[
@@ -484,9 +484,9 @@ export default function Index() {
           </Reveal>
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {[
-              { n: "Responsable HSE", f: "Secteur industriel — Axiom Corp.", t: "Les modules FPSG ont transformé notre culture sécurité." },
-              { n: "DRH", f: "Services — Novelia.", t: "Simple, efficace, mesurable. L'adoption a été immédiate." },
-              { n: "Directeur d'agence", f: "Retail — Orbis.", t: "Des scénarios concrets et une vraie montée en compétences." },
+              { n: "Responsable HSE", f: "Secteur industriel", t: "Les modules FPSG ont transformé notre culture sécurité." },
+              { n: "DRH", f: "Services", t: "Simple, efficace, mesurable. L'adoption a été immédiate." },
+              { n: "Directeur d'agence", f: "Retail", t: "Des scénarios concrets et une vraie montée en compétences." },
             ].map((x, i) => (
               <Reveal key={x.n} delay={i * 100}>
                 <figure className="card p-6 h-full">
