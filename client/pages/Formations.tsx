@@ -190,58 +190,6 @@ export default function Formations() {
         </div>
       </section>
 
-      {/* Mini-démos */}
-      <section className="bg-[#F9FAFB] section-y">
-        <div className="container-padded py-8 md:py-12">
-          <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Essayez nos modules en ligne</h2>
-          </Reveal>
-          <Reveal delay={80}>
-            <p className="mt-3 max-w-3xl text-muted-foreground">Découvrez la qualité de nos contenus à travers des extraits interactifs.</p>
-          </Reveal>
-          <div className="mt-8 grid gap-8 md:grid-cols-2">
-            {[
-              { t: "Réagir face à une situation suspecte", src: "https://modules.fpsg.fr/module1/index.html" },
-              { t: "Prévenir les RPS au quotidien", src: "https://modules.fpsg.fr/module2/index.html" },
-            ].map((m, i) => (
-              <Reveal key={m.t} delay={i * 80}>
-                <div className="card overflow-hidden">
-                  <div className="bg-black/5">
-                    <div className="text-center text-xs text-muted-foreground pt-4">Exercice interactif</div>
-                    <iframe src={m.src} title={m.t} className="embed-frame" frameBorder="0" />
-                  </div>
-                  <div className="p-4 text-sm text-muted-foreground">Extrait de démonstration – version e-learning FPSG.</div>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Témoignages */}
-      <section className="bg-white section-y">
-        <div className="container-padded py-8 md:py-12">
-          <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Ils nous font confiance</h2>
-          </Reveal>
-          <div className="mt-8 grid gap-6 md:grid-cols-3">
-            {["Les modules FPSG sont devenus un pilier de notre culture sécurité.", "Une approche claire, moderne et efficace.", "La qualité et la réactivité des équipes FPSG font la différence."].map((q, i) => (
-              <Reveal key={q} delay={i * 80}>
-                <figure className="card p-6 h-full">
-                  <div className="flex items-center gap-3">
-                    <img className="h-10 w-10 rounded-full object-cover" src={`https://i.pravatar.cc/100?img=${i + 20}`} alt="Portrait client" />
-                    <div>
-                      <figcaption className="font-heading font-semibold">Responsable formation</figcaption>
-                      <div className="text-sm text-muted-foreground">Entreprise multi-sites</div>
-                    </div>
-                  </div>
-                  <blockquote className="mt-4 italic text-[1.05rem] leading-relaxed">“{q}”</blockquote>
-                </figure>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
     </main>
   );
