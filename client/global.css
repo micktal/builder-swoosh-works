@@ -94,7 +94,7 @@
 }
 
 @layer base {
-  html { font-size: 18px; }
+  html { font-size: 18px; scroll-behavior: smooth; }
   * { @apply border-border; }
   body {
     @apply bg-background text-foreground antialiased;
@@ -109,7 +109,7 @@
 
 @layer components {
   .container-padded { @apply container px-4 sm:px-6 lg:px-8; }
-  .btn-cta { @apply inline-flex items-center justify-center rounded-[8px] bg-primary text-white px-6 py-3 shadow-[0_8px_24px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all font-semibold; font-family: theme("fontFamily.heading"); font-size: 16px; }
+  .btn-cta { @apply inline-flex items-center justify-center rounded-[8px] bg-primary text-white px-6 py-3 shadow-[0_8px_24px_rgba(0,0,0,0.1)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.12)] hover:-translate-y-0.5 transition-all font-semibold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/40; font-family: theme("fontFamily.heading"); font-size: 16px; }
 .btn-cta:hover { background-color: #198754; }
   .card { @apply rounded-[10px] bg-card text-card-foreground shadow-[0_8px_24px_rgba(0,0,0,0.06)] hover:shadow-[0_12px_32px_rgba(0,0,0,0.1)] hover:-translate-y-0.5 transition-all; }
   .badge-soft { @apply inline-flex items-center rounded-full bg-accent px-3 py-1 text-sm font-medium text-accent-foreground; }
