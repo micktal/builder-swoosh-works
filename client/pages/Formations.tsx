@@ -13,7 +13,7 @@ export default function Formations() {
           <img src={heroImg} alt="Collaborateurs en formation digitale" className="h-full w-full object-cover opacity-25 blur-sm" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0E1E2B]/70 via-[#0E1E2B]/60 to-[#0E1E2B]" />
         </div>
-        <div className="container-padded py-16 md:py-24">
+        <div className="container-padded py-10 md:py-16">
           <Reveal>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold leading-tight">Nos formations e-learning, prêtes à déployer.</h1>
           </Reveal>
@@ -31,7 +31,7 @@ export default function Formations() {
 
       {/* Catégories */}
       <section className="bg-[#F9FAFB] section-y" id="categories">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded py-8 md:py-12">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">6 univers pour renforcer vos équipes</h2>
           </Reveal>
@@ -66,7 +66,7 @@ export default function Formations() {
 
       {/* Focus formations phares */}
       <section className="bg-white section-y" id="focus">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded py-8 md:py-12">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Des modules concrets, validés par nos experts</h2>
           </Reveal>
@@ -98,7 +98,7 @@ export default function Formations() {
 
       {/* Expérience e-learning engageante */}
       <section className="bg-[#F9FAFB] section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded py-8 md:py-12">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Une pédagogie active et immersive</h2>
           </Reveal>
@@ -127,7 +127,7 @@ export default function Formations() {
 
       {/* Avantages entreprise */}
       <section className="bg-white section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded py-8 md:py-12">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Pourquoi digitaliser vos formations ?</h2>
           </Reveal>
@@ -156,7 +156,7 @@ export default function Formations() {
 
       {/* Mini-démos */}
       <section className="bg-[#F9FAFB] section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded py-8 md:py-12">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Essayez nos modules en ligne</h2>
           </Reveal>
@@ -184,7 +184,7 @@ export default function Formations() {
 
       {/* Témoignages */}
       <section className="bg-white section-y">
-        <div className="container-padded py-12 md:py-20">
+        <div className="container-padded py-8 md:py-12">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Ils nous font confiance</h2>
           </Reveal>
@@ -209,7 +209,7 @@ export default function Formations() {
 
       {/* CTA final */}
       <section className="bg-[#0E1E2B] text-white section-y">
-        <div className="container-padded py-14 md:py-16 text-center">
+        <div className="container-padded py-8 md:py-12 text-center">
           <Reveal>
             <h3 className="text-2xl md:text-3xl font-heading font-bold">Prêt à transformer vos formations ?</h3>
           </Reveal>
