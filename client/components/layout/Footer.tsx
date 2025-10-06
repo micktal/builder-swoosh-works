@@ -10,7 +10,7 @@ export default function Footer() {
             <img
               src="https://cdn.builder.io/api/v1/image/assets%2Fd93d9a0ec7824aa1ac4d890a1f90a2ec%2F44c8eb4ad92449dfa7ec72baf68f9623?format=webp&width=800"
               alt="Logo FPSG Digital Learning"
-              className="h-10 w-auto brightness-0 invert opacity-90 transition hover:opacity-100"
+              className="h-12 w-auto brightness-0 invert opacity-90 transition hover:opacity-100"
             />
             <div>
               <div className="font-heading font-bold text-white">FPSG Digital Learning</div>
@@ -56,7 +56,7 @@ export default function Footer() {
 
       <div className="border-t border-white/10">
         <div className="container-padded py-4 text-center text-[14px] text-[#DCE1E5]">
-          © 2025 FIDUCIAL FPSG – Tous droits réservés | <a href="#" className="hover:text-primary">Mentions légales</a> | <a href="#" className="hover:text-primary">Politique de confidentialité</a>
+          © 2025 FIDUCIAL FPSG – Tous droits r��servés | <a href="#" className="hover:text-primary">Mentions légales</a> | <a href="#" className="hover:text-primary">Politique de confidentialité</a>
         </div>
       </div>
     </footer>
