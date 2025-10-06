@@ -8,7 +8,7 @@ export default function Formations() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#0E1E2B] text-white">
+      <section className="relative overflow-hidden bg-[#0E1E2B] text-white section-y">
         <div className="absolute inset-0 -z-10">
           <img src={heroImg} alt="Collaborateurs en formation digitale" className="h-full w-full object-cover opacity-25 blur-sm" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0E1E2B]/70 via-[#0E1E2B]/60 to-[#0E1E2B]" />
@@ -108,7 +108,7 @@ export default function Formations() {
           <div className="mt-8 grid gap-6 md:grid-cols-3">
             {[
               { t: "Scénarios interactifs", d: "Cas concrets et mises en situation réelles.", icon: PlayCircle },
-              { t: "Feedback immédiat", d: "Évaluations intégrées et retours dynamiques.", icon: BadgeCheck },
+              { t: "Feedback immédiat", d: "Évaluations int��grées et retours dynamiques.", icon: BadgeCheck },
               { t: "Progression guidée", d: "Parcours structuré selon Bloom.", icon: GraduationCap },
             ].map((f, i) => (
               <Reveal key={f.t} delay={i * 80}>
