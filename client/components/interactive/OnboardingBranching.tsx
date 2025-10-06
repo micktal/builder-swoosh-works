@@ -94,7 +94,7 @@ import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
           <Badge className="badge-soft">Scénario</Badge>
           <Badge className="badge-soft">Onboarding</Badge>
         </div>
-        <CardTitle className="text-lg font-heading font-semibold">Scénario à embranchements – Nouvel arrivant</CardTitle>
+        <CardTitle className="text-lg font-heading font-semibold break-words leading-snug">Scénario à embranchements – Nouvel arrivant</CardTitle>
         <CardDescription>Faites les bons choix pour réussir votre première journée.</CardDescription>
       </CardHeader>
       <CardContent className="flex-1">
