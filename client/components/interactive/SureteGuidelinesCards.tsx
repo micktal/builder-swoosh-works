@@ -12,7 +12,7 @@ export default function SureteGuidelinesCards() {
       accent: "#009E73",
       hover: "hover:scale-[1.01]",
       iconClass: "",
-      extra: "",
+      example: "Exemple: un agent repère un sac isolé près d'une sortie et observe à distance sans créer de panique.",
     },
     {
       icon: AlertCircle,
@@ -22,7 +22,7 @@ export default function SureteGuidelinesCards() {
       accent: "#006B46",
       hover: "hover:ring-2 hover:ring-[#006B46]",
       iconClass: "",
-      extra: "",
+      example: "Exemple: appel au PC sécurité: 'Homme manteau noir, sac volumineux, hall A, 10h12'.",
     },
     {
       icon: Shield,
@@ -32,7 +32,7 @@ export default function SureteGuidelinesCards() {
       accent: "#333333",
       hover: "",
       iconClass: "group-hover:rotate-6 transition-transform",
-      extra: "",
+      example: "Exemple: rubalise temporaire posée, redirection du flux vers l'allée B, personnel informé.",
     },
     {
       icon: Activity,
@@ -42,9 +42,14 @@ export default function SureteGuidelinesCards() {
       accent: "#00B783",
       hover: "hover:bg-gradient-to-br hover:from-[#00B783] hover:to-[#009E73] hover:text-white",
       iconClass: "",
-      extra: "",
+      example: "Exemple: voix posée, messages clairs au public, respiration contrôlée pour garder le calme.",
     },
   ] as const;
+
+  const [flipped, setFlipped] = React.useState<Record<number, boolean>>({});
+  function toggle(i: number) {
+    setFlipped((f) => ({ ...f, [i]: !f[i] }));
+  }
 
   return (
     <div className="space-y-6">
