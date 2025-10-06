@@ -16,6 +16,7 @@ import Footer from "@/components/layout/Footer";
 import Placeholder from "./pages/Placeholder";
 import Approche from "./pages/Approche";
 import Formations from "./pages/Formations";
+import Demonstrations from "./pages/Demonstrations";
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
