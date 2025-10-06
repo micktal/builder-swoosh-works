@@ -4,7 +4,6 @@ import { Link } from "react-router-dom";
 import { BarChart3, BookOpenCheck, CheckCircle2, FileDown, Languages, LineChart, Search, FileText, Presentation } from "lucide-react";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
-import { Button } from "@/components/ui/button";
 
 export default function Approche() {
   const heroVideo = "https://cdn.coverr.co/videos/coverr-working-in-the-office-7935/1080p.mp4";
@@ -119,29 +118,41 @@ export default function Approche() {
                 </TabsList>
                 <TabsContent value="pdf" className="mt-4">
                   <AspectRatio ratio={16/9}>
-                    <iframe
-                      src="https://docs.google.com/gview?embedded=1&url=https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
-                      title="Aperçu PDF"
-                      className="embed-frame"
-                    />
+                    <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-zinc-100 to-zinc-200 rounded-[8px]">
+                      <div className="relative w-[82%] h-[82%] bg-white rounded-md shadow-xl overflow-hidden">
+                        <div className="absolute right-3 top-3 text-[10px] font-semibold px-2 py-0.5 rounded bg-red-50 text-red-700 border border-red-200">PDF</div>
+                        <div className="p-4 space-y-2">
+                          <div className="h-4 bg-zinc-200 rounded w-2/3" />
+                          <div className="h-3 bg-zinc-200/80 rounded w-full" />
+                          <div className="h-3 bg-zinc-200/80 rounded w-[92%]" />
+                          <div className="h-3 bg-zinc-200/80 rounded w-[85%]" />
+                          <div className="h-40 bg-zinc-100 rounded-md mt-3" />
+                          <div className="h-3 bg-zinc-200/80 rounded w-[88%]" />
+                          <div className="h-3 bg-zinc-200/80 rounded w-[76%]" />
+                        </div>
+                      </div>
+                    </div>
                   </AspectRatio>
-                  <div className="mt-3 flex justify-between">
-                    <span className="text-sm text-muted-foreground">Exemple de PDF intégré</span>
-                    <Button asChild variant="outline" size="sm"><a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" rel="noreferrer">Télécharger</a></Button>
-                  </div>
+                  <div className="mt-3 text-sm text-muted-foreground">Aperçu visuel d’un document PDF</div>
                 </TabsContent>
                 <TabsContent value="pptx" className="mt-4">
                   <AspectRatio ratio={16/9}>
-                    <iframe
-                      src="https://docs.google.com/gview?embedded=1&url=https://file-examples.com/storage/fe2e1b0a3f2b4b1c7e2f2ba/2017/08/file_example_PPT_1MB.ppt"
-                      title="Aperçu PPTX"
-                      className="embed-frame"
-                    />
+                    <div className="absolute inset-0 grid place-items-center bg-gradient-to-br from-orange-50 to-orange-100 rounded-[8px]">
+                      <div className="relative w-[82%] h-[82%] bg-white rounded-md shadow-xl overflow-hidden">
+                        <div className="absolute right-3 top-3 text-[10px] font-semibold px-2 py-0.5 rounded bg-orange-50 text-orange-700 border border-orange-200">PPTX</div>
+                        <div className="p-4 space-y-3">
+                          <div className="h-5 bg-orange-100 rounded w-2/3" />
+                          <div className="grid grid-cols-3 gap-3">
+                            <div className="h-24 bg-orange-50 rounded" />
+                            <div className="h-24 bg-orange-50 rounded" />
+                            <div className="h-24 bg-orange-50 rounded" />
+                          </div>
+                          <div className="h-3 bg-orange-100 rounded w-[90%]" />
+                        </div>
+                      </div>
+                    </div>
                   </AspectRatio>
-                  <div className="mt-3 flex justify-between">
-                    <span className="text-sm text-muted-foreground">Exemple de présentation intégrée</span>
-                    <Button asChild variant="outline" size="sm"><a href="https://file-examples.com/storage/fe2e1b0a3f2b4b1c7e2f2ba/2017/08/file_example_PPT_1MB.ppt" target="_blank" rel="noreferrer">Télécharger</a></Button>
-                  </div>
+                  <div className="mt-3 text-sm text-muted-foreground">Aperçu visuel d’une présentation PPTX</div>
                 </TabsContent>
               </Tabs>
             </div>
