@@ -37,6 +37,7 @@ export default function Index() {
   const heroVideo = "https://videos.pexels.com/video-files/3044654/3044654-hd_1280_720_50fps.mp4";
   const heroPoster = "https://images.pexels.com/photos/7658369/pexels-photo-7658369.jpeg";
   const [showUseCase, setShowUseCase] = useState(false);
+  const [showUseCaseSuspect, setShowUseCaseSuspect] = useState(false);
 
   return (
     <main>
@@ -147,6 +148,8 @@ export default function Index() {
                     <div className="mt-4">
                       {i === 0 ? (
                         <button type="button" onClick={() => setShowUseCase((v) => !v)} className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary/15">Use case</button>
+                      ) : i === 1 ? (
+                        <button type="button" onClick={() => setShowUseCaseSuspect((v) => !v)} className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary/15">Use case</button>
                       ) : (
                         <Link to="/demonstrations" className="btn-cta">Voir une démo</Link>
                       )}
@@ -253,6 +256,66 @@ export default function Index() {
                               <li>Fermeté sereine → “Je ne peux pas accéder à cette demande, mais voici une alternative.”</li>
                             </ol>
                             <blockquote className="mt-2 italic">“La meilleure réponse à la colère, c’est la clarté calme.”</blockquote>
+                          </div>
+                        </div>
+
+                        <div className="mt-4 text-xs text-muted-foreground">Extrait de démonstration – FPSG Digital Learning.</div>
+                      </div>
+                    )}
+                    {i === 1 && showUseCaseSuspect && (
+                      <div className="mt-4 card p-6">
+                        <div className="text-xs uppercase tracking-wide text-primary/80">Titre du module</div>
+                        <h4 className="mt-1 text-xl font-heading font-semibold">Réagir face à une situation suspecte – Scénario immersif de sûreté</h4>
+
+                        <div className="mt-4 space-y-4 text-sm leading-relaxed">
+                          <div>
+                            <div className="font-semibold">Contexte du scénario</div>
+                            <ul className="list-disc pl-5 mt-1 space-y-1">
+                              <li><span className="font-medium">Lieu:</span> zone d'accueil et circulation d'un bâtiment.</li>
+                              <li><span className="font-medium">Personnages:</span> Agent FPSG, public, individu au comportement suspect.</li>
+                              <li><span className="font-medium">Ambiance:</span> activité normale, signal faible détecté puis montée de tension potentielle.</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 1 – Observation discrète</div>
+                            <p className="mt-1">Repérer sans alarmer des signaux faibles: errance, repérage, gestes nerveux, sac abandonné.</p>
+                            <ul className="list-disc pl-5 mt-2 space-y-1">
+                              <li>Se positionner à couvert visuel.</li>
+                              <li>Confirmer l'observation sans jugement.</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 2 – Alerte selon la procédure</div>
+                            <p className="mt-1">Transmettre une information claire: qui, quoi, où, quand.</p>
+                            <ul className="list-disc pl-5 mt-2 space-y-1">
+                              <li>Utiliser les canaux définis (radio, téléphone).</li>
+                              <li>Rester factuel et concis.</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 3 – Mise en sécurité</div>
+                            <p className="mt-1">Se mettre à couvert, éloigner le public, éviter les attroupements.</p>
+                            <ul className="list-disc pl-5 mt-2 space-y-1">
+                              <li>Bloquer/filtrer les accès si nécessaire.</li>
+                              <li>Orienter calmement.</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 4 – Coordination</div>
+                            <p className="mt-1">Attendre les consignes, partager l'information utile, tenir la posture calme.</p>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Débrief – 3 réflexes sûreté</div>
+                            <ul className="list-disc pl-5 mt-1 space-y-1">
+                              <li>Observer sans alarmer</li>
+                              <li>Alerter efficacement</li>
+                              <li>Se mettre à couvert / sécuriser le périmètre</li>
+                            </ul>
                           </div>
                         </div>
 
