@@ -111,9 +111,6 @@ export default function Index() {
                       <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-primary text-white grid place-items-center shadow-[0_8px_24px_rgba(0,0,0,0.1)]">
                         <s.icon className="h-5 w-5 md:h-6 md:w-6" />
                       </div>
-                      {i < 3 && (
-                        <div className="hidden md:block absolute left-full top-1/2 -translate-y-1/2 w-16 h-0.5 bg-primary/30" />
-                      )}
                     </div>
                     <div className="md:mt-4">
                       <h3 className="font-heading font-semibold text-lg">{s.t}</h3>
