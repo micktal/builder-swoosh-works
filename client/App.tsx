@@ -15,6 +15,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import Placeholder from "./pages/Placeholder";
 import Approche from "./pages/Approche";
+import Formations from "./pages/Formations";
 
 const App = () => (
   <QueryClientProvider client={queryClient}>
