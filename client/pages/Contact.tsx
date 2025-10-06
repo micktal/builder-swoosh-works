@@ -68,7 +68,7 @@ export default function Contact() {
       </section>
 
       {/* Form */}
-      <section className="bg-[#F9FAFB]">
+      <section className="bg-[#F9FAFB] section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Demandez une démonstration personnalisée</h2>
