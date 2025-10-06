@@ -9,7 +9,7 @@ export default function Demonstrations() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#0E1E2B] text-white">
+      <section className="relative overflow-hidden bg-[#0E1E2B] text-white section-y">
         <div className="absolute inset-0 -z-10">
           <video className="h-full w-full object-cover opacity-25" autoPlay muted loop playsInline poster={heroPoster}>
             <source src={heroVideo} type="video/mp4" />
