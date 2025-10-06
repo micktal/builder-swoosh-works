@@ -63,8 +63,8 @@ export default function Header() {
       </div>
 
       {open && (
-        <div className="md:hidden border-t bg-white">
-          <div className="container-padded py-4 flex flex-col gap-3">
+        <div className="md:hidden border-t bg-white animate-slide-down">
+          <div className="container-padded py-4 flex flex-col gap-4">
             {navItems.map((item) => (
               <NavLink
                 key={item.to}
