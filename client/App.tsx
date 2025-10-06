@@ -29,10 +29,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/notre-approche" element={<Approche />} />
           <Route path="/nos-formations" element={<Formations />} />
-          <Route
-            path="/demonstrations"
-            element={<Placeholder title="Démonstrations" description="Intégration possible d'iframes Articulate. Demandez une démo personnalisée." />}
-          />
+          <Route path="/demonstrations" element={<Demonstrations />} />
           <Route
             path="/contact"
             element={<Placeholder title="Contact / Demande de démo" description="Un membre de l'équipe vous recontacte rapidement." />}
