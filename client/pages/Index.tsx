@@ -39,6 +39,7 @@ export default function Index() {
   const [showUseCase, setShowUseCase] = useState(false);
   const [showUseCaseSuspect, setShowUseCaseSuspect] = useState(false);
   const [showUseCaseRps, setShowUseCaseRps] = useState(false);
+  const [showUseCaseManager, setShowUseCaseManager] = useState(false);
 
   return (
     <main>
@@ -153,6 +154,8 @@ export default function Index() {
                         <button type="button" onClick={() => setShowUseCaseSuspect((v) => !v)} className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary/15">Use case</button>
                       ) : i === 2 ? (
                         <button type="button" onClick={() => setShowUseCaseRps((v) => !v)} className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary/15">Use case</button>
+                      ) : i === 3 ? (
+                        <button type="button" onClick={() => setShowUseCaseManager((v) => !v)} className="inline-flex items-center px-2.5 py-1 rounded-full text-xs font-medium bg-primary/10 text-primary hover:bg-primary/15">Use case</button>
                       ) : (
                         <Link to="/demonstrations" className="btn-cta">Voir une démo</Link>
                       )}
@@ -367,6 +370,62 @@ export default function Index() {
                               <li>Observer les signaux faibles</li>
                               <li>En parler tôt, avec bienveillance</li>
                               <li>Agir concrètement et orienter</li>
+                            </ul>
+                          </div>
+                        </div>
+
+                        <div className="mt-4 text-xs text-muted-foreground">Extrait de démonstration – FPSG Digital Learning.</div>
+                      </div>
+                    )}
+                    {i === 3 && showUseCaseManager && (
+                      <div className="mt-4 card p-6">
+                        <div className="text-xs uppercase tracking-wide text-primary/80">Titre du module</div>
+                        <h4 className="mt-1 text-xl font-heading font-semibold">Manager une équipe en tension – Posture managériale et communication adaptée</h4>
+
+                        <div className="mt-4 space-y-4 text-sm leading-relaxed">
+                          <div>
+                            <div className="font-semibold">Contexte</div>
+                            <ul className="list-disc pl-5 mt-1 space-y-1">
+                              <li><span className="font-medium">Équipe:</span> charge élevée, délais serrés, désaccords récurrents.</li>
+                              <li><span className="font-medium">Signaux:</span> conflits larvés, emails secs, retards, baisse de qualité.</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 1 – Diagnostiquer la tension</div>
+                            <p className="mt-1">Identifier faits observables et impacts: objectifs, qualité, relation.</p>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 2 – Entretiens individuel et collectif</div>
+                            <ul className="list-disc pl-5 mt-1 space-y-1">
+                              <li>Écoute active, reformulation des besoins.</li>
+                              <li>Règles d’atelier: respect, temps de parole, recherche de solutions.</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 3 – Cadre clair et soutien</div>
+                            <ul className="list-disc pl-5 mt-1 space-y-1">
+                              <li>Clarifier rôles, priorités, modes de communication.</li>
+                              <li>Proposer accompagnement (mentorat, formation, médiation).</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Étape 4 – Plan d'action et suivi</div>
+                            <ul className="list-disc pl-5 mt-1 space-y-1">
+                              <li>Actions datées, responsables, indicateurs simples.</li>
+                              <li>Point régulier: ajuster, reconnaître les progrès.</li>
+                            </ul>
+                          </div>
+
+                          <div>
+                            <div className="font-semibold">Débrief – 3 réflexes management</div>
+                            <ul className="list-disc pl-5 mt-1 space-y-1">
+                              <li>Écoute active</li>
+                              <li>Cadre clair</li>
+                              <li>Régulation continue</li>
                             </ul>
                           </div>
                         </div>
