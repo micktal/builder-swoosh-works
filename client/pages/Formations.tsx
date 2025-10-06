@@ -1,9 +1,32 @@
 import Reveal from "@/components/Reveal";
 import { Link } from "react-router-dom";
+import { useMemo, useState } from "react";
 import { BadgeCheck, BarChart3, GraduationCap, Handshake, HeartPulse, Languages, Megaphone, PlayCircle, Rocket, ShieldCheck, Users2, AlertTriangle } from "lucide-react";
 
 export default function Formations() {
   const heroImg = "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1600&auto=format&fit=crop";
+  const allModules = [
+    { t: "Gérer un visiteur mécontent", d: "Communication assertive.", domain: "Communication", level: "Essentiel", duration: 20, langs: ["FR", "EN"] },
+    { t: "Réagir face à une situation suspecte", d: "Sûreté et vigilance.", domain: "Sûreté", level: "Intermédiaire", duration: 25, langs: ["FR"] },
+    { t: "Prévenir les RPS au quotidien", d: "Signaux faibles et action.", domain: "RPS", level: "Essentiel", duration: 18, langs: ["FR", "EN"] },
+    { t: "Manager une équipe en tension", d: "Posture managériale.", domain: "Management", level: "Intermédiaire", duration: 30, langs: ["FR"] },
+    { t: "Santé au travail : mieux gérer le stress", d: "Régulation & bien‑être.", domain: "Bien‑être", level: "Essentiel", duration: 15, langs: ["FR", "EN", "ES"] },
+    { t: "Culture sécurité : adopter les bons réflexes", d: "Sensibilisation.", domain: "Culture sécurité", level: "Essentiel", duration: 22, langs: ["FR"] },
+  ];
+  const [search, setSearch] = useState("");
+  const [domain, setDomain] = useState("");
+  const [level, setLevel] = useState("");
+  const [duration, setDuration] = useState("");
+  const filtered = useMemo(() => {
+    return allModules.filter((m) => {
+      const s = search.toLowerCase();
+      const passSearch = !s || m.t.toLowerCase().includes(s) || m.d.toLowerCase().includes(s);
+      const passDomain = !domain || m.domain === domain;
+      const passLevel = !level || m.level === level;
+      const passDuration = !duration || m.duration <= parseInt(duration, 10);
+      return passSearch && passDomain && passLevel && passDuration;
+    });
+  }, [search, domain, level, duration]);
 
   return (
     <main>
@@ -55,30 +78,55 @@ export default function Formations() {
         </div>
       </section>
 
-      {/* Focus formations phares */}
+      {/* Catalogue filtrable */}
       <section className="bg-white section-y" id="focus">
         <div className="container-padded py-8 md:py-12">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">Des modules concrets, validés par nos experts</h2>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">Catalogue des modules</h2>
           </Reveal>
-          <div className="mt-8 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
-            {[
-              { t: "Gérer un visiteur mécontent", d: "Simulation interactive de communication assertive.", img: "https://images.unsplash.com/photo-1521737604893-d14cc237f11d?q=80&w=1200&auto=format&fit=crop" },
-              { t: "Réagir face à une situation suspecte", d: "Scénario immersif de sûreté.", img: "https://images.unsplash.com/photo-1521791136064-7986c2920216?q=80&w=1200&auto=format&fit=crop" },
-              { t: "Prévenir les RPS au quotidien", d: "Identifier les signaux faibles et agir tôt.", img: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1200&auto=format&fit=crop" },
-              { t: "Manager une équipe en tension", d: "Posture juste et communication adaptée.", img: "https://images.unsplash.com/photo-1522071901873-411886a10004?q=80&w=1200&auto=format&fit=crop" },
-              { t: "Santé au travail : mieux gérer le stress", d: "Techniques de régulation et de bien-être.", img: "https://images.unsplash.com/photo-1518085250887-2f903c200fee?q=80&w=1200&auto=format&fit=crop" },
-              { t: "Culture sécurité : adopter les bons réflexes", d: "Sensibilisation collective et partagée.", img: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?q=80&w=1200&auto=format&fit=crop" },
-            ].map((m, i) => (
-              <Reveal key={m.t} delay={i * 80}>
-                <article className="card overflow-hidden">
-                  <img src={m.img} alt="" className="h-44 w-full object-cover rounded-[8px]" />
-                  <div className="p-5">
-                    <h3 className="text-lg font-heading font-semibold">{m.t}</h3>
-                    <p className="mt-1 text-muted-foreground">{m.d}</p>
-                    <div className="mt-4">
-                      <Link to="/demonstrations" className="btn-cta">Voir la démo</Link>
+          <Reveal delay={80}>
+            <p className="mt-2 text-muted-foreground">Recherchez et filtrez par domaine, niveau et durée.</p>
+          </Reveal>
+          <div className="mt-6 grid gap-3 md:grid-cols-4">
+            <input type="search" placeholder="Rechercher un module…" className="rounded-[8px] border px-3 py-2 md:col-span-2" value={search} onChange={(e) => setSearch(e.target.value)} />
+            <select className="rounded-[8px] border px-3 py-2" value={domain} onChange={(e) => setDomain(e.target.value)}>
+              <option value="">Tous domaines</option>
+              <option>Communication</option>
+              <option>Sûreté</option>
+              <option>RPS</option>
+              <option>Management</option>
+              <option>Bien‑être</option>
+              <option>Culture sécurité</option>
+            </select>
+            <select className="rounded-[8px] border px-3 py-2" value={level} onChange={(e) => setLevel(e.target.value)}>
+              <option value="">Tous niveaux</option>
+              <option>Essentiel</option>
+              <option>Intermédiaire</option>
+              <option>Avancé</option>
+            </select>
+            <select className="rounded-[8px] border px-3 py-2" value={duration} onChange={(e) => setDuration(e.target.value)}>
+              <option value="">Toutes durées</option>
+              <option value="15">≤ 15 min</option>
+              <option value="30">≤ 30 min</option>
+              <option value="60">≤ 60 min</option>
+            </select>
+          </div>
+          <div className="mt-6 text-sm text-muted-foreground">{filtered.length} résultat(s)</div>
+          <div className="mt-4 grid gap-6 md:grid-cols-2 xl:grid-cols-3">
+            {filtered.map((m, i) => (
+              <Reveal key={m.t} delay={i * 60}>
+                <article className="card p-5">
+                  <div className="flex items-start justify-between gap-3">
+                    <div>
+                      <h3 className="text-lg font-heading font-semibold">{m.t}</h3>
+                      <p className="mt-1 text-muted-foreground">{m.d}</p>
                     </div>
+                    <span className="text-xs px-2 py-1 rounded-full bg-primary/10 text-primary">{m.domain}</span>
+                  </div>
+                  <div className="mt-3 flex flex-wrap gap-2 text-xs text-muted-foreground">
+                    <span className="px-2 py-0.5 rounded bg-muted">{m.level}</span>
+                    <span className="px-2 py-0.5 rounded bg-muted">{m.duration} min</span>
+                    <span className="px-2 py-0.5 rounded bg-muted">{m.langs.join(", ")}</span>
                   </div>
                 </article>
               </Reveal>
