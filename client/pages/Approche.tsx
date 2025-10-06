@@ -1,7 +1,10 @@
 import Reveal from "@/components/Reveal";
 import { ProgressOnView, CountUpOnView } from "@/components/metrics";
 import { Link } from "react-router-dom";
-import { BarChart3, BookOpenCheck, CheckCircle2, FileDown, Languages, LineChart, Search } from "lucide-react";
+import { BarChart3, BookOpenCheck, CheckCircle2, FileDown, Languages, LineChart, Search, FileText, Presentation } from "lucide-react";
+import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
+import { AspectRatio } from "@/components/ui/aspect-ratio";
+import { Button } from "@/components/ui/button";
 
 export default function Approche() {
   const heroVideo = "https://cdn.coverr.co/videos/coverr-working-in-the-office-7935/1080p.mp4";
@@ -96,6 +99,79 @@ export default function Approche() {
                 alt="Schéma de la pyramide de Bloom"
                 className="rounded-[8px] shadow-none md:shadow-[0_12px_32px_rgba(0,0,0,0.1)]"
               />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Du document au module e‑learning */}
+      <section className="bg-white section-y">
+        <div className="container-padded section-y">
+          <Reveal>
+            <h2 className="text-3xl md:text-4xl font-heading font-bold">De votre document à un module e‑learning</h2>
+          </Reveal>
+          <div className="mt-8 grid gap-8 md:grid-cols-2 items-start">
+            <div className="card p-4">
+              <Tabs defaultValue="pdf">
+                <TabsList className="grid grid-cols-2 w-full">
+                  <TabsTrigger value="pdf" className="data-[state=active]:bg-primary/10 data-[state=active]:text-primary"><FileText className="mr-2 h-4 w-4" /> PDF</TabsTrigger>
+                  <TabsTrigger value="pptx" className="data-[state=active]:bg-primary/10 data-[state=active]:text-primary"><Presentation className="mr-2 h-4 w-4" /> PPTX</TabsTrigger>
+                </TabsList>
+                <TabsContent value="pdf" className="mt-4">
+                  <AspectRatio ratio={16/9}>
+                    <iframe
+                      src="https://docs.google.com/gview?embedded=1&url=https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf"
+                      title="Aperçu PDF"
+                      className="embed-frame"
+                    />
+                  </AspectRatio>
+                  <div className="mt-3 flex justify-between">
+                    <span className="text-sm text-muted-foreground">Exemple de PDF intégré</span>
+                    <Button asChild variant="outline" size="sm"><a href="https://www.w3.org/WAI/ER/tests/xhtml/testfiles/resources/pdf/dummy.pdf" target="_blank" rel="noreferrer">Télécharger</a></Button>
+                  </div>
+                </TabsContent>
+                <TabsContent value="pptx" className="mt-4">
+                  <AspectRatio ratio={16/9}>
+                    <iframe
+                      src="https://docs.google.com/gview?embedded=1&url=https://file-examples.com/storage/fe2e1b0a3f2b4b1c7e2f2ba/2017/08/file_example_PPT_1MB.ppt"
+                      title="Aperçu PPTX"
+                      className="embed-frame"
+                    />
+                  </AspectRatio>
+                  <div className="mt-3 flex justify-between">
+                    <span className="text-sm text-muted-foreground">Exemple de présentation intégrée</span>
+                    <Button asChild variant="outline" size="sm"><a href="https://file-examples.com/storage/fe2e1b0a3f2b4b1c7e2f2ba/2017/08/file_example_PPT_1MB.ppt" target="_blank" rel="noreferrer">Télécharger</a></Button>
+                  </div>
+                </TabsContent>
+              </Tabs>
+            </div>
+            <div>
+              <div className="space-y-4">
+                <Reveal delay={40}>
+                  <div className="card p-5">
+                    <div className="font-heading font-semibold">1) Compréhension du sujet</div>
+                    <p className="text-sm text-muted-foreground mt-1">Entretiens, objectifs pédagogiques, publics, contraintes. Indicateurs de succès définis.</p>
+                  </div>
+                </Reveal>
+                <Reveal delay={80}>
+                  <div className="card p-5">
+                    <div className="font-heading font-semibold">2) Recherche & validation</div>
+                    <p className="text-sm text-muted-foreground mt-1">Veille, sources internes/externes, conformité (sûreté, HSE, RGAA). Validation avec vos experts.</p>
+                  </div>
+                </Reveal>
+                <Reveal delay={120}>
+                  <div className="card p-5">
+                    <div className="font-heading font-semibold">3) Personnalisation</div>
+                    <p className="text-sm text-muted-foreground mt-1">Charte, ton, cas métiers et vocabulaire interne. Localisation si besoin.</p>
+                  </div>
+                </Reveal>
+                <Reveal delay={160}>
+                  <div className="card p-5">
+                    <div className="font-heading font-semibold">4) Création du module</div>
+                    <p className="text-sm text-muted-foreground mt-1">Storyboard, interactions, quiz, accessibilité, QA. Packaging SCORM/xAPI et déploiement.</p>
+                  </div>
+                </Reveal>
+              </div>
             </div>
           </div>
         </div>
