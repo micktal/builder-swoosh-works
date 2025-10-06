@@ -187,9 +187,6 @@ export default function Formations() {
               </Reveal>
             ))}
           </div>
-          <div className="mt-8">
-            <Link to="/contact" className="btn-cta">Obtenir une présentation complète</Link>
-          </div>
         </div>
       </section>
 
