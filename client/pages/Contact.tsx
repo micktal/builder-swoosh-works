@@ -43,7 +43,7 @@ export default function Contact() {
   return (
     <main>
       {/* Hero */}
-      <section className="relative overflow-hidden bg-[#0E1E2B] text-white">
+      <section className="relative overflow-hidden bg-[#0E1E2B] text-white section-y">
         <div className="absolute inset-0 -z-10">
           <img src={heroImg} alt="Équipe FPSG" className="h-full w-full object-cover opacity-25" />
           <div className="absolute inset-0 bg-gradient-to-b from-[#0E1E2B]/70 via-[#0E1E2B]/60 to-[#0E1E2B]" />
@@ -57,7 +57,7 @@ export default function Contact() {
               <p className="mt-3 text-white/80">Nous vous accompagnons dans la digitalisation de vos formations sécurité et prévention.</p>
             </Reveal>
             <Reveal delay={140}>
-              <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <div className="mt-6 cta-group">
                 <Link to="/contact" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Demander une démo gratuite</Link>
                 <Link to="/nos-formations" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10 bg-white">Voir nos formations</Link>
               </div>
@@ -141,7 +141,7 @@ export default function Contact() {
       </section>
 
       {/* Coordonnées */}
-      <section className="bg-white">
+      <section className="bg-white section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Nos coordonnées directes</h2>
@@ -189,7 +189,7 @@ export default function Contact() {
       </section>
 
       {/* Engagements */}
-      <section className="bg-white">
+      <section className="bg-white section-y">
         <div className="container-padded py-12 md:py-20">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">Nos engagements qualité</h2>
@@ -215,7 +215,7 @@ export default function Contact() {
       </section>
 
       {/* CTA final */}
-      <section className="bg-[#0E1E2B] text-white">
+      <section className="bg-[#0E1E2B] text-white section-y">
         <div className="container-padded py-14 md:py-16 text-center">
           <Reveal>
             <h3 className="text-2xl md:text-3xl font-heading font-bold">Prêt à faire évoluer vos formations ?</h3>
@@ -224,7 +224,7 @@ export default function Contact() {
             <p className="mt-2 text-white/80">FPSG Digital Learning vous accompagne pas à pas dans la digitalisation de votre culture sécurité.</p>
           </Reveal>
           <Reveal delay={140}>
-            <div className="mt-6 flex flex-col sm:flex-row gap-3 justify-center">
+            <div className="mt-6 cta-group">
               <Link to="/contact" className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90">Demander une démonstration</Link>
               <Link to="/nos-formations" className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10 bg-white">Voir les formations disponibles</Link>
             </div>
