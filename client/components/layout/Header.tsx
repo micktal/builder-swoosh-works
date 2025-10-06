@@ -22,7 +22,7 @@ export default function Header() {
           <img
             src={LOGO_URL}
             alt="Logo FPSG Digital Learning"
-            className="h-10 w-auto transition-transform group-hover:scale-105"
+            className="h-11 w-auto transition-transform group-hover:scale-105"
           />
           <div className="leading-tight">
             <div className="font-heading font-bold text-lg">FPSG Digital Learning</div>
