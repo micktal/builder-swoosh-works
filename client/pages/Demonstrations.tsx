@@ -7,6 +7,7 @@ import QuizSecurity from "@/components/interactive/QuizSecurity";
 import ImageRiskZones from "@/components/interactive/ImageRiskZones";
 import InteractiveVideoDecisions from "@/components/interactive/InteractiveVideoDecisions";
 import CultureSafetyDnD from "@/components/interactive/CultureSafetyDnD";
+import SureteGuidelinesCards from "@/components/interactive/SureteGuidelinesCards";
 
 export default function Demonstrations() {
   const heroVideo = "https://videos.pexels.com/video-files/3044654/3044654-hd_1280_720_50fps.mp4";
@@ -70,7 +71,7 @@ export default function Demonstrations() {
             </Reveal>
             {articulate
               .slice(1)
-              .filter((m) => m.t !== "Culture sécurité FPSG")
+              .filter((m) => m.t !== "Culture sécurité FPSG" && m.t !== "Réagir face à une situation suspecte")
               .map((m, i) => (
                 <Reveal key={m.t} delay={(i + 1) * 80}>
                   <article className="card overflow-hidden">
@@ -85,6 +86,9 @@ export default function Demonstrations() {
                   </article>
                 </Reveal>
               ))}
+            <Reveal delay={200}>
+              <SureteGuidelinesCards />
+            </Reveal>
             <Reveal delay={240}>
               <CultureSafetyDnD />
             </Reveal>
