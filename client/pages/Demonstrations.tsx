@@ -2,10 +2,17 @@ import Reveal from "@/components/Reveal";
 import { ProgressOnView, CountUpOnView } from "@/components/metrics";
 import { Link } from "react-router-dom";
 import { BarChart3, Gauge, LineChart, ThumbsUp } from "lucide-react";
+import InteractiveSimulationCard from "@/components/interactive/InteractiveSimulationCard";
 
 export default function Demonstrations() {
   const heroVideo = "https://cdn.coverr.co/videos/coverr-business-team-working-7737/1080p.mp4";
   const heroPoster = "https://images.unsplash.com/photo-1553877522-43269d4ea984?q=80&w=1600&auto=format&fit=crop";
+  const articulate = [
+    { t: "Gérer un visiteur mécontent", d: "Simulation interactive de communication assertive.", src: "https://modules.fpsg.fr/visiteur/index.html" },
+    { t: "Réagir face à une situation suspecte", d: "Scénario immersif de sûreté et vigilance comportementale.", src: "https://modules.fpsg.fr/surete/index.html" },
+    { t: "Prévenir les RPS au quotidien", d: "Module bien-être et santé au travail.", src: "https://modules.fpsg.fr/rps/index.html" },
+    { t: "Culture sécurité FPSG", d: "Formation de sensibilisation à la culture prévention.", src: "https://modules.fpsg.fr/securite/index.html" },
+  ] as const;
   return (
     <main>
       {/* Hero */}
@@ -42,13 +49,23 @@ export default function Demonstrations() {
             <p className="mt-3 max-w-3xl text-muted-foreground">Des extraits issus de nos formations digitales, conçues avec la pédagogie FPSG.</p>
           </Reveal>
           <div className="mt-8 grid gap-8 md:grid-cols-2">
-            {[
-              { t: "Gérer un visiteur mécontent", d: "Simulation interactive de communication assertive.", src: "https://modules.fpsg.fr/visiteur/index.html" },
-              { t: "Réagir face à une situation suspecte", d: "Scénario immersif de sûreté et vigilance comportementale.", src: "https://modules.fpsg.fr/surete/index.html" },
-              { t: "Prévenir les RPS au quotidien", d: "Module bien-être et santé au travail.", src: "https://modules.fpsg.fr/rps/index.html" },
-              { t: "Culture sécurité FPSG", d: "Formation de sensibilisation à la culture prévention.", src: "https://modules.fpsg.fr/securite/index.html" },
-            ].map((m, i) => (
-              <Reveal key={m.t} delay={i * 80}>
+            <Reveal>
+              <InteractiveSimulationCard
+                title={articulate[0].t}
+                description={articulate[0].d}
+                src={articulate[0].src}
+                badges={["Simulation", "Communication assertive"]}
+                objectives={[
+                  "Accueillir et désamorcer l’émotion avec une posture calme et professionnelle",
+                  "Reformuler et valider les attentes du visiteur pour montrer l’écoute",
+                  "Poser un cadre clair et des limites sans agressivité",
+                  "Proposer une solution réaliste et orienter vers la bonne ressource",
+                  "Conclure positivement en s’assurant de la satisfaction finale",
+                ]}
+              />
+            </Reveal>
+            {articulate.slice(1).map((m, i) => (
+              <Reveal key={m.t} delay={(i + 1) * 80}>
                 <article className="card overflow-hidden">
                   <div className="p-5">
                     <h3 className="text-lg font-heading font-semibold">{m.t}</h3>
