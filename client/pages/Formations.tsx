@@ -155,7 +155,7 @@ export default function Formations() {
             {[
               { t: "Scénarios interactifs", d: "Cas concrets et mises en situation réelles.", icon: PlayCircle },
               { t: "Feedback immédiat", d: "Évaluations intégrées et retours dynamiques.", icon: BadgeCheck },
-              { t: "Progression guidée", d: "Parcours structuré selon Bloom.", icon: GraduationCap },
+              { t: "Progression guidée", d: "Parcours structuré avec la taxonomie de Bloom.", icon: GraduationCap },
             ].map((f, i) => (
               <Reveal key={f.t} delay={i * 80}>
                 <div className="card p-6 h-full">
