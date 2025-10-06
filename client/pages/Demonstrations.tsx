@@ -106,6 +106,14 @@ export default function Demonstrations() {
                 title="Vidéo interactive – Réagir au bon moment"
                 description="Exercice: se mettre en sécurité et alerter au moment opportun."
                 src="https://cdn.builder.io/o/assets%2Fd93d9a0ec7824aa1ac4d890a1f90a2ec%2Fd433eeb9d698411b9587a195480bbb40?alt=media&token=b5ea1efc-988d-4828-8529-6b8da4c89041&apiKey=d93d9a0ec7824aa1ac4d890a1f90a2ec"
+                liveHotspots={{
+                  start: 30,
+                  items: [
+                    { id: "colonne", x: 22, y: 56, w: 28, h: 36, label: "Derrière les colonnes", correct: true, feedback: "Bien: se couvrir derrière les colonnes réduit l'exposition.", },
+                    { id: "visible", x: 68, y: 44, w: 26, h: 34, label: "Endroit trop voyant", correct: false, feedback: "Non: cet endroit est exposé au champ de vision.", rewind: 6 },
+                  ],
+                  prompt: "Cliquez où vous vous cacheriez pendant la scène."
+                }}
                 points={[
                   {
                     t: 18,
