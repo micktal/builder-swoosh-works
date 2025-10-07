@@ -281,12 +281,12 @@ export default function Approche() {
       <section className="bg-[#F9FAFB] section-y">
         <div className="container-padded section-y">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center">
               Diffusion multilingue & déploiement
             </h2>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-3 max-w-3xl text-muted-foreground">
+            <p className="mt-3 max-w-3xl mx-auto text-center text-muted-foreground">
               Tous supports, plusieurs langues.
             </p>
           </Reveal>
@@ -382,7 +382,7 @@ export default function Approche() {
         <div className="container-padded section-y">
           <Reveal>
             <h2 className="text-3xl md:text-4xl font-heading font-bold">
-              L’humain au cœur du digital
+              L’humain au c��ur du digital
             </h2>
           </Reveal>
           <div className="mt-8 grid gap-8 md:grid-cols-2 items-center">
