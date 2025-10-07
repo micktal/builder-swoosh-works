@@ -150,12 +150,12 @@ export default function Demonstrations() {
       <section className="bg-white section-y" id="h5p">
         <div className="container-padded section-y">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center">
               Testez vos réflexes avec nos exercices interactifs
             </h2>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-3 max-w-3xl text-muted-foreground">
+            <p className="mt-3 max-w-3xl mx-auto text-center text-muted-foreground">
               Simulez les comportements de vos apprenants à travers ces
               mini-activités H5P intégrées directement sur la page.
             </p>
