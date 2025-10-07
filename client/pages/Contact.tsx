@@ -86,7 +86,7 @@ export default function Contact() {
       <section className="bg-[#F9FAFB] section-y">
         <div className="container-padded section-y">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center">
               Demandez une démonstration personnalisée
             </h2>
           </Reveal>
