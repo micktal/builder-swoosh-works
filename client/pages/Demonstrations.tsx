@@ -77,12 +77,12 @@ export default function Demonstrations() {
       <section className="bg-[#F9FAFB] section-y" id="articulate">
         <div className="container-padded section-y">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center">
               Modules e-learning interactifs
             </h2>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-3 max-w-3xl text-muted-foreground">
+            <p className="mt-3 max-w-3xl mx-auto text-center text-muted-foreground">
               Des extraits issus de nos formations digitales, conçues avec la
               pédagogie FPSG.
             </p>
