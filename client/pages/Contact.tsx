@@ -303,38 +303,6 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* CTA final */}
-      <section className="bg-[#0E1E2B] text-white section-y">
-        <div className="container-padded py-8 md:py-12 text-center">
-          <Reveal>
-            <h3 className="text-2xl md:text-3xl font-heading font-bold">
-              Prêt à faire évoluer vos formations ?
-            </h3>
-          </Reveal>
-          <Reveal delay={80}>
-            <p className="mt-2 text-white/80">
-              FPSG Digital Learning vous accompagne pas à pas dans la
-              digitalisation de votre culture sécurité.
-            </p>
-          </Reveal>
-          <Reveal delay={140}>
-            <div className="mt-6 cta-group">
-              <Link
-                to="/contact"
-                className="btn-cta bg-[#006B46] hover:bg-[#006B46]/90"
-              >
-                Demander une démonstration
-              </Link>
-              <Link
-                to="/nos-formations"
-                className="btn-outline-green border-[#006B46] text-[#006B46] hover:bg-[#006B46]/10 bg-white"
-              >
-                Voir les formations disponibles
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      </section>
     </main>
   );
 }
