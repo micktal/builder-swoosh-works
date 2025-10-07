@@ -146,12 +146,12 @@ export default function Formations() {
       <section className="bg-[#F9FAFB] section-y" id="categories">
         <div className="container-padded py-8 md:py-12">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center">
               6 univers pour renforcer vos équipes
             </h2>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-3 max-w-3xl text-muted-foreground">
+            <p className="mt-3 max-w-3xl mx-auto text-center text-muted-foreground">
               Nos modules sont conçus pour être concrets, adaptables et
               immédiatement utiles.
             </p>
