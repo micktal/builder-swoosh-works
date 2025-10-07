@@ -299,12 +299,12 @@ export default function Demonstrations() {
       <section className="bg-white section-y">
         <div className="container-padded section-y">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center">
               Sauriez-vous repérer les risques ?
             </h2>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-3 max-w-3xl text-muted-foreground">
+            <p className="mt-3 max-w-3xl mx-auto text-center text-muted-foreground">
               Testez votre œil de prévention : cliquez sur les zones de danger
               dans la scène suivante.
             </p>
@@ -321,12 +321,12 @@ export default function Demonstrations() {
       <section className="bg-[#F9FAFB] section-y">
         <div className="container-padded section-y">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center">
               Un apprentissage engageant et mesurable
             </h2>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-3 max-w-3xl text-muted-foreground">
+            <p className="mt-3 max-w-3xl mx-auto text-center text-muted-foreground">
               Chaque module FPSG intègre des feedbacks en temps réel et des
               données de progression pour mesurer l’impact de la formation.
             </p>
