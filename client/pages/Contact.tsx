@@ -91,7 +91,7 @@ export default function Contact() {
             </h2>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-2 text-muted-foreground">
+            <p className="mt-2 max-w-3xl mx-auto text-center text-muted-foreground">
               Remplissez le formulaire ci-dessous, notre équipe vous
               recontactera sous 24 heures.
             </p>
