@@ -93,9 +93,6 @@ export default function Approche() {
                       <div className="h-10 w-10 md:h-12 md:w-12 rounded-full bg-[#006B46] text-white grid place-items-center shadow-[0_8px_24px_rgba(0,0,0,0.1)]">
                         <s.icon className="h-5 w-5 md:h-6 md:w-6" />
                       </div>
-                      {i < 3 && (
-                        <div className="hidden md:block absolute left-full top-1/2 -translate-y-1/2 w-16 h-0.5 bg-[#E6ECEF]" />
-                      )}
                     </div>
                     <div className="md:mt-4">
                       <h3 className="font-heading font-semibold text-lg">
@@ -332,12 +329,12 @@ export default function Approche() {
       <section className="bg-white section-y">
         <div className="container-padded section-y">
           <Reveal>
-            <h2 className="text-3xl md:text-4xl font-heading font-bold">
+            <h2 className="text-3xl md:text-4xl font-heading font-bold text-center">
               Une approche data-driven pour mesurer la performance
             </h2>
           </Reveal>
           <Reveal delay={80}>
-            <p className="mt-3 max-w-3xl text-muted-foreground">
+            <p className="mt-3 max-w-3xl mx-auto text-center text-muted-foreground">
               Nos outils de suivi permettent d’évaluer l’efficacité des
               formations et le retour sur investissement (ROI) de vos parcours
               e-learning.
